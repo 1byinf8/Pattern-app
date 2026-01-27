@@ -1,0 +1,2064 @@
+{
+    "problems": [
+        {
+            "problemNo": "11",
+            "problemName": "Container With Most Water",
+            "pattern": "Pattern 1: Converging"
+        },
+        {
+            "problemNo": "15",
+            "problemName": "3Sum",
+            "pattern": "Pattern 1: Converging"
+        },
+        {
+            "problemNo": "16",
+            "problemName": "3Sum Closest",
+            "pattern": "Pattern 1: Converging"
+        },
+        {
+            "problemNo": "18",
+            "problemName": "4Sum",
+            "pattern": "Pattern 1: Converging"
+        },
+        {
+            "problemNo": "167",
+            "problemName": "Two Sum II - Input Array Is Sorted",
+            "pattern": "Pattern 1: Converging"
+        },
+        {
+            "problemNo": "349",
+            "problemName": "Intersection of Two Arrays",
+            "pattern": "Pattern 1: Converging"
+        },
+        {
+            "problemNo": "881",
+            "problemName": "Boats to Save People",
+            "pattern": "Pattern 1: Converging"
+        },
+        {
+            "problemNo": "977",
+            "problemName": "Squares of a Sorted Array",
+            "pattern": "Pattern 1: Converging"
+        },
+        {
+            "problemNo": "259",
+            "problemName": "3Sum Smaller",
+            "pattern": "Pattern 1: Converging"
+        },
+        {
+            "problemNo": "141",
+            "problemName": "Linked List Cycle",
+            "pattern": "Pattern 2: Fast & Slow"
+        },
+        {
+            "problemNo": "202",
+            "problemName": "Happy Number",
+            "pattern": "Pattern 2: Fast & Slow"
+        },
+        {
+            "problemNo": "287",
+            "problemName": "Find the Duplicate Number",
+            "pattern": "Pattern 2: Fast & Slow"
+        },
+        {
+            "problemNo": "392",
+            "problemName": "Is Subsequence",
+            "pattern": "Pattern 2: Fast & Slow"
+        },
+        {
+            "problemNo": "19",
+            "problemName": "Remove Nth Node From End of List",
+            "pattern": "Pattern 3: Fixed Separation"
+        },
+        {
+            "problemNo": "876",
+            "problemName": "Middle of the Linked List",
+            "pattern": "Pattern 3: Fixed Separation"
+        },
+        {
+            "problemNo": "2095",
+            "problemName": "Delete the Middle Node of a Linked List",
+            "pattern": "Pattern 3: Fixed Separation"
+        },
+        {
+            "problemNo": "26",
+            "problemName": "Remove Duplicates from Sorted Array",
+            "pattern": "Pattern 4: In-place Array Modification"
+        },
+        {
+            "problemNo": "27",
+            "problemName": "Remove Element",
+            "pattern": "Pattern 4: In-place Array Modification"
+        },
+        {
+            "problemNo": "75",
+            "problemName": "Sort Colors",
+            "pattern": "Pattern 4: In-place Array Modification"
+        },
+        {
+            "problemNo": "80",
+            "problemName": "Remove Duplicates from Sorted Array II",
+            "pattern": "Pattern 4: In-place Array Modification"
+        },
+        {
+            "problemNo": "283",
+            "problemName": "Move Zeroes",
+            "pattern": "Pattern 4: In-place Array Modification"
+        },
+        {
+            "problemNo": "443",
+            "problemName": "String Compression",
+            "pattern": "Pattern 4: In-place Array Modification"
+        },
+        {
+            "problemNo": "905",
+            "problemName": "Sort Array By Parity",
+            "pattern": "Pattern 4: In-place Array Modification"
+        },
+        {
+            "problemNo": "2337",
+            "problemName": "Move Pieces to Obtain a String",
+            "pattern": "Pattern 4: In-place Array Modification"
+        },
+        {
+            "problemNo": "2938",
+            "problemName": "Separate Black and White Balls",
+            "pattern": "Pattern 4: In-place Array Modification"
+        },
+        {
+            "problemNo": "844",
+            "problemName": "Backspace String Compare",
+            "pattern": "Pattern 5: String Comparison with special characters"
+        },
+        {
+            "problemNo": "1598",
+            "problemName": "Crawler Log Folder",
+            "pattern": "Pattern 5: String Comparison with special characters"
+        },
+        {
+            "problemNo": "2390",
+            "problemName": "Removing Stars From a String",
+            "pattern": "Pattern 5: String Comparison with special characters"
+        },
+        {
+            "problemNo": "5",
+            "problemName": "Longest Palindromic Substring",
+            "pattern": "Pattern 6: Expanding From Center"
+        },
+        {
+            "problemNo": "647",
+            "problemName": "Palindromic Substrings",
+            "pattern": "Pattern 6: Expanding From Center"
+        },
+        {
+            "problemNo": "151",
+            "problemName": "Reverse Words in a String",
+            "pattern": "Pattern 7: String Reversal"
+        },
+        {
+            "problemNo": "344",
+            "problemName": "Reverse String",
+            "pattern": "Pattern 7: String Reversal"
+        },
+        {
+            "problemNo": "345",
+            "problemName": "Reverse Vowels of a String",
+            "pattern": "Pattern 7: String Reversal"
+        },
+        {
+            "problemNo": "541",
+            "problemName": "Reverse String II",
+            "pattern": "Pattern 7: String Reversal"
+        },
+        {
+            "problemNo": "346",
+            "problemName": "Moving Average from Data Stream",
+            "pattern": "Pattern 8: Fixed Size"
+        },
+        {
+            "problemNo": "643",
+            "problemName": "Maximum Average Subarray I",
+            "pattern": "Pattern 8: Fixed Size"
+        },
+        {
+            "problemNo": "2985",
+            "problemName": "Calculate Compressed Mean",
+            "pattern": "Pattern 8: Fixed Size"
+        },
+        {
+            "problemNo": "3254",
+            "problemName": "Find the Power of K-Size Subarrays I",
+            "pattern": "Pattern 8: Fixed Size"
+        },
+        {
+            "problemNo": "3318",
+            "problemName": "Find X-Sum of All K-Long Subarrays I",
+            "pattern": "Pattern 8: Fixed Size"
+        },
+        {
+            "problemNo": "3",
+            "problemName": "Longest Substring Without Repeating Characters",
+            "pattern": "Pattern 9: Variable Size"
+        },
+        {
+            "problemNo": "76",
+            "problemName": "Minimum Window Substring",
+            "pattern": "Pattern 9: Variable Size"
+        },
+        {
+            "problemNo": "209",
+            "problemName": "Minimum Size Subarray Sum",
+            "pattern": "Pattern 9: Variable Size"
+        },
+        {
+            "problemNo": "219",
+            "problemName": "Contains Duplicate II",
+            "pattern": "Pattern 9: Variable Size"
+        },
+        {
+            "problemNo": "424",
+            "problemName": "Longest Repeating Character Replacement",
+            "pattern": "Pattern 9: Variable Size"
+        },
+        {
+            "problemNo": "713",
+            "problemName": "Subarray Product Less Than K",
+            "pattern": "Pattern 9: Variable Size"
+        },
+        {
+            "problemNo": "904",
+            "problemName": "Fruit Into Baskets",
+            "pattern": "Pattern 9: Variable Size"
+        },
+        {
+            "problemNo": "1004",
+            "problemName": "Max Consecutive Ones III",
+            "pattern": "Pattern 9: Variable Size"
+        },
+        {
+            "problemNo": "1438",
+            "problemName": "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit",
+            "pattern": "Pattern 9: Variable Size"
+        },
+        {
+            "problemNo": "1493",
+            "problemName": "Longest Subarray of 1's After Deleting One Element",
+            "pattern": "Pattern 9: Variable Size"
+        },
+        {
+            "problemNo": "1658",
+            "problemName": "Minimum Operations to Reduce X",
+            "pattern": "Pattern 9: Variable Size"
+        },
+        {
+            "problemNo": "239",
+            "problemName": "Sliding Window Maximum",
+            "pattern": "Pattern 10: Monotonic Queue for Max/Min"
+        },
+        {
+            "problemNo": "862",
+            "problemName": "Shortest Subarray with Sum at Least K",
+            "pattern": "Pattern 10: Monotonic Queue for Max/Min"
+        },
+        {
+            "problemNo": "1696",
+            "problemName": "Jump Game VI",
+            "pattern": "Pattern 10: Monotonic Queue for Max/Min"
+        },
+        {
+            "problemNo": "1",
+            "problemName": "Two Sum",
+            "pattern": "Pattern 11: Character Frequency Matching"
+        },
+        {
+            "problemNo": "438",
+            "problemName": "Find All Anagrams in a String",
+            "pattern": "Pattern 11: Character Frequency Matching"
+        },
+        {
+            "problemNo": "567",
+            "problemName": "Permutation in String",
+            "pattern": "Pattern 11: Character Frequency Matching"
+        },
+        {
+            "problemNo": "102",
+            "problemName": "Binary Tree Level Order Traversal",
+            "pattern": "Pattern 12: Level Order Traversal"
+        },
+        {
+            "problemNo": "103",
+            "problemName": "Binary Tree Zigzag Level Order Traversal",
+            "pattern": "Pattern 12: Level Order Traversal"
+        },
+        {
+            "problemNo": "199",
+            "problemName": "Binary Tree Right Side View",
+            "pattern": "Pattern 12: Level Order Traversal"
+        },
+        {
+            "problemNo": "515",
+            "problemName": "Find Largest Value in Each Tree Row",
+            "pattern": "Pattern 12: Level Order Traversal"
+        },
+        {
+            "problemNo": "1161",
+            "problemName": "Maximum Level Sum of a Binary Tree",
+            "pattern": "Pattern 12: Level Order Traversal"
+        },
+        {
+            "problemNo": "100",
+            "problemName": "Same Tree",
+            "pattern": "Pattern 13: Recursive Preorder Traversal"
+        },
+        {
+            "problemNo": "101",
+            "problemName": "Symmetric Tree",
+            "pattern": "Pattern 13: Recursive Preorder Traversal"
+        },
+        {
+            "problemNo": "105",
+            "problemName": "Construct Binary Tree from Preorder and Inorder Traversal",
+            "pattern": "Pattern 13: Recursive Preorder Traversal"
+        },
+        {
+            "problemNo": "114",
+            "problemName": "Flatten Binary Tree to Linked List",
+            "pattern": "Pattern 13: Recursive Preorder Traversal"
+        },
+        {
+            "problemNo": "226",
+            "problemName": "Invert Binary Tree",
+            "pattern": "Pattern 13: Recursive Preorder Traversal"
+        },
+        {
+            "problemNo": "257",
+            "problemName": "Binary Tree Paths",
+            "pattern": "Pattern 13: Recursive Preorder Traversal"
+        },
+        {
+            "problemNo": "988",
+            "problemName": "Smallest String Starting From Leaf",
+            "pattern": "Pattern 13: Recursive Preorder Traversal"
+        },
+        {
+            "problemNo": "94",
+            "problemName": "Binary Tree Inorder Traversal",
+            "pattern": "Pattern 14: Recursive Inorder Traversal"
+        },
+        {
+            "problemNo": "98",
+            "problemName": "Validate Binary Search Tree",
+            "pattern": "Pattern 14: Recursive Inorder Traversal"
+        },
+        {
+            "problemNo": "173",
+            "problemName": "Binary Search Tree Iterator",
+            "pattern": "Pattern 14: Recursive Inorder Traversal"
+        },
+        {
+            "problemNo": "230",
+            "problemName": "Kth Smallest Element in a BST",
+            "pattern": "Pattern 14: Recursive Inorder Traversal"
+        },
+        {
+            "problemNo": "501",
+            "problemName": "Find Mode in Binary Search Tree",
+            "pattern": "Pattern 14: Recursive Inorder Traversal"
+        },
+        {
+            "problemNo": "530",
+            "problemName": "Minimum Absolute Difference in BST",
+            "pattern": "Pattern 14: Recursive Inorder Traversal"
+        },
+        {
+            "problemNo": "104",
+            "problemName": "Maximum Depth of Binary Tree",
+            "pattern": "Pattern 15: Recursive Postorder Traversal"
+        },
+        {
+            "problemNo": "110",
+            "problemName": "Balanced Binary Tree",
+            "pattern": "Pattern 15: Recursive Postorder Traversal"
+        },
+        {
+            "problemNo": "124",
+            "problemName": "Binary Tree Maximum Path Sum",
+            "pattern": "Pattern 15: Recursive Postorder Traversal"
+        },
+        {
+            "problemNo": "145",
+            "problemName": "Binary Tree Postorder Traversal",
+            "pattern": "Pattern 15: Recursive Postorder Traversal"
+        },
+        {
+            "problemNo": "337",
+            "problemName": "House Robber III",
+            "pattern": "Pattern 15: Recursive Postorder Traversal"
+        },
+        {
+            "problemNo": "366",
+            "problemName": "Find Leaves of Binary Tree",
+            "pattern": "Pattern 15: Recursive Postorder Traversal"
+        },
+        {
+            "problemNo": "543",
+            "problemName": "Diameter of Binary Tree",
+            "pattern": "Pattern 15: Recursive Postorder Traversal"
+        },
+        {
+            "problemNo": "863",
+            "problemName": "All Nodes Distance K in Binary Tree",
+            "pattern": "Pattern 15: Recursive Postorder Traversal"
+        },
+        {
+            "problemNo": "1110",
+            "problemName": "Delete Nodes And Return Forest",
+            "pattern": "Pattern 15: Recursive Postorder Traversal"
+        },
+        {
+            "problemNo": "2458",
+            "problemName": "Height of Binary Tree After Subtree Removal Queries",
+            "pattern": "Pattern 15: Recursive Postorder Traversal"
+        },
+        {
+            "problemNo": "235",
+            "problemName": "Lowest Common Ancestor of a Binary Search Tree",
+            "pattern": "Pattern 16: Lowest Common Ancestor"
+        },
+        {
+            "problemNo": "236",
+            "problemName": "Lowest Common Ancestor of a Binary Tree",
+            "pattern": "Pattern 16: Lowest Common Ancestor"
+        },
+        {
+            "problemNo": "297",
+            "problemName": "Serialize and Deserialize Binary Tree",
+            "pattern": "Pattern 17: Serialization and Deserialization"
+        },
+        {
+            "problemNo": "572",
+            "problemName": "Subtree of Another Tree",
+            "pattern": "Pattern 17: Serialization and Deserialization"
+        },
+        {
+            "problemNo": "652",
+            "problemName": "Find Duplicate Subtrees",
+            "pattern": "Pattern 17: Serialization and Deserialization"
+        },
+        {
+            "problemNo": "130",
+            "problemName": "Surrounded Regions",
+            "pattern": "Pattern 18: DFS - Connected Components / Island Counting"
+        },
+        {
+            "problemNo": "200",
+            "problemName": "Number of Islands",
+            "pattern": "Pattern 18: DFS - Connected Components / Island Counting"
+        },
+        {
+            "problemNo": "417",
+            "problemName": "Pacific Atlantic Water Flow",
+            "pattern": "Pattern 18: DFS - Connected Components / Island Counting"
+        },
+        {
+            "problemNo": "547",
+            "problemName": "Number of Provinces",
+            "pattern": "Pattern 18: DFS - Connected Components / Island Counting"
+        },
+        {
+            "problemNo": "695",
+            "problemName": "Max Area of Island",
+            "pattern": "Pattern 18: DFS - Connected Components / Island Counting"
+        },
+        {
+            "problemNo": "733",
+            "problemName": "Flood Fill",
+            "pattern": "Pattern 18: DFS - Connected Components / Island Counting"
+        },
+        {
+            "problemNo": "841",
+            "problemName": "Keys and Rooms",
+            "pattern": "Pattern 18: DFS - Connected Components / Island Counting"
+        },
+        {
+            "problemNo": "1020",
+            "problemName": "Number of Enclaves",
+            "pattern": "Pattern 18: DFS - Connected Components / Island Counting"
+        },
+        {
+            "problemNo": "1254",
+            "problemName": "Number of Closed Islands",
+            "pattern": "Pattern 18: DFS - Connected Components / Island Counting"
+        },
+        {
+            "problemNo": "1905",
+            "problemName": "Count Sub Islands",
+            "pattern": "Pattern 18: DFS - Connected Components / Island Counting"
+        },
+        {
+            "problemNo": "2101",
+            "problemName": "Detonate the Maximum Bombs",
+            "pattern": "Pattern 18: DFS - Connected Components / Island Counting"
+        },
+        {
+            "problemNo": "542",
+            "problemName": "01 Matrix",
+            "pattern": "Pattern 19: BFS - Connected Components / Island Counting"
+        },
+        {
+            "problemNo": "994",
+            "problemName": "Rotting Oranges",
+            "pattern": "Pattern 19: BFS - Connected Components / Island Counting"
+        },
+        {
+            "problemNo": "1091",
+            "problemName": "Shortest Path in Binary Matrix",
+            "pattern": "Pattern 19: BFS - Connected Components / Island Counting"
+        },
+        {
+            "problemNo": "207",
+            "problemName": "Course Schedule",
+            "pattern": "Pattern 20: DFS - Cycle Detection"
+        },
+        {
+            "problemNo": "210",
+            "problemName": "Course Schedule II",
+            "pattern": "Pattern 20: DFS - Cycle Detection"
+        },
+        {
+            "problemNo": "802",
+            "problemName": "Find Eventual Safe States",
+            "pattern": "Pattern 20: DFS - Cycle Detection"
+        },
+        {
+            "problemNo": "1059",
+            "problemName": "All Paths from Source Lead to Destination",
+            "pattern": "Pattern 20: DFS - Cycle Detection"
+        },
+        {
+            "problemNo": "210",
+            "problemName": "Course Schedule II",
+            "pattern": "Pattern 21: BFS - Topological Sort(Kahn's Algorithm)"
+        },
+        {
+            "problemNo": "269",
+            "problemName": "Alien Dictionary",
+            "pattern": "Pattern 21: BFS - Topological Sort(Kahn's Algorithm)"
+        },
+        {
+            "problemNo": "310",
+            "problemName": "Minimum Height Trees",
+            "pattern": "Pattern 21: BFS - Topological Sort(Kahn's Algorithm)"
+        },
+        {
+            "problemNo": "444",
+            "problemName": "Sequence Reconstruction",
+            "pattern": "Pattern 21: BFS - Topological Sort(Kahn's Algorithm)"
+        },
+        {
+            "problemNo": "1136",
+            "problemName": "Parallel Courses",
+            "pattern": "Pattern 21: BFS - Topological Sort(Kahn's Algorithm)"
+        },
+        {
+            "problemNo": "1857",
+            "problemName": "Largest Color Value in a Directed Graph",
+            "pattern": "Pattern 21: BFS - Topological Sort(Kahn's Algorithm)"
+        },
+        {
+            "problemNo": "2050",
+            "problemName": "Parallel Courses III",
+            "pattern": "Pattern 21: BFS - Topological Sort(Kahn's Algorithm)"
+        },
+        {
+            "problemNo": "2115",
+            "problemName": "Find All Possible Recipes from Given Supplies",
+            "pattern": "Pattern 21: BFS - Topological Sort(Kahn's Algorithm)"
+        },
+        {
+            "problemNo": "2392",
+            "problemName": "Build a Matrix With Conditions",
+            "pattern": "Pattern 21: BFS - Topological Sort(Kahn's Algorithm)"
+        },
+        {
+            "problemNo": "133",
+            "problemName": "Clone Graph",
+            "pattern": "Pattern 22: Deep Copy / Cloning"
+        },
+        {
+            "problemNo": "1334",
+            "problemName": "Find the City With the Smallest Number of Neighbors at a Threshold Distance",
+            "pattern": "Pattern 22: Deep Copy / Cloning"
+        },
+        {
+            "problemNo": "138",
+            "problemName": "Copy List with Random Pointer",
+            "pattern": "Pattern 22: Deep Copy / Cloning"
+        },
+        {
+            "problemNo": "1490",
+            "problemName": "Clone N-ary Tree",
+            "pattern": "Pattern 22: Deep Copy / Cloning"
+        },
+        {
+            "problemNo": "743",
+            "problemName": "Network Delay Time",
+            "pattern": "Pattern 23: Shortest Path"
+        },
+        {
+            "problemNo": "778",
+            "problemName": "Swim in Rising Water",
+            "pattern": "Pattern 23: Shortest Path"
+        },
+        {
+            "problemNo": "1514",
+            "problemName": "Path with Maximum Probability",
+            "pattern": "Pattern 23: Shortest Path"
+        },
+        {
+            "problemNo": "1631",
+            "problemName": "Path With Minimum Effort",
+            "pattern": "Pattern 23: Shortest Path"
+        },
+        {
+            "problemNo": "1976",
+            "problemName": "Number of Ways to Arrive at Destination",
+            "pattern": "Pattern 23: Shortest Path"
+        },
+        {
+            "problemNo": "2045",
+            "problemName": "Second Minimum Time to Reach Destination",
+            "pattern": "Pattern 23: Shortest Path"
+        },
+        {
+            "problemNo": "2203",
+            "problemName": "Minimum Weighted Subgraph With the Required Paths",
+            "pattern": "Pattern 23: Shortest Path"
+        },
+        {
+            "problemNo": "2290",
+            "problemName": "Minimum Obstacle Removal to Reach Corner",
+            "pattern": "Pattern 23: Shortest Path"
+        },
+        {
+            "problemNo": "2577",
+            "problemName": "Minimum Time to Visit a Cell In a Grid",
+            "pattern": "Pattern 23: Shortest Path"
+        },
+        {
+            "problemNo": "2812",
+            "problemName": "Find the Safest Path in a Grid",
+            "pattern": "Pattern 23: Shortest Path"
+        },
+        {
+            "problemNo": "787",
+            "problemName": "Cheapest Flights Within K Stops",
+            "pattern": "Pattern 24: Shortest Path (Bellman-Ford / BFS+K)"
+        },
+        {
+            "problemNo": "1129",
+            "problemName": "Shortest Path with Alternating Colors",
+            "pattern": "Pattern 24: Shortest Path (Bellman-Ford / BFS+K)"
+        },
+        {
+            "problemNo": "200",
+            "problemName": "Number of Islands",
+            "pattern": "Pattern 25: Union-Find"
+        },
+        {
+            "problemNo": "261",
+            "problemName": "Graph Valid Tree",
+            "pattern": "Pattern 25: Union-Find"
+        },
+        {
+            "problemNo": "305",
+            "problemName": "Number of Islands II",
+            "pattern": "Pattern 25: Union-Find"
+        },
+        {
+            "problemNo": "323",
+            "problemName": "Number of Connected Components in an Undirected Graph",
+            "pattern": "Pattern 25: Union-Find"
+        },
+        {
+            "problemNo": "547",
+            "problemName": "Number of Provinces",
+            "pattern": "Pattern 25: Union-Find"
+        },
+        {
+            "problemNo": "684",
+            "problemName": "Redundant Connection",
+            "pattern": "Pattern 25: Union-Find"
+        },
+        {
+            "problemNo": "721",
+            "problemName": "Accounts Merge",
+            "pattern": "Pattern 25: Union-Find"
+        },
+        {
+            "problemNo": "737",
+            "problemName": "Sentence Similarity II",
+            "pattern": "Pattern 25: Union-Find"
+        },
+        {
+            "problemNo": "947",
+            "problemName": "Most Stones Removed with Same Row or Column",
+            "pattern": "Pattern 25: Union-Find"
+        },
+        {
+            "problemNo": "952",
+            "problemName": "Largest Component Size by Common Factor",
+            "pattern": "Pattern 25: Union-Find"
+        },
+        {
+            "problemNo": "959",
+            "problemName": "Regions Cut By Slashes",
+            "pattern": "Pattern 25: Union-Find"
+        },
+        {
+            "problemNo": "1101",
+            "problemName": "The Earliest Moment When Everyone Become Friends",
+            "pattern": "Pattern 25: Union-Find"
+        },
+        {
+            "problemNo": "210",
+            "problemName": "Course Schedule II",
+            "pattern": "Pattern 26: Strongly Connected Components (Kosaraju / Tarjan)"
+        },
+        {
+            "problemNo": "547",
+            "problemName": "Number of Provinces",
+            "pattern": "Pattern 26: Strongly Connected Components (Kosaraju / Tarjan)"
+        },
+        {
+            "problemNo": "1192",
+            "problemName": "Critical Connections in a Network",
+            "pattern": "Pattern 26: Strongly Connected Components (Kosaraju / Tarjan)"
+        },
+        {
+            "problemNo": "2127",
+            "problemName": "Maximum Employees to Be Invited to a Meeting",
+            "pattern": "Pattern 26: Strongly Connected Components (Kosaraju / Tarjan)"
+        },
+        {
+            "problemNo": "1192",
+            "problemName": "Critical Connections in a Network",
+            "pattern": "Pattern 27: Bridges & Articulation Points (Tarjan low-link)"
+        },
+        {
+            "problemNo": "2360",
+            "problemName": "Longest Cycle in a Graph",
+            "pattern": "Pattern 27: Bridges & Articulation Points (Tarjan low-link)"
+        },
+        {
+            "problemNo": "1135",
+            "problemName": "Connecting Cities With Minimum Cost",
+            "pattern": "Pattern 28: Minimum Spanning Tree (Kruskal / Prim / DSU + heap)"
+        },
+        {
+            "problemNo": "1584",
+            "problemName": "Min Cost to Connect All Points",
+            "pattern": "Pattern 28: Minimum Spanning Tree (Kruskal / Prim / DSU + heap)"
+        },
+        {
+            "problemNo": "1168",
+            "problemName": "Optimize Water Distribution in a Village",
+            "pattern": "Pattern 28: Minimum Spanning Tree (Kruskal / Prim / DSU + heap)"
+        },
+        {
+            "problemNo": "1489",
+            "problemName": "Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree",
+            "pattern": "Pattern 28: Minimum Spanning Tree (Kruskal / Prim / DSU + heap)"
+        },
+        {
+            "problemNo": "127",
+            "problemName": "Word Ladder",
+            "pattern": "Pattern 29: Bidirectional BFS"
+        },
+        {
+            "problemNo": "126",
+            "problemName": "Word Ladder II",
+            "pattern": "Pattern 29: Bidirectional BFS"
+        },
+        {
+            "problemNo": "815",
+            "problemName": "Bus Routes",
+            "pattern": "Pattern 29: Bidirectional BFS"
+        },
+        {
+            "problemNo": "70",
+            "problemName": "Climbing Stairs",
+            "pattern": "Pattern 30: Fibonacci Style"
+        },
+        {
+            "problemNo": "91",
+            "problemName": "Decode Ways",
+            "pattern": "Pattern 30: Fibonacci Style"
+        },
+        {
+            "problemNo": "198",
+            "problemName": "House Robber",
+            "pattern": "Pattern 30: Fibonacci Style"
+        },
+        {
+            "problemNo": "213",
+            "problemName": "House Robber II",
+            "pattern": "Pattern 30: Fibonacci Style"
+        },
+        {
+            "problemNo": "337",
+            "problemName": "House Robber III",
+            "pattern": "Pattern 30: Fibonacci Style"
+        },
+        {
+            "problemNo": "509",
+            "problemName": "Fibonacci Number",
+            "pattern": "Pattern 30: Fibonacci Style"
+        },
+        {
+            "problemNo": "740",
+            "problemName": "Delete and Earn",
+            "pattern": "Pattern 30: Fibonacci Style"
+        },
+        {
+            "problemNo": "746",
+            "problemName": "Min Cost Climbing Stairs",
+            "pattern": "Pattern 30: Fibonacci Style"
+        },
+        {
+            "problemNo": "53",
+            "problemName": "Maximum Subarray",
+            "pattern": "Pattern 31: Kadane's Algorithm for Max/Min Subarray"
+        },
+        {
+            "problemNo": "918",
+            "problemName": "Maximum Sum Circular Subarray",
+            "pattern": "Pattern 31: Kadane's Algorithm for Max/Min Subarray"
+        },
+        {
+            "problemNo": "2321",
+            "problemName": "Maximum Score Of Spliced Array",
+            "pattern": "Pattern 31: Kadane's Algorithm for Max/Min Subarray"
+        },
+        {
+            "problemNo": "1749",
+            "problemName": "Maximum Absolute Sum of Any Subarray",
+            "pattern": "Pattern 31: Kadane's Algorithm for Max/Min Subarray"
+        },
+        {
+            "problemNo": "152",
+            "problemName": "Maximum Product Subarray",
+            "pattern": "Pattern 31: Kadane's Algorithm for Max/Min Subarray"
+        },
+        {
+            "problemNo": "322",
+            "problemName": "Coin Change",
+            "pattern": "Pattern 32: Coin Change / Unbounded Knapsack Style"
+        },
+        {
+            "problemNo": "377",
+            "problemName": "Combination Sum IV",
+            "pattern": "Pattern 32: Coin Change / Unbounded Knapsack Style"
+        },
+        {
+            "problemNo": "518",
+            "problemName": "Coin Change II",
+            "pattern": "Pattern 32: Coin Change / Unbounded Knapsack Style"
+        },
+        {
+            "problemNo": "416",
+            "problemName": "Partition Equal Subset Sum",
+            "pattern": "Pattern 33: 0/1 Knapsack, Subset Sum Style"
+        },
+        {
+            "problemNo": "494",
+            "problemName": "Target Sum",
+            "pattern": "Pattern 33: 0/1 Knapsack, Subset Sum Style"
+        },
+        {
+            "problemNo": "139",
+            "problemName": "Word Break",
+            "pattern": "Pattern 34: Word Break Style"
+        },
+        {
+            "problemNo": "140",
+            "problemName": "Word Break II",
+            "pattern": "Pattern 34: Word Break Style"
+        },
+        {
+            "problemNo": "1143",
+            "problemName": "Longest Common Subsequence",
+            "pattern": "Pattern 35: Longest Common Subsequence - LCS"
+        },
+        {
+            "problemNo": "1092",
+            "problemName": "Shortest Common Supersequence",
+            "pattern": "Pattern 35: Longest Common Subsequence - LCS"
+        },
+        {
+            "problemNo": "1312",
+            "problemName": "Minimum Insertion Steps to Make a String Palindrome",
+            "pattern": "Pattern 35: Longest Common Subsequence - LCS"
+        },
+        {
+            "problemNo": "72",
+            "problemName": "Edit Distance",
+            "pattern": "Pattern 36: Edit Distance / Levenshtein Distance"
+        },
+        {
+            "problemNo": "583",
+            "problemName": "Delete Operation for Two Strings",
+            "pattern": "Pattern 36: Edit Distance / Levenshtein Distance"
+        },
+        {
+            "problemNo": "712",
+            "problemName": "Minimum ASCII Delete Sum for Two Strings",
+            "pattern": "Pattern 36: Edit Distance / Levenshtein Distance"
+        },
+        {
+            "problemNo": "62",
+            "problemName": "Unique Paths",
+            "pattern": "Pattern 37: Unique Paths on Grid"
+        },
+        {
+            "problemNo": "63",
+            "problemName": "Unique Paths II",
+            "pattern": "Pattern 37: Unique Paths on Grid"
+        },
+        {
+            "problemNo": "64",
+            "problemName": "Minimum Path Sum",
+            "pattern": "Pattern 37: Unique Paths on Grid"
+        },
+        {
+            "problemNo": "120",
+            "problemName": "Triangle",
+            "pattern": "Pattern 37: Unique Paths on Grid"
+        },
+        {
+            "problemNo": "221",
+            "problemName": "Maximal Square",
+            "pattern": "Pattern 37: Unique Paths on Grid"
+        },
+        {
+            "problemNo": "931",
+            "problemName": "Minimum Falling Path Sum",
+            "pattern": "Pattern 37: Unique Paths on Grid"
+        },
+        {
+            "problemNo": "1277",
+            "problemName": "Count Square Submatrices with All Ones",
+            "pattern": "Pattern 37: Unique Paths on Grid"
+        },
+        {
+            "problemNo": "312",
+            "problemName": "Burst Balloons",
+            "pattern": "Pattern 38: Interval DP"
+        },
+        {
+            "problemNo": "546",
+            "problemName": "Remove Boxes",
+            "pattern": "Pattern 38: Interval DP"
+        },
+        {
+            "problemNo": "95",
+            "problemName": "Unique Binary Search Trees II",
+            "pattern": "Pattern 39: Catalan Numbers"
+        },
+        {
+            "problemNo": "96",
+            "problemName": "Unique Binary Search Trees",
+            "pattern": "Pattern 39: Catalan Numbers"
+        },
+        {
+            "problemNo": "241",
+            "problemName": "Different Ways to Add Parentheses",
+            "pattern": "Pattern 39: Catalan Numbers"
+        },
+        {
+            "problemNo": "300",
+            "problemName": "Longest Increasing Subsequence",
+            "pattern": "Pattern 40: Longest Increasing Subsequence"
+        },
+        {
+            "problemNo": "354",
+            "problemName": "Russian Doll Envelopes",
+            "pattern": "Pattern 40: Longest Increasing Subsequence"
+        },
+        {
+            "problemNo": "1671",
+            "problemName": "Minimum Number of Removals to Make Mountain Array",
+            "pattern": "Pattern 40: Longest Increasing Subsequence"
+        },
+        {
+            "problemNo": "2407",
+            "problemName": "Longest Increasing Subsequence II",
+            "pattern": "Pattern 40: Longest Increasing Subsequence"
+        },
+        {
+            "problemNo": "121",
+            "problemName": "Best Time to Buy and Sell Stock",
+            "pattern": "Pattern 41: Stock problems"
+        },
+        {
+            "problemNo": "122",
+            "problemName": "Best Time to Buy and Sell Stock II",
+            "pattern": "Pattern 41: Stock problems"
+        },
+        {
+            "problemNo": "123",
+            "problemName": "Best Time to Buy and Sell Stock III",
+            "pattern": "Pattern 41: Stock problems"
+        },
+        {
+            "problemNo": "188",
+            "problemName": "Best Time to Buy and Sell Stock IV",
+            "pattern": "Pattern 41: Stock problems"
+        },
+        {
+            "problemNo": "309",
+            "problemName": "Best Time to Buy and Sell Stock with Cooldown",
+            "pattern": "Pattern 41: Stock problems"
+        },
+        {
+            "problemNo": "215",
+            "problemName": "Kth Largest Element in an Array",
+            "pattern": "Pattern 42: Top K Elements"
+        },
+        {
+            "problemNo": "347",
+            "problemName": "Top K Frequent Elements",
+            "pattern": "Pattern 42: Top K Elements"
+        },
+        {
+            "problemNo": "451",
+            "problemName": "Sort Characters By Frequency",
+            "pattern": "Pattern 42: Top K Elements"
+        },
+        {
+            "problemNo": "506",
+            "problemName": "Relative Ranks",
+            "pattern": "Pattern 42: Top K Elements"
+        },
+        {
+            "problemNo": "703",
+            "problemName": "Kth Largest Element in a Stream",
+            "pattern": "Pattern 42: Top K Elements"
+        },
+        {
+            "problemNo": "973",
+            "problemName": "K Closest Points to Origin",
+            "pattern": "Pattern 42: Top K Elements"
+        },
+        {
+            "problemNo": "1046",
+            "problemName": "Last Stone Weight",
+            "pattern": "Pattern 42: Top K Elements"
+        },
+        {
+            "problemNo": "2558",
+            "problemName": "Take Gifts From the Richest Pile",
+            "pattern": "Pattern 42: Top K Elements"
+        },
+        {
+            "problemNo": "295",
+            "problemName": "Find Median from Data Stream",
+            "pattern": "Pattern 43: Two Heaps for Median Finding"
+        },
+        {
+            "problemNo": "1825",
+            "problemName": "Finding MK Average",
+            "pattern": "Pattern 43: Two Heaps for Median Finding"
+        },
+        {
+            "problemNo": "23",
+            "problemName": "Merge k Sorted Lists",
+            "pattern": "Pattern 44: K-way Merge"
+        },
+        {
+            "problemNo": "373",
+            "problemName": "Find K Pairs with Smallest Sums",
+            "pattern": "Pattern 44: K-way Merge"
+        },
+        {
+            "problemNo": "378",
+            "problemName": "Kth Smallest Element in a Sorted Matrix",
+            "pattern": "Pattern 44: K-way Merge"
+        },
+        {
+            "problemNo": "632",
+            "problemName": "Smallest Range Covering Elements from K Lists",
+            "pattern": "Pattern 44: K-way Merge"
+        },
+        {
+            "problemNo": "253",
+            "problemName": "Meeting Rooms II",
+            "pattern": "Pattern 45: Scheduling / Minimum Cost"
+        },
+        {
+            "problemNo": "767",
+            "problemName": "Reorganize String",
+            "pattern": "Pattern 45: Scheduling / Minimum Cost"
+        },
+        {
+            "problemNo": "857",
+            "problemName": "Minimum Cost to Hire K Workers",
+            "pattern": "Pattern 45: Scheduling / Minimum Cost"
+        },
+        {
+            "problemNo": "1642",
+            "problemName": "Furthest Building You Can Reach",
+            "pattern": "Pattern 45: Scheduling / Minimum Cost"
+        },
+        {
+            "problemNo": "1792",
+            "problemName": "Maximum Average Pass Ratio",
+            "pattern": "Pattern 45: Scheduling / Minimum Cost"
+        },
+        {
+            "problemNo": "1834",
+            "problemName": "Single-Threaded CPU",
+            "pattern": "Pattern 45: Scheduling / Minimum Cost"
+        },
+        {
+            "problemNo": "1942",
+            "problemName": "The Number of the Smallest Unoccupied Chair",
+            "pattern": "Pattern 45: Scheduling / Minimum Cost"
+        },
+        {
+            "problemNo": "2402",
+            "problemName": "Meeting Rooms III",
+            "pattern": "Pattern 45: Scheduling / Minimum Cost"
+        },
+        {
+            "problemNo": "17",
+            "problemName": "Letter Combinations of a Phone Number",
+            "pattern": "Pattern 46: Subsets (Include/Exclude)"
+        },
+        {
+            "problemNo": "77",
+            "problemName": "Combinations",
+            "pattern": "Pattern 46: Subsets (Include/Exclude)"
+        },
+        {
+            "problemNo": "78",
+            "problemName": "Subsets",
+            "pattern": "Pattern 46: Subsets (Include/Exclude)"
+        },
+        {
+            "problemNo": "90",
+            "problemName": "Subsets II",
+            "pattern": "Pattern 46: Subsets (Include/Exclude)"
+        },
+        {
+            "problemNo": "31",
+            "problemName": "Next Permutation",
+            "pattern": "Pattern 47: Permutations"
+        },
+        {
+            "problemNo": "46",
+            "problemName": "Permutations",
+            "pattern": "Pattern 47: Permutations"
+        },
+        {
+            "problemNo": "60",
+            "problemName": "Permutation Sequence",
+            "pattern": "Pattern 47: Permutations"
+        },
+        {
+            "problemNo": "39",
+            "problemName": "Combination Sum",
+            "pattern": "Pattern 48: Combination Sum"
+        },
+        {
+            "problemNo": "40",
+            "problemName": "Combination Sum II",
+            "pattern": "Pattern 48: Combination Sum"
+        },
+        {
+            "problemNo": "22",
+            "problemName": "Generate Parentheses",
+            "pattern": "Pattern 49: Parentheses Generation"
+        },
+        {
+            "problemNo": "301",
+            "problemName": "Remove Invalid Parentheses",
+            "pattern": "Pattern 49: Parentheses Generation"
+        },
+        {
+            "problemNo": "79",
+            "problemName": "Word Search",
+            "pattern": "Pattern 50: Word Search / Path Finding in Grid"
+        },
+        {
+            "problemNo": "212",
+            "problemName": "Word Search II",
+            "pattern": "Pattern 50: Word Search / Path Finding in Grid"
+        },
+        {
+            "problemNo": "2018",
+            "problemName": "Check if Word Can Be Placed In Crossword",
+            "pattern": "Pattern 50: Word Search / Path Finding in Grid"
+        },
+        {
+            "problemNo": "37",
+            "problemName": "Sudoku Solver",
+            "pattern": "Pattern 51: N-Queens / Constraint Satisfaction"
+        },
+        {
+            "problemNo": "51",
+            "problemName": "N-Queens",
+            "pattern": "Pattern 51: N-Queens / Constraint Satisfaction"
+        },
+        {
+            "problemNo": "131",
+            "problemName": "Palindrome Partitioning",
+            "pattern": "Pattern 52: Palindrome Partitioning"
+        },
+        {
+            "problemNo": "132",
+            "problemName": "Palindrome Partitioning II",
+            "pattern": "Pattern 52: Palindrome Partitioning"
+        },
+        {
+            "problemNo": "1457",
+            "problemName": "Pseudo-Palindromic Paths in a Binary Tree",
+            "pattern": "Pattern 52: Palindrome Partitioning"
+        },
+        {
+            "problemNo": "56",
+            "problemName": "Merge Intervals",
+            "pattern": "Pattern 53: Interval Merging/Scheduling"
+        },
+        {
+            "problemNo": "57",
+            "problemName": "Insert Interval",
+            "pattern": "Pattern 53: Interval Merging/Scheduling"
+        },
+        {
+            "problemNo": "759",
+            "problemName": "Employee Free Time",
+            "pattern": "Pattern 53: Interval Merging/Scheduling"
+        },
+        {
+            "problemNo": "986",
+            "problemName": "Interval List Intersections",
+            "pattern": "Pattern 53: Interval Merging/Scheduling"
+        },
+        {
+            "problemNo": "2406",
+            "problemName": "Divide Intervals Into Minimum Number of Groups",
+            "pattern": "Pattern 53: Interval Merging/Scheduling"
+        },
+        {
+            "problemNo": "45",
+            "problemName": "Jump Game II",
+            "pattern": "Pattern 54: Jump Game Reachability/Minimization"
+        },
+        {
+            "problemNo": "55",
+            "problemName": "Jump Game",
+            "pattern": "Pattern 54: Jump Game Reachability/Minimization"
+        },
+        {
+            "problemNo": "121",
+            "problemName": "Best Time to Buy and Sell Stock",
+            "pattern": "Pattern 55: Buy/Sell Stock"
+        },
+        {
+            "problemNo": "122",
+            "problemName": "Best Time to Buy and Sell Stock II",
+            "pattern": "Pattern 55: Buy/Sell Stock"
+        },
+        {
+            "problemNo": "134",
+            "problemName": "Gas Station",
+            "pattern": "Pattern 56: Gas Station Circuit"
+        },
+        {
+            "problemNo": "2202",
+            "problemName": "Maximize the Topmost Element After K Moves",
+            "pattern": "Pattern 56: Gas Station Circuit"
+        },
+        {
+            "problemNo": "621",
+            "problemName": "Task Scheduler",
+            "pattern": "Pattern 57: Task Scheduling"
+        },
+        {
+            "problemNo": "767",
+            "problemName": "Reorganize String",
+            "pattern": "Pattern 57: Task Scheduling"
+        },
+        {
+            "problemNo": "1054",
+            "problemName": "Distant Barcodes",
+            "pattern": "Pattern 57: Task Scheduling"
+        },
+        {
+            "problemNo": "455",
+            "problemName": "Assign Cookies",
+            "pattern": "Pattern 58: Sorting Based"
+        },
+        {
+            "problemNo": "135",
+            "problemName": "Candy",
+            "pattern": "Pattern 58: Sorting Based"
+        },
+        {
+            "problemNo": "406",
+            "problemName": "Queue Reconstruction by Height",
+            "pattern": "Pattern 58: Sorting Based"
+        },
+        {
+            "problemNo": "1029",
+            "problemName": "Two City Scheduling",
+            "pattern": "Pattern 58: Sorting Based"
+        },
+        {
+            "problemNo": "35",
+            "problemName": "Search Insert Position",
+            "pattern": "Pattern 59: On Sorted Array/List"
+        },
+        {
+            "problemNo": "69",
+            "problemName": "Sqrt(x)",
+            "pattern": "Pattern 59: On Sorted Array/List"
+        },
+        {
+            "problemNo": "74",
+            "problemName": "Search a 2D Matrix",
+            "pattern": "Pattern 59: On Sorted Array/List"
+        },
+        {
+            "problemNo": "278",
+            "problemName": "First Bad Version",
+            "pattern": "Pattern 59: On Sorted Array/List"
+        },
+        {
+            "problemNo": "374",
+            "problemName": "Guess Number Higher or Lower",
+            "pattern": "Pattern 59: On Sorted Array/List"
+        },
+        {
+            "problemNo": "540",
+            "problemName": "Single Element in a Sorted Array",
+            "pattern": "Pattern 59: On Sorted Array/List"
+        },
+        {
+            "problemNo": "704",
+            "problemName": "Binary Search",
+            "pattern": "Pattern 59: On Sorted Array/List"
+        },
+        {
+            "problemNo": "1539",
+            "problemName": "Kth Missing Positive Number",
+            "pattern": "Pattern 59: On Sorted Array/List"
+        },
+        {
+            "problemNo": "33",
+            "problemName": "Search in Rotated Sorted Array",
+            "pattern": "Pattern 60: Find Min/Max in Rotated Sorted Array"
+        },
+        {
+            "problemNo": "81",
+            "problemName": "Search in Rotated Sorted Array II",
+            "pattern": "Pattern 60: Find Min/Max in Rotated Sorted Array"
+        },
+        {
+            "problemNo": "153",
+            "problemName": "Find Minimum in Rotated Sorted Array",
+            "pattern": "Pattern 60: Find Min/Max in Rotated Sorted Array"
+        },
+        {
+            "problemNo": "162",
+            "problemName": "Find Peak Element",
+            "pattern": "Pattern 60: Find Min/Max in Rotated Sorted Array"
+        },
+        {
+            "problemNo": "852",
+            "problemName": "Peak Index in a Mountain Array",
+            "pattern": "Pattern 60: Find Min/Max in Rotated Sorted Array"
+        },
+        {
+            "problemNo": "1095",
+            "problemName": "Find in Mountain Array",
+            "pattern": "Pattern 60: Find Min/Max in Rotated Sorted Array"
+        },
+        {
+            "problemNo": "410",
+            "problemName": "Split Array Largest Sum",
+            "pattern": "Pattern 61: On Answer / Condition Function"
+        },
+        {
+            "problemNo": "774",
+            "problemName": "Minimize Max Distance to Gas Station",
+            "pattern": "Pattern 61: On Answer / Condition Function"
+        },
+        {
+            "problemNo": "875",
+            "problemName": "Koko Eating Bananas",
+            "pattern": "Pattern 61: On Answer / Condition Function"
+        },
+        {
+            "problemNo": "1011",
+            "problemName": "Capacity To Ship Packages Within D Days",
+            "pattern": "Pattern 61: On Answer / Condition Function"
+        },
+        {
+            "problemNo": "1482",
+            "problemName": "Minimum Number of Days to Make m Bouquets",
+            "pattern": "Pattern 61: On Answer / Condition Function"
+        },
+        {
+            "problemNo": "1760",
+            "problemName": "Minimum Limit of Balls in a Bag",
+            "pattern": "Pattern 61: On Answer / Condition Function"
+        },
+        {
+            "problemNo": "2064",
+            "problemName": "Minimized Maximum of Products Distributed to Any Store",
+            "pattern": "Pattern 61: On Answer / Condition Function"
+        },
+        {
+            "problemNo": "2226",
+            "problemName": "Maximum Candies Allocated to K Children",
+            "pattern": "Pattern 61: On Answer / Condition Function"
+        },
+        {
+            "problemNo": "34",
+            "problemName": "Find First and Last Position of Element in Sorted Array",
+            "pattern": "Pattern 62: Find First/Last Occurrence"
+        },
+        {
+            "problemNo": "658",
+            "problemName": "Find K Closest Elements",
+            "pattern": "Pattern 62: Find First/Last Occurrence"
+        },
+        {
+            "problemNo": "4",
+            "problemName": "Median of Two Sorted Arrays",
+            "pattern": "Pattern 63: Median / Kth across Two Sorted Arrays"
+        },
+        {
+            "problemNo": "719",
+            "problemName": "Find K-th Smallest Pair Distance",
+            "pattern": "Pattern 63: Median / Kth across Two Sorted Arrays"
+        },
+        {
+            "problemNo": "378",
+            "problemName": "Kth Smallest Element in a Sorted Matrix",
+            "pattern": "Pattern 63: Median / Kth across Two Sorted Arrays"
+        },
+        {
+            "problemNo": "20",
+            "problemName": "Valid Parentheses",
+            "pattern": "Pattern 64: Valid Parentheses Matching"
+        },
+        {
+            "problemNo": "32",
+            "problemName": "Longest Valid Parentheses",
+            "pattern": "Pattern 64: Valid Parentheses Matching"
+        },
+        {
+            "problemNo": "921",
+            "problemName": "Minimum Add to Make Parentheses Valid",
+            "pattern": "Pattern 64: Valid Parentheses Matching"
+        },
+        {
+            "problemNo": "1249",
+            "problemName": "Minimum Remove to Make Valid Parentheses",
+            "pattern": "Pattern 64: Valid Parentheses Matching"
+        },
+        {
+            "problemNo": "1963",
+            "problemName": "Minimum Number of Swaps to Make the String Balanced",
+            "pattern": "Pattern 64: Valid Parentheses Matching"
+        },
+        {
+            "problemNo": "402",
+            "problemName": "Remove K Digits",
+            "pattern": "Pattern 65: Monotonic Stack"
+        },
+        {
+            "problemNo": "496",
+            "problemName": "Next Greater Element I",
+            "pattern": "Pattern 65: Monotonic Stack"
+        },
+        {
+            "problemNo": "503",
+            "problemName": "Next Greater Element II",
+            "pattern": "Pattern 65: Monotonic Stack"
+        },
+        {
+            "problemNo": "739",
+            "problemName": "Daily Temperatures",
+            "pattern": "Pattern 65: Monotonic Stack"
+        },
+        {
+            "problemNo": "901",
+            "problemName": "Online Stock Span",
+            "pattern": "Pattern 65: Monotonic Stack"
+        },
+        {
+            "problemNo": "907",
+            "problemName": "Sum of Subarray Minimums",
+            "pattern": "Pattern 65: Monotonic Stack"
+        },
+        {
+            "problemNo": "962",
+            "problemName": "Maximum Width Ramp",
+            "pattern": "Pattern 65: Monotonic Stack"
+        },
+        {
+            "problemNo": "1475",
+            "problemName": "Final Prices With a Special Discount in a Shop",
+            "pattern": "Pattern 65: Monotonic Stack"
+        },
+        {
+            "problemNo": "1673",
+            "problemName": "Find the Most Competitive Subsequence",
+            "pattern": "Pattern 65: Monotonic Stack"
+        },
+        {
+            "problemNo": "150",
+            "problemName": "Evaluate Reverse Polish Notation",
+            "pattern": "Pattern 66: Expression Evaluation"
+        },
+        {
+            "problemNo": "224",
+            "problemName": "Basic Calculator",
+            "pattern": "Pattern 66: Expression Evaluation"
+        },
+        {
+            "problemNo": "227",
+            "problemName": "Basic Calculator II",
+            "pattern": "Pattern 66: Expression Evaluation"
+        },
+        {
+            "problemNo": "772",
+            "problemName": "Basic Calculator III",
+            "pattern": "Pattern 66: Expression Evaluation"
+        },
+        {
+            "problemNo": "71",
+            "problemName": "Simplify Path",
+            "pattern": "Pattern 67: Simulation / Backtracking Helper"
+        },
+        {
+            "problemNo": "394",
+            "problemName": "Decode String",
+            "pattern": "Pattern 67: Simulation / Backtracking Helper"
+        },
+        {
+            "problemNo": "735",
+            "problemName": "Asteroid Collision",
+            "pattern": "Pattern 67: Simulation / Backtracking Helper"
+        },
+        {
+            "problemNo": "155",
+            "problemName": "Min Stack",
+            "pattern": "Pattern 68: Min Stack Design"
+        },
+        {
+            "problemNo": "895",
+            "problemName": "Maximum Frequency Stack",
+            "pattern": "Pattern 68: Min Stack Design"
+        },
+        {
+            "problemNo": "901",
+            "problemName": "Online Stock Span",
+            "pattern": "Pattern 68: Min Stack Design"
+        },
+        {
+            "problemNo": "84",
+            "problemName": "Largest Rectangle in Histogram",
+            "pattern": "Pattern 69: Largest Rectangle in Histogram"
+        },
+        {
+            "problemNo": "85",
+            "problemName": "Maximal Rectangle",
+            "pattern": "Pattern 69: Largest Rectangle in Histogram"
+        },
+        {
+            "problemNo": "136",
+            "problemName": "Single Number",
+            "pattern": "Pattern 70: Bitwise XOR - Finding Single/Missing Number"
+        },
+        {
+            "problemNo": "137",
+            "problemName": "Single Number II",
+            "pattern": "Pattern 70: Bitwise XOR - Finding Single/Missing Number"
+        },
+        {
+            "problemNo": "268",
+            "problemName": "Missing Number",
+            "pattern": "Pattern 70: Bitwise XOR - Finding Single/Missing Number"
+        },
+        {
+            "problemNo": "389",
+            "problemName": "Find the Difference",
+            "pattern": "Pattern 70: Bitwise XOR - Finding Single/Missing Number"
+        },
+        {
+            "problemNo": "191",
+            "problemName": "Number of 1 Bits",
+            "pattern": "Pattern 71: Bitwise AND - Counting Set Bits (Hamming Weight)"
+        },
+        {
+            "problemNo": "231",
+            "problemName": "Power of Two",
+            "pattern": "Pattern 71: Bitwise AND - Counting Set Bits (Hamming Weight)"
+        },
+        {
+            "problemNo": "477",
+            "problemName": "Total Hamming Distance",
+            "pattern": "Pattern 71: Bitwise AND - Counting Set Bits (Hamming Weight)"
+        },
+        {
+            "problemNo": "338",
+            "problemName": "Counting Bits",
+            "pattern": "Pattern 72: Bitwise DP - Counting Bits Optimization"
+        },
+        {
+            "problemNo": "1494",
+            "problemName": "Parallel Courses II",
+            "pattern": "Pattern 72: Bitwise DP - Counting Bits Optimization"
+        },
+        {
+            "problemNo": "1442",
+            "problemName": "Count Triplets That Can Form Two Arrays of Equal XOR",
+            "pattern": "Pattern 72: Bitwise DP - Counting Bits Optimization"
+        },
+        {
+            "problemNo": "231",
+            "problemName": "Power of Two",
+            "pattern": "Pattern 73: Bitwise Operations - Power of Two/Four Check"
+        },
+        {
+            "problemNo": "342",
+            "problemName": "Power of Four",
+            "pattern": "Pattern 73: Bitwise Operations - Power of Two/Four Check"
+        },
+        {
+            "problemNo": "83",
+            "problemName": "Remove Duplicates from Sorted List",
+            "pattern": "Pattern 74: In-place Reversal"
+        },
+        {
+            "problemNo": "92",
+            "problemName": "Reverse Linked List II",
+            "pattern": "Pattern 74: In-place Reversal"
+        },
+        {
+            "problemNo": "206",
+            "problemName": "Reverse Linked List",
+            "pattern": "Pattern 74: In-place Reversal"
+        },
+        {
+            "problemNo": "25",
+            "problemName": "Reverse Nodes in k-Group",
+            "pattern": "Pattern 74: In-place Reversal"
+        },
+        {
+            "problemNo": "234",
+            "problemName": "Palindrome Linked List",
+            "pattern": "Pattern 74: In-place Reversal"
+        },
+        {
+            "problemNo": "82",
+            "problemName": "Remove Duplicates from Sorted List II",
+            "pattern": "Pattern 74: In-place Reversal"
+        },
+        {
+            "problemNo": "21",
+            "problemName": "Merge Two Sorted Lists",
+            "pattern": "Pattern 75: Merging Two Sorted Lists"
+        },
+        {
+            "problemNo": "23",
+            "problemName": "Merge k Sorted Lists",
+            "pattern": "Pattern 75: Merging Two Sorted Lists"
+        },
+        {
+            "problemNo": "2",
+            "problemName": "Add Two Numbers",
+            "pattern": "Pattern 76: Addition of Numbers"
+        },
+        {
+            "problemNo": "369",
+            "problemName": "Plus One Linked List",
+            "pattern": "Pattern 76: Addition of Numbers"
+        },
+        {
+            "problemNo": "160",
+            "problemName": "Intersection of Two Linked Lists",
+            "pattern": "Pattern 77: Intersection Detection"
+        },
+        {
+            "problemNo": "599",
+            "problemName": "Minimum Index Sum of Two Lists",
+            "pattern": "Pattern 77: Intersection Detection"
+        },
+        {
+            "problemNo": "24",
+            "problemName": "Swap Nodes in Pairs",
+            "pattern": "Pattern 78: Reordering / Partitioning"
+        },
+        {
+            "problemNo": "61",
+            "problemName": "Rotate List",
+            "pattern": "Pattern 78: Reordering / Partitioning"
+        },
+        {
+            "problemNo": "86",
+            "problemName": "Partition List",
+            "pattern": "Pattern 78: Reordering / Partitioning"
+        },
+        {
+            "problemNo": "143",
+            "problemName": "Reorder List",
+            "pattern": "Pattern 78: Reordering / Partitioning"
+        },
+        {
+            "problemNo": "328",
+            "problemName": "Odd Even Linked List",
+            "pattern": "Pattern 78: Reordering / Partitioning"
+        },
+        {
+            "problemNo": "48",
+            "problemName": "Rotate Image",
+            "pattern": "Pattern 79: In-place Rotation"
+        },
+        {
+            "problemNo": "189",
+            "problemName": "Rotate Array",
+            "pattern": "Pattern 79: In-place Rotation"
+        },
+        {
+            "problemNo": "867",
+            "problemName": "Transpose Matrix",
+            "pattern": "Pattern 79: In-place Rotation"
+        },
+        {
+            "problemNo": "54",
+            "problemName": "Spiral Matrix",
+            "pattern": "Pattern 80: Spiral Traversal"
+        },
+        {
+            "problemNo": "59",
+            "problemName": "Spiral Matrix II",
+            "pattern": "Pattern 80: Spiral Traversal"
+        },
+        {
+            "problemNo": "885",
+            "problemName": "Spiral Matrix III",
+            "pattern": "Pattern 80: Spiral Traversal"
+        },
+        {
+            "problemNo": "2326",
+            "problemName": "Spiral Matrix IV",
+            "pattern": "Pattern 80: Spiral Traversal"
+        },
+        {
+            "problemNo": "73",
+            "problemName": "Set Matrix Zeroes",
+            "pattern": "Pattern 81: In-place Marking"
+        },
+        {
+            "problemNo": "289",
+            "problemName": "Game of Life",
+            "pattern": "Pattern 81: In-place Marking"
+        },
+        {
+            "problemNo": "498",
+            "problemName": "Diagonal Traverse",
+            "pattern": "Pattern 81: In-place Marking"
+        },
+        {
+            "problemNo": "238",
+            "problemName": "Product of Array Except Self",
+            "pattern": "Pattern 82: Prefix/Suffix Products"
+        },
+        {
+            "problemNo": "845",
+            "problemName": "Longest Mountain in Array",
+            "pattern": "Pattern 82: Prefix/Suffix Products"
+        },
+        {
+            "problemNo": "2483",
+            "problemName": "Minimum Penalty for a Shop",
+            "pattern": "Pattern 82: Prefix/Suffix Products"
+        },
+        {
+            "problemNo": "66",
+            "problemName": "Plus One",
+            "pattern": "Pattern 83: Plus One"
+        },
+        {
+            "problemNo": "43",
+            "problemName": "Multiply Strings",
+            "pattern": "Pattern 83: Plus One"
+        },
+        {
+            "problemNo": "989",
+            "problemName": "Add to Array-Form of Integer",
+            "pattern": "Pattern 83: Plus One"
+        },
+        {
+            "problemNo": "67",
+            "problemName": "Add Binary",
+            "pattern": "Pattern 83: Plus One"
+        },
+        {
+            "problemNo": "88",
+            "problemName": "Merge Sorted Array",
+            "pattern": "Pattern 84: In-place from End"
+        },
+        {
+            "problemNo": "977",
+            "problemName": "Squares of a Sorted Array",
+            "pattern": "Pattern 84: In-place from End"
+        },
+        {
+            "problemNo": "41",
+            "problemName": "First Missing Positive",
+            "pattern": "Pattern 85: Cyclic Sort"
+        },
+        {
+            "problemNo": "268",
+            "problemName": "Missing Number",
+            "pattern": "Pattern 85: Cyclic Sort"
+        },
+        {
+            "problemNo": "287",
+            "problemName": "Find the Duplicate Number",
+            "pattern": "Pattern 85: Cyclic Sort"
+        },
+        {
+            "problemNo": "442",
+            "problemName": "Find All Duplicates in an Array",
+            "pattern": "Pattern 85: Cyclic Sort"
+        },
+        {
+            "problemNo": "448",
+            "problemName": "Find All Numbers Disappeared in an Array",
+            "pattern": "Pattern 85: Cyclic Sort"
+        },
+        {
+            "problemNo": "9",
+            "problemName": "Palindrome Number",
+            "pattern": "Pattern 86: Palindrome Check"
+        },
+        {
+            "problemNo": "125",
+            "problemName": "Valid Palindrome",
+            "pattern": "Pattern 86: Palindrome Check"
+        },
+        {
+            "problemNo": "680",
+            "problemName": "Valid Palindrome II",
+            "pattern": "Pattern 86: Palindrome Check"
+        },
+        {
+            "problemNo": "49",
+            "problemName": "Group Anagrams",
+            "pattern": "Pattern 87: Anagram Check"
+        },
+        {
+            "problemNo": "242",
+            "problemName": "Valid Anagram",
+            "pattern": "Pattern 87: Anagram Check"
+        },
+        {
+            "problemNo": "13",
+            "problemName": "Roman to Integer",
+            "pattern": "Pattern 88: Roman to Integer Conversion"
+        },
+        {
+            "problemNo": "12",
+            "problemName": "Integer to Roman",
+            "pattern": "Pattern 88: Roman to Integer Conversion"
+        },
+        {
+            "problemNo": "8",
+            "problemName": "String to Integer (atoi)",
+            "pattern": "Pattern 89: String to Integer (atoi)"
+        },
+        {
+            "problemNo": "65",
+            "problemName": "Valid Number",
+            "pattern": "Pattern 89: String to Integer (atoi)"
+        },
+        {
+            "problemNo": "43",
+            "problemName": "Multiply Strings",
+            "pattern": "Pattern 90: Manual Simulation"
+        },
+        {
+            "problemNo": "415",
+            "problemName": "Add Strings",
+            "pattern": "Pattern 90: Manual Simulation"
+        },
+        {
+            "problemNo": "67",
+            "problemName": "Add Binary",
+            "pattern": "Pattern 90: Manual Simulation"
+        },
+        {
+            "problemNo": "28",
+            "problemName": "Find the Index of the First Occurrence in a String",
+            "pattern": "Pattern 91: String Matching - Naive / KMP / Rabin-Karp"
+        },
+        {
+            "problemNo": "214",
+            "problemName": "Shortest Palindrome",
+            "pattern": "Pattern 91: String Matching - Naive / KMP / Rabin-Karp"
+        },
+        {
+            "problemNo": "686",
+            "problemName": "Repeated String Match",
+            "pattern": "Pattern 91: String Matching - Naive / KMP / Rabin-Karp"
+        },
+        {
+            "problemNo": "796",
+            "problemName": "Rotate String",
+            "pattern": "Pattern 91: String Matching - Naive / KMP / Rabin-Karp"
+        },
+        {
+            "problemNo": "3008",
+            "problemName": "Find Beautiful Indices in the Given Array II",
+            "pattern": "Pattern 91: String Matching - Naive / KMP / Rabin-Karp"
+        },
+        {
+            "problemNo": "459",
+            "problemName": "Repeated Substring Pattern",
+            "pattern": "Pattern 92: Repeated Substring Pattern Detection"
+        },
+        {
+            "problemNo": "28",
+            "problemName": "Find the Index of the First Occurrence in a String",
+            "pattern": "Pattern 92: Repeated Substring Pattern Detection"
+        },
+        {
+            "problemNo": "686",
+            "problemName": "Repeated String Match",
+            "pattern": "Pattern 92: Repeated Substring Pattern Detection"
+        },
+        {
+            "problemNo": "146",
+            "problemName": "LRU Cache",
+            "pattern": "Pattern 93: Design (General/Specific)"
+        },
+        {
+            "problemNo": "155",
+            "problemName": "Min Stack",
+            "pattern": "Pattern 93: Design (General/Specific)"
+        },
+        {
+            "problemNo": "225",
+            "problemName": "Implement Stack using Queues",
+            "pattern": "Pattern 93: Design (General/Specific)"
+        },
+        {
+            "problemNo": "232",
+            "problemName": "Implement Queue using Stacks",
+            "pattern": "Pattern 93: Design (General/Specific)"
+        },
+        {
+            "problemNo": "251",
+            "problemName": "Flatten 2D Vector",
+            "pattern": "Pattern 93: Design (General/Specific)"
+        },
+        {
+            "problemNo": "271",
+            "problemName": "Encode and Decode Strings",
+            "pattern": "Pattern 93: Design (General/Specific)"
+        },
+        {
+            "problemNo": "295",
+            "problemName": "Find Median from Data Stream",
+            "pattern": "Pattern 93: Design (General/Specific)"
+        },
+        {
+            "problemNo": "341",
+            "problemName": "Flatten Nested List Iterator",
+            "pattern": "Pattern 93: Design (General/Specific)"
+        },
+        {
+            "problemNo": "346",
+            "problemName": "Moving Average from Data Stream",
+            "pattern": "Pattern 93: Design (General/Specific)"
+        },
+        {
+            "problemNo": "353",
+            "problemName": "Design Snake Game",
+            "pattern": "Pattern 93: Design (General/Specific)"
+        },
+        {
+            "problemNo": "359",
+            "problemName": "Logger Rate Limiter",
+            "pattern": "Pattern 93: Design (General/Specific)"
+        },
+        {
+            "problemNo": "362",
+            "problemName": "Design Hit Counter",
+            "pattern": "Pattern 93: Design (General/Specific)"
+        },
+        {
+            "problemNo": "379",
+            "problemName": "Design Phone Directory",
+            "pattern": "Pattern 93: Design (General/Specific)"
+        },
+        {
+            "problemNo": "380",
+            "problemName": "Insert Delete GetRandom O(1)",
+            "pattern": "Pattern 93: Design (General/Specific)"
+        },
+        {
+            "problemNo": "432",
+            "problemName": "All O`one Data Structure",
+            "pattern": "Pattern 93: Design (General/Specific)"
+        },
+        {
+            "problemNo": "460",
+            "problemName": "LFU Cache",
+            "pattern": "Pattern 93: Design (General/Specific)"
+        },
+        {
+            "problemNo": "208",
+            "problemName": "Implement Trie (Prefix Tree)",
+            "pattern": "Pattern 94: Tries"
+        },
+        {
+            "problemNo": "211",
+            "problemName": "Design Add and Search Words Data Structure",
+            "pattern": "Pattern 94: Tries"
+        },
+        {
+            "problemNo": "720",
+            "problemName": "Longest Word in Dictionary",
+            "pattern": "Pattern 94: Tries"
+        },
+        {
+            "problemNo": "648",
+            "problemName": "Replace Words",
+            "pattern": "Pattern 94: Tries"
+        },
+        {
+            "problemNo": "425",
+            "problemName": "Word Squares",
+            "pattern": "Pattern 94: Tries"
+        },
+        {
+            "problemNo": "642",
+            "problemName": "Design Search Autocomplete System",
+            "pattern": "Pattern 94: Tries"
+        },
+        {
+            "problemNo": "745",
+            "problemName": "Prefix and Suffix Search",
+            "pattern": "Pattern 94: Tries"
+        }
+    ]
+}

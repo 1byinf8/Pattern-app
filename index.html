@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Problem Picker</title>
+    <meta name="description" content="A daily problem picker for LeetCode pattern practice">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Monaco Editor -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.min.js"></script>
+</head>
+
+<body>
+    <!-- Graffiti Background Pattern -->
+    <div class="graffiti-bg"></div>
+    <div class="spray-overlay"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">DAILY PROBLEM PICKER</h1>
+            <nav class="nav-tabs">
+                <button class="nav-tab active" data-tab="practice">PRACTICE</button>
+                <button class="nav-tab" data-tab="report">REPORT</button>
+                <button class="nav-tab interview-tab" data-tab="interview" id="interview-tab">INTERVIEW</button>
+            </nav>
+        </header>
+
+        <!-- Practice Section -->
+        <main id="practice-section" class="section active">
+            <div class="main-content">
+                <div class="problem-display">
+                    <div class="problem-meta">
+                        <span class="badge">TODAY'S CHALLENGE</span>
+                        <div class="meta-right">
+                            <span class="difficulty-curve" id="difficulty-curve">Day: - | Week: -</span>
+                            <span class="solved-count" id="solved-count">0 solved today</span>
+                        </div>
+                    </div>
+
+                    <div class="problem-number" id="problem-number">#---</div>
+                    <h2 class="problem-name" id="problem-name">Loading...</h2>
+
+                    <div class="hints-row">
+                        <button class="hint-btn" id="hint-btn">
+                            SHOW PATTERN
+                        </button>
+                        <button class="hint-btn difficulty-hint-btn" id="difficulty-hint-btn">
+                            SHOW DIFFICULTY
+                        </button>
+                    </div>
+
+                    <div class="reveals-row">
+                        <div class="pattern-reveal" id="pattern-reveal">
+                            <span class="reveal-label">PATTERN:</span>
+                            <span class="pattern-name" id="pattern-name">---</span>
+                        </div>
+                        <div class="difficulty-reveal" id="difficulty-reveal">
+                            <span class="reveal-label">DIFFICULTY:</span>
+                            <span class="difficulty-name" id="difficulty-name">---</span>
+                        </div>
+                    </div>
+
+                    <!-- Notes Section -->
+                    <div class="notes-section">
+                        <textarea class="notes-input" id="notes-input"
+                            placeholder="Write your notes, approach, or learnings here..."></textarea>
+                    </div>
+
+                    <div class="actions">
+                        <a href="#" target="_blank" class="leetcode-link" id="leetcode-link">
+                            OPEN ON LEETCODE
+                        </a>
+                        <button class="skip-btn" id="skip-btn">
+                            SKIP FOR NOW
+                        </button>
+                        <button class="complete-btn" id="complete-btn">
+                            MARK COMPLETE & NEXT
+                        </button>
+                    </div>
+
+                    <!-- Undo Bar -->
+                    <div class="undo-bar" id="undo-bar">
+                        <span class="undo-text">Problem marked complete</span>
+                        <button class="undo-btn" id="undo-btn">UNDO</button>
+                    </div>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <span class="stat-value" id="total-solved">0</span>
+                        <span class="stat-label">TOTAL SOLVED</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="patterns-touched">0</span>
+                        <span class="stat-label">PATTERNS</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="streak-count">0</span>
+                        <span class="stat-label">DAY STREAK</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Report Section -->
+        <section id="report-section" class="section">
+            <div class="report-container">
+                <div class="report-header">
+                    <h2 class="report-title">PROGRESS REPORT</h2>
+                    <div class="report-summary">
+                        <div class="summary-stat">
+                            <span class="summary-value" id="report-total">0</span>
+                            <span class="summary-label">PROBLEMS SOLVED</span>
+                        </div>
+                        <div class="summary-stat">
+                            <span class="summary-value" id="report-patterns">0/0</span>
+                            <span class="summary-label">PATTERNS COMPLETE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-grid">
+                    <div class="report-panel">
+                        <h3 class="panel-title">PATTERN PROGRESS</h3>
+                        <div class="pattern-progress" id="pattern-progress">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+
+                    <div class="report-panel">
+                        <h3 class="panel-title">SOLVE HISTORY</h3>
+                        <div class="history-list" id="history-list">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interview Section -->
+        <section id="interview-section" class="section">
+            <!-- Pre-Interview State -->
+            <div class="interview-start" id="interview-start">
+                <div class="interview-intro">
+                    <h2 class="interview-title">WEEKEND MOCK INTERVIEW</h2>
+                    <p class="interview-desc">Test yourself with AI-generated problems based on patterns you practiced
+                        this week.</p>
+
+                    <div class="interview-rules">
+                        <div class="rule-item">
+                            <span class="rule-icon">4</span>
+                            <span class="rule-text">Questions</span>
+                        </div>
+                        <div class="rule-item">
+                            <span class="rule-icon">2h</span>
+                            <span class="rule-text">Time Limit</span>
+                        </div>
+                        <div class="rule-item">
+                            <span class="rule-icon">AI</span>
+                            <span class="rule-text">Review</span>
+                        </div>
+                    </div>
+
+                    <div class="week-patterns" id="week-patterns">
+                        <h3>This Week's Patterns:</h3>
+                        <div class="patterns-list" id="patterns-list">Loading...</div>
+                    </div>
+
+                    <button class="start-interview-btn" id="start-interview-btn">START INTERVIEW</button>
+                </div>
+            </div>
+
+            <!-- Active Interview State -->
+            <div class="interview-active" id="interview-active" style="display: none;">
+                <div class="interview-header">
+                    <div class="interview-progress">
+                        <span class="progress-text">Question <span id="current-q">1</span>/4</span>
+                        <div class="progress-dots">
+                            <span class="dot" data-q="1"></span>
+                            <span class="dot" data-q="2"></span>
+                            <span class="dot" data-q="3"></span>
+                            <span class="dot" data-q="4"></span>
+                        </div>
+                    </div>
+                    <div class="interview-timer" id="interview-timer">2:00:00</div>
+                </div>
+
+                <div class="interview-content">
+                    <div class="interview-problem">
+                        <div class="problem-loading" id="problem-loading">
+                            <div class="spinner"></div>
+                            <span>AI is generating your problem...</span>
+                        </div>
+                        <div class="problem-content" id="interview-problem-content" style="display: none;">
+                            <h3 class="ip-title" id="ip-title">Problem Title</h3>
+                            <div class="ip-description" id="ip-description">Problem description...</div>
+                            <div class="ip-examples" id="ip-examples"></div>
+                            <div class="ip-constraints" id="ip-constraints"></div>
+                        </div>
+                    </div>
+
+                    <div class="interview-workspace" id="interview-workspace">
+                        <div class="code-editor-header">
+                            <span>YOUR SOLUTION</span>
+                            <div class="editor-controls">
+                                <select class="language-select" id="language-select">
+                                    <option value="python">Python</option>
+                                    <option value="javascript">JavaScript</option>
+                                    <option value="java">Java</option>
+                                    <option value="cpp">C++</option>
+                                </select>
+                                <button class="fullscreen-btn" id="fullscreen-btn" title="Toggle Fullscreen">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="monaco-container" id="monaco-container"></div>
+                        <button class="submit-code-btn" id="submit-code-btn">SUBMIT FOR REVIEW</button>
+                    </div>
+                </div>
+
+                <!-- AI Conversation Panel -->
+                <div class="ai-panel" id="ai-panel" style="display: none;">
+                    <div class="ai-header">
+                        <span>AI INTERVIEWER</span>
+                        <button class="close-ai-btn" id="close-ai-btn">CLOSE</button>
+                    </div>
+                    <div class="ai-chat" id="ai-chat">
+                        <!-- Chat messages go here -->
+                    </div>
+                    <div class="ai-input-area">
+                        <textarea class="ai-input" id="ai-input" placeholder="Type your response..."></textarea>
+                        <button class="ai-send-btn" id="ai-send-btn">SEND</button>
+                    </div>
+                    <button class="next-question-btn" id="next-question-btn" style="display: none;">NEXT
+                        QUESTION</button>
+                </div>
+            </div>
+
+            <!-- Interview Complete State -->
+            <div class="interview-complete" id="interview-complete" style="display: none;">
+                <h2 class="complete-title">INTERVIEW COMPLETE</h2>
+                <div class="complete-stats">
+                    <div class="complete-stat">
+                        <span class="cs-value" id="cs-questions">0/4</span>
+                        <span class="cs-label">Questions Solved</span>
+                    </div>
+                    <div class="complete-stat">
+                        <span class="cs-value" id="cs-time">0:00</span>
+                        <span class="cs-label">Time Used</span>
+                    </div>
+                </div>
+                <button class="back-to-practice-btn" id="back-to-practice-btn">BACK TO PRACTICE</button>
+            </div>
+
+            <!-- Locked State -->
+            <div class="interview-locked" id="interview-locked" style="display: none;">
+                <h2 class="locked-title">INTERVIEW MODE LOCKED</h2>
+                <p class="locked-desc">Available on Saturday and Sunday only.</p>
+                <p class="locked-hint">Keep practicing during the week to prepare!</p>
+                <button class="unlock-test-btn" id="unlock-test-btn" title="For testing only">🔓 UNLOCK FOR
+                    TESTING</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
