@@ -9,21 +9,26 @@ export default async function handler(req, res) {
     }
 
     if (req.method !== 'POST') {
-        return res.status(405).json({ error: 'Method not allowed' });
+        return res.status(405).json({
+            error: 'Method not allowed',
+            received: req.method,
+            expected: 'POST'
+        });
     }
 
     const apiKey = process.env.GEMINI_API_KEY;
 
     // Debug logging
     console.log('=== Gemini API Request ===');
-    console.log('API Key status:', apiKey ? `Present (length: ${apiKey.length}, starts with: ${apiKey.substring(0, 8)}...)` : 'MISSING!');
+    console.log('API Key status:', apiKey ? `Present (length: ${apiKey.length})` : 'MISSING!');
     console.log('Request action:', req.body?.action);
 
     if (!apiKey) {
         console.error('ERROR: GEMINI_API_KEY environment variable is not set!');
         return res.status(500).json({
             error: 'API key not configured',
-            debug: 'GEMINI_API_KEY environment variable is missing. Please add it in Vercel Project Settings -> Environment Variables'
+            debug: 'GEMINI_API_KEY environment variable is missing. Please add it in Vercel Project Settings -> Environment Variables',
+            hint: 'After adding the variable, you must redeploy the project'
         });
     }
 
@@ -124,7 +129,11 @@ Evaluate their answer and respond in this exact JSON format:
 If they're struggling, guide them.`;
         }
         else {
-            return res.status(400).json({ error: 'Invalid action' });
+            return res.status(400).json({
+                error: 'Invalid action',
+                received: action,
+                expected: 'generate_problem | review_code | answer_followup'
+            });
         }
 
         // Build contents for Gemini API
@@ -136,37 +145,48 @@ If they're struggling, guide them.`;
         contents.push({ role: 'user', parts: [{ text: prompt }] });
 
         // Call Gemini API with gemini-2.5-flash model
-        const response = await fetch(
-            `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
-            {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    contents: contents,
-                    generationConfig: {
-                        temperature: 0.7,
-                        maxOutputTokens: 8192,
-                        responseMimeType: 'application/json'
-                    },
-                    safetySettings: [
-                        { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_NONE' },
-                        { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_NONE' },
-                        { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_NONE' },
-                        { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_NONE' }
-                    ]
-                })
-            }
-        );
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+        console.log('Calling Gemini API...');
+
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                contents: contents,
+                generationConfig: {
+                    temperature: 0.7,
+                    maxOutputTokens: 8192
+                },
+                safetySettings: [
+                    { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_NONE' },
+                    { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_NONE' },
+                    { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_NONE' },
+                    { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_NONE' }
+                ]
+            })
+        });
 
         if (!response.ok) {
             const errorText = await response.text();
             console.error('=== Gemini API Error ===');
             console.error('Status:', response.status);
             console.error('Response:', errorText);
+
+            // Try to parse error for better message
+            let errorMessage = 'AI service error';
+            try {
+                const errorJson = JSON.parse(errorText);
+                errorMessage = errorJson.error?.message || errorMessage;
+            } catch (e) {
+                // Use raw text if not JSON
+                errorMessage = errorText.substring(0, 200);
+            }
+
             return res.status(500).json({
                 error: 'AI service error',
                 status: response.status,
-                debug: errorText
+                message: errorMessage,
+                hint: response.status === 400 ? 'Check if API key is valid' : 'Service temporarily unavailable'
             });
         }
 
@@ -180,7 +200,11 @@ If they're struggling, guide them.`;
 
         if (!text) {
             console.error('No text in response:', JSON.stringify(result));
-            return res.status(500).json({ error: 'No response from AI', debug: result });
+            return res.status(500).json({
+                error: 'No response from AI',
+                debug: result,
+                hint: 'The AI returned an empty response'
+            });
         }
 
         // Parse JSON from response with cleaning
@@ -211,7 +235,11 @@ If they're struggling, guide them.`;
             const jsonMatch = cleanedText.match(/\{[\s\S]*\}/);
             if (!jsonMatch) {
                 console.error('Could not parse JSON from:', text);
-                return res.status(500).json({ error: 'Invalid AI response format', raw: text });
+                return res.status(500).json({
+                    error: 'Invalid AI response format',
+                    raw: text.substring(0, 500),
+                    hint: 'The AI did not return valid JSON'
+                });
             }
 
             // Fix common JSON errors
@@ -228,6 +256,11 @@ If they're struggling, guide them.`;
         console.error('=== Unexpected Error ===');
         console.error('Error:', error.message);
         console.error('Stack:', error.stack);
-        return res.status(500).json({ error: error.message, stack: error.stack });
+        return res.status(500).json({
+            error: 'Internal server error',
+            message: error.message,
+            type: error.name,
+            hint: 'An unexpected error occurred. Check Vercel function logs for details.'
+        });
     }
 }
