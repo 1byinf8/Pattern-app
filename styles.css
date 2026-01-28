@@ -1669,3 +1669,90 @@ body {
         gap: 16px;
     }
 }
+
+/* AI Panel Expansion */
+.ai-panel.expanded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    border-radius: 0;
+    max-width: none;
+    max-height: none;
+}
+
+.ai-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: var(--bg-white);
+    border-bottom: 2px solid var(--text-dark);
+}
+
+.ai-header-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.toggle-ai-size-btn,
+.close-ai-btn {
+    font-family: 'Bebas Neue', sans-serif;
+    padding: 6px 12px;
+    cursor: pointer;
+    background: var(--text-dark);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.toggle-ai-size-btn:hover,
+.close-ai-btn:hover {
+    background: var(--primary);
+}
+
+/* Enhanced Chat Formatting */
+.chat-message {
+    white-space: pre-wrap;
+    /* Preserve whitespace/newlines */
+    line-height: 1.6;
+}
+
+.chat-message.ai {
+    background: #e3f2fd;
+    color: #0d47a1;
+    border-radius: 8px 8px 8px 0;
+    border: 1px solid #bbdefb;
+}
+
+.chat-message.user {
+    background: #f3e5f5;
+    color: #4a148c;
+    border-radius: 8px 8px 0 8px;
+    border: 1px solid #e1bee7;
+    margin-left: auto;
+}
+
+/* Code blocks in chat */
+.chat-message pre {
+    background: #2d2d2d;
+    color: #cccccc;
+    padding: 12px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 8px 0;
+}
+
+.chat-message code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9em;
+}
+
+.chat-message strong {
+    font-weight: 700;
+    color: inherit;
+}

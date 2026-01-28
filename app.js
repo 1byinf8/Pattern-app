@@ -236,11 +236,11 @@ function getDifficultyWeight(difficulty) {
 
 function getDifficultyCurve() {
     const completed = getCompletedProblems();
-    const today = new Date().toDateString();
+    const today = getTodayDateKey();
     const weekAgo = new Date(Date.now() - 7 * 86400000);
 
     // Today's solves
-    const todaySolves = completed.filter(p => new Date(p.solvedAt).toDateString() === today);
+    const todaySolves = completed.filter(p => getProblemDateKey(p.solvedAt) === today);
     const todayDifficulties = todaySolves.map(p => getProblemDifficulty(p.problemNo));
 
     // This week's solves
@@ -288,8 +288,12 @@ function getStreakData() {
 
 function updateStreak() {
     const streakData = getStreakData();
-    const today = new Date().toDateString();
-    const yesterday = new Date(Date.now() - 86400000).toDateString();
+    const today = getTodayDateKey();
+
+    // Calculate yesterday's date key
+    const yesterdayDate = new Date();
+    yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+    const yesterday = getTodayDateKey(yesterdayDate);
 
     if (streakData.lastSolveDate === today) {
         return streakData.streak;
@@ -302,6 +306,15 @@ function updateStreak() {
     streakData.lastSolveDate = today;
     saveToStorage(STORAGE_KEYS.STREAK_DATA, streakData);
     return streakData.streak;
+}
+
+function getTodayDateKey(date = new Date()) {
+    return date.toISOString().split('T')[0];
+}
+
+function getProblemDateKey(isoString) {
+    if (!isoString) return '';
+    return isoString.split('T')[0];
 }
 
 // ===================== SMART RANDOM PICKER =====================
@@ -407,8 +420,8 @@ function updateProblemDisplay(problem) {
 
 function updateSolvedTodayCount() {
     const completed = getCompletedProblems();
-    const today = new Date().toDateString();
-    const solvedToday = completed.filter(p => new Date(p.solvedAt).toDateString() === today).length;
+    const today = getTodayDateKey();
+    const solvedToday = completed.filter(p => getProblemDateKey(p.solvedAt) === today).length;
     document.getElementById('solved-count').textContent = `${solvedToday} solved today`;
 }
 
@@ -803,11 +816,66 @@ function resumeInterview() {
     // Update UI
     updateInterviewProgress();
 
-    // Display current problem
-    if (currentInterview.problems[interviewState.currentQuestion - 1]) {
+    // Generate/Load problems
+    if (currentInterview.problems.length > 0 && currentInterview.problems[0]) {
+        // Problems already loaded
         displayProblem(currentInterview.problems[interviewState.currentQuestion - 1]);
     } else {
-        generateProblem(interviewState.currentQuestion);
+        // First time load - generate all
+        generateInterviewSet();
+    }
+}
+
+async function generateInterviewSet() {
+    // Show loading
+    document.getElementById('problem-loading').style.display = 'flex';
+    document.getElementById('interview-problem-content').style.display = 'none';
+
+    // Update loading text
+    document.querySelector('#problem-loading span').textContent = 'AI is generating your full interview set (4 problems)...';
+
+    try {
+        const response = await fetch('/api/gemini', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                action: 'generate_interview',
+                data: {
+                    patterns: currentInterview.patterns
+                }
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('API request failed');
+        }
+
+        const problems = await response.json();
+
+        if (!Array.isArray(problems) || problems.length < 4) {
+            throw new Error('Invalid interview generation response');
+        }
+
+        // Store all problems
+        currentInterview.problems = problems;
+
+        // Initialize empty state for each
+        problems.forEach((_, index) => {
+            if (!currentInterview.conversations[index]) currentInterview.conversations[index] = [];
+            if (!currentInterview.codes[index]) currentInterview.codes[index] = '';
+        });
+
+        saveToStorage(INTERVIEW_STORAGE.CURRENT, currentInterview);
+
+        // Display current problem
+        displayProblem(currentInterview.problems[interviewState.currentQuestion - 1]);
+
+    } catch (error) {
+        console.error('Error generating interview:', error);
+        document.getElementById('problem-loading').innerHTML = `
+            <span>Error generating interview. Please try again.</span>
+            <button onclick="generateInterviewSet()" style="margin-top: 12px; padding: 8px 16px; cursor: pointer;">Retry</button>
+        `;
     }
 }
 
@@ -1027,11 +1095,26 @@ function updateChatDisplay() {
     const chat = document.getElementById('ai-chat');
     const conversation = currentInterview.conversations[interviewState.currentQuestion - 1];
 
-    chat.innerHTML = conversation.map(msg => `
-        <div class="chat-message ${msg.role.toLowerCase()}">
-            ${msg.content.replace(/\n/g, '<br>')}
-        </div>
-    `).join('');
+    chat.innerHTML = conversation.map(msg => {
+        // Format content with basic markdown support
+        let content = msg.content;
+
+        // Handle code blocks
+        content = content.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+
+        // Handle bold
+        content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+        // Convert newlines to breaks only if not in pre/code
+        // But for chat, we'll use CSS white-space: pre-wrap, so we don't need manual br replacements
+        // except for maybe ensuring multiple line breaks are respected
+
+        return `
+            <div class="chat-message ${msg.role.toLowerCase()}">
+                ${content}
+            </div>
+        `;
+    }).join('');
 
     // Scroll to bottom
     chat.scrollTop = chat.scrollHeight;
@@ -1123,8 +1206,8 @@ function moveToNextQuestion() {
     // Hide AI panel
     document.getElementById('ai-panel').style.display = 'none';
 
-    // Generate next problem
-    generateProblem(interviewState.currentQuestion);
+    // Display next problem (already loaded)
+    displayProblem(currentInterview.problems[interviewState.currentQuestion - 1]);
 }
 
 function endInterview() {
@@ -1154,6 +1237,15 @@ function endInterview() {
 
 function closeAIPanel() {
     document.getElementById('ai-panel').style.display = 'none';
+    document.getElementById('ai-panel').classList.remove('expanded');
+    document.getElementById('toggle-ai-size-btn').innerHTML = '⤢';
+}
+
+function toggleAISize() {
+    const panel = document.getElementById('ai-panel');
+    panel.classList.toggle('expanded');
+    const isExpanded = panel.classList.contains('expanded');
+    document.getElementById('toggle-ai-size-btn').innerHTML = isExpanded ? '⤡' : '⤢';
 }
 
 function backToPractice() {
@@ -1368,7 +1460,9 @@ async function init() {
     document.getElementById('submit-code-btn').addEventListener('click', submitCode);
     document.getElementById('ai-send-btn').addEventListener('click', sendFollowUpAnswer);
     document.getElementById('next-question-btn').addEventListener('click', moveToNextQuestion);
+    document.getElementById('next-question-btn').addEventListener('click', moveToNextQuestion);
     document.getElementById('close-ai-btn').addEventListener('click', closeAIPanel);
+    document.getElementById('toggle-ai-size-btn').addEventListener('click', toggleAISize);
     document.getElementById('back-to-practice-btn').addEventListener('click', backToPractice);
     document.getElementById('fullscreen-btn').addEventListener('click', toggleFullscreen);
 

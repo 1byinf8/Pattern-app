@@ -69,6 +69,38 @@ Respond in this exact JSON format:
     "expectedComplexity": {"time": "O(?)", "space": "O(?)"}
 }`;
         }
+        else if (action === 'generate_interview') {
+            const { patterns } = data;
+            console.log('Generating full interview for patterns:', patterns);
+
+            systemPrompt = `You are a senior software engineer and expert coding interview problem creator. You create challenging but fair interview problems similar to LeetCode.`;
+
+            prompt = `Create a complete 4-question coding interview based on these patterns: ${patterns.join(', ')}
+
+Requirements:
+- Question 1: Easy (Warmup)
+- Question 2: Medium (Core pattern)
+- Question 3: Medium (Variation)
+- Question 4: Hard (Complex/Combined)
+- DO NOT mention the pattern name in the problem titles or descriptions
+- Make it feel like a real coherent interview
+
+Respond in this exact JSON format:
+[
+    {
+        "title": "Problem 1 Title",
+        "description": "Description...",
+        "examples": [{"input": "...", "output": "...", "explanation": "..."}],
+        "constraints": ["..."],
+        "hints": ["..."],
+        "expectedPattern": "...",
+        "expectedComplexity": {"time": "...", "space": "..."}
+    },
+    { ... (Problem 2) ... },
+    { ... (Problem 3) ... },
+    { ... (Problem 4) ... }
+]`;
+        }
         else if (action === 'review_code') {
             const { problem, code, conversation } = data;
             const prevContext = conversation.length > 0
@@ -132,7 +164,7 @@ If they're struggling, guide them.`;
             return res.status(400).json({
                 error: 'Invalid action',
                 received: action,
-                expected: 'generate_problem | review_code | answer_followup'
+                expected: 'generate_problem | generate_interview | review_code | answer_followup'
             });
         }
 
