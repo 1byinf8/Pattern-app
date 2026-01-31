@@ -1,0 +1,3914 @@
+{
+    "questions": [
+        {
+            "id": 1,
+            "title": "Library Management System",
+            "difficulty": "Easy",
+            "estimatedTime": "2-3 hours",
+            "requirements": [
+                "Manage books with properties: ISBN, title, author, publisher, publication date",
+                "Manage library members with membership ID and details",
+                "Members can borrow up to 5 books at a time",
+                "Borrowing period is 14 days",
+                "Track borrowed books and return dates",
+                "Search books by title, author, or ISBN",
+                "Handle book availability status"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Book",
+                    "Member",
+                    "Library",
+                    "BorrowRecord"
+                ],
+                "relationships": "Use composition between Library and Books, association between Member and BorrowRecord",
+                "designPatterns": [
+                    "None required for basic implementation"
+                ],
+                "keyMethods": [
+                    "addBook(Book book)",
+                    "removeBook(String isbn)",
+                    "borrowBook(Member member, Book book)",
+                    "returnBook(Member member, Book book)",
+                    "searchBooks(String query)"
+                ],
+                "edgeCases": [
+                    "Member trying to borrow more than 5 books",
+                    "Book already borrowed",
+                    "Returning a book that wasn't borrowed",
+                    "Overdue books handling"
+                ],
+                "evaluation": [
+                    "Proper encapsulation of book and member data",
+                    "Clean separation of concerns",
+                    "Input validation",
+                    "Code readability"
+                ]
+            },
+            "topics": [
+                "oop_basics",
+                "encapsulation",
+                "class_relationships"
+            ],
+            "week": 1
+        },
+        {
+            "id": 2,
+            "title": "Parking Lot System",
+            "difficulty": "Easy",
+            "estimatedTime": "3-4 hours",
+            "requirements": [
+                "Multiple floors in the parking lot",
+                "Multiple types of vehicles: Car, Bike, Truck",
+                "Different spot sizes: Compact, Medium, Large",
+                "Each vehicle should be parked in appropriate spot",
+                "Track available spots per floor",
+                "Generate parking ticket on entry with timestamp",
+                "Calculate parking fee on exit based on duration",
+                "Display available spots count"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "ParkingLot",
+                    "Floor",
+                    "ParkingSpot",
+                    "Vehicle",
+                    "Ticket"
+                ],
+                "relationships": "Use inheritance for Vehicle types, composition for ParkingLot containing Floors",
+                "designPatterns": [
+                    "Strategy pattern for pricing (optional)",
+                    "Factory for vehicle creation"
+                ],
+                "keyMethods": [
+                    "parkVehicle(Vehicle vehicle): Ticket",
+                    "unparkVehicle(Ticket ticket): double",
+                    "getAvailableSpots(VehicleType type): int",
+                    "canPark(Vehicle vehicle): boolean"
+                ],
+                "edgeCases": [
+                    "No available spots for vehicle type",
+                    "Invalid ticket on exit",
+                    "Parking lot full scenario",
+                    "Multiple vehicles trying to park simultaneously"
+                ],
+                "evaluation": [
+                    "Proper use of inheritance and polymorphism",
+                    "Enum usage for vehicle types and spot sizes",
+                    "Pricing calculation logic",
+                    "Efficient spot allocation algorithm"
+                ]
+            },
+            "topics": [
+                "inheritance",
+                "polymorphism",
+                "enums"
+            ],
+            "week": 1
+        },
+        {
+            "id": 3,
+            "title": "Deck of Cards",
+            "difficulty": "Easy",
+            "estimatedTime": "2-3 hours",
+            "requirements": [
+                "Standard 52-card deck with 4 suits and 13 ranks",
+                "Support shuffling the deck",
+                "Deal cards one at a time",
+                "Should be extensible for different card games (Poker, BlackJack)",
+                "Track remaining cards in deck",
+                "Support resetting the deck"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Card",
+                    "Deck",
+                    "Suit",
+                    "Rank",
+                    "Game (abstract)"
+                ],
+                "relationships": "Composition between Deck and Cards, inheritance for different game types",
+                "designPatterns": [
+                    "Template Method for game flow",
+                    "Strategy for game-specific rules"
+                ],
+                "keyMethods": [
+                    "shuffle(): void",
+                    "dealCard(): Card",
+                    "remainingCards(): int",
+                    "reset(): void"
+                ],
+                "edgeCases": [
+                    "Dealing from empty deck",
+                    "Shuffling already shuffled deck",
+                    "Game-specific card value calculations"
+                ],
+                "evaluation": [
+                    "Clean abstraction of Card and Deck",
+                    "Extensibility for different games",
+                    "Proper use of enums for Suit and Rank",
+                    "Immutability of Card objects"
+                ]
+            },
+            "topics": [
+                "abstraction",
+                "composition",
+                "template_method"
+            ],
+            "week": 2
+        },
+        {
+            "id": 4,
+            "title": "ATM System",
+            "difficulty": "Easy",
+            "estimatedTime": "3-4 hours",
+            "requirements": [
+                "Support checking balance, withdrawing cash, depositing cash",
+                "Multiple account types: Savings, Current",
+                "PIN validation before any operation",
+                "Maintain cash inventory in ATM (different denominations)",
+                "Transaction history tracking",
+                "Daily withdrawal limit of ₹50,000",
+                "Dispense minimum number of notes"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "ATM",
+                    "Account",
+                    "Card",
+                    "Transaction",
+                    "CashDispenser"
+                ],
+                "relationships": "State pattern for ATM states, composition for cash management",
+                "designPatterns": [
+                    "State pattern for ATM states",
+                    "Strategy for different account types"
+                ],
+                "keyMethods": [
+                    "authenticate(Card card, String pin): boolean",
+                    "checkBalance(Account account): double",
+                    "withdraw(Account account, double amount): boolean",
+                    "deposit(Account account, double amount): void"
+                ],
+                "edgeCases": [
+                    "Insufficient balance",
+                    "Insufficient cash in ATM",
+                    "Invalid PIN attempts (max 3)",
+                    "Daily limit exceeded",
+                    "Optimal note dispensing algorithm"
+                ],
+                "evaluation": [
+                    "State management implementation",
+                    "Security considerations (PIN handling)",
+                    "Greedy algorithm for cash dispensing",
+                    "Transaction logging"
+                ]
+            },
+            "topics": [
+                "state_pattern",
+                "encapsulation",
+                "validation"
+            ],
+            "week": 2
+        },
+        {
+            "id": 5,
+            "title": "Movie Ticket Booking System",
+            "difficulty": "Medium",
+            "estimatedTime": "4-5 hours",
+            "requirements": [
+                "Multiple theaters, each with multiple screens",
+                "Each screen can show different movies at different times",
+                "Seats with different categories: Normal, Premium, VIP",
+                "Users can search movies by name, language, genre",
+                "Book multiple seats in a single transaction",
+                "Payment processing (assume external gateway)",
+                "Cancellation with refund (before 2 hours of show)",
+                "Prevent double booking of same seat"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Movie",
+                    "Theater",
+                    "Screen",
+                    "Show",
+                    "Seat",
+                    "Booking",
+                    "User"
+                ],
+                "relationships": "Complex associations between Theater, Screen, Show, and Bookings",
+                "designPatterns": [
+                    "Factory for booking creation",
+                    "Observer for seat availability updates"
+                ],
+                "keyMethods": [
+                    "searchShows(Movie movie, Date date, City city): List<Show>",
+                    "bookSeats(Show show, List<Seat> seats, User user): Booking",
+                    "cancelBooking(Booking booking): boolean",
+                    "makePayment(Booking booking, PaymentMethod method): boolean"
+                ],
+                "edgeCases": [
+                    "Concurrent booking of same seat",
+                    "Booking timeout (10 minutes to complete payment)",
+                    "Partial cancellation handling",
+                    "Show cancellation by theater"
+                ],
+                "evaluation": [
+                    "Concurrency handling for seat booking",
+                    "Search optimization approach",
+                    "Date/time handling for shows",
+                    "Business logic for cancellation rules"
+                ]
+            },
+            "topics": [
+                "associations",
+                "aggregation",
+                "concurrency_basics"
+            ],
+            "week": 3
+        },
+        {
+            "id": 6,
+            "title": "Coffee Vending Machine",
+            "difficulty": "Medium",
+            "estimatedTime": "3-4 hours",
+            "requirements": [
+                "Multiple beverages: Espresso, Latte, Cappuccino, Hot Chocolate",
+                "Ingredients: Coffee, Milk, Water, Sugar, Chocolate Syrup",
+                "Each beverage has different ingredient requirements",
+                "Track ingredient inventory",
+                "Accept payment (coins/notes)",
+                "Return change if applicable",
+                "Refill ingredients functionality",
+                "Handle out-of-stock scenario"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "VendingMachine",
+                    "Beverage",
+                    "Ingredient",
+                    "Payment",
+                    "InventoryManager"
+                ],
+                "relationships": "Factory pattern for beverage creation, State pattern for machine states",
+                "designPatterns": [
+                    "Factory pattern",
+                    "State pattern",
+                    "Strategy for payment"
+                ],
+                "keyMethods": [
+                    "selectBeverage(BeverageType type): void",
+                    "insertMoney(double amount): void",
+                    "dispenseBeverage(): Beverage",
+                    "refillIngredient(Ingredient ingredient, int quantity): void"
+                ],
+                "edgeCases": [
+                    "Insufficient ingredients for selected beverage",
+                    "Insufficient payment",
+                    "Change return mechanism",
+                    "Mid-transaction cancellation"
+                ],
+                "evaluation": [
+                    "State machine implementation",
+                    "Factory pattern usage",
+                    "Inventory management logic",
+                    "Payment and change calculation"
+                ]
+            },
+            "topics": [
+                "factory_pattern",
+                "state_pattern",
+                "inventory_management"
+            ],
+            "week": 3
+        },
+        {
+            "id": 7,
+            "title": "Elevator System",
+            "difficulty": "Medium",
+            "estimatedTime": "4-5 hours",
+            "requirements": [
+                "Building with N floors and M elevators",
+                "Each elevator has capacity limit",
+                "External buttons on each floor (Up/Down)",
+                "Internal buttons inside each elevator",
+                "Optimal elevator assignment algorithm",
+                "Handle emergency stop",
+                "Display current floor and direction",
+                "Maintenance mode for elevators"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Building",
+                    "Elevator",
+                    "Floor",
+                    "Request",
+                    "ElevatorController"
+                ],
+                "relationships": "Strategy pattern for scheduling algorithm, State pattern for elevator states",
+                "designPatterns": [
+                    "Strategy pattern",
+                    "State pattern",
+                    "Singleton for controller"
+                ],
+                "keyMethods": [
+                    "requestElevator(int floor, Direction direction): void",
+                    "selectFloor(Elevator elevator, int floor): void",
+                    "moveElevator(Elevator elevator): void",
+                    "assignElevator(Request request): Elevator"
+                ],
+                "edgeCases": [
+                    "All elevators at capacity",
+                    "Multiple requests from same floor",
+                    "Elevator breakdown during operation",
+                    "Optimization: SCAN, LOOK, or FCFS algorithm"
+                ],
+                "evaluation": [
+                    "Scheduling algorithm efficiency",
+                    "State management for multiple elevators",
+                    "Request queue handling",
+                    "Direction optimization"
+                ]
+            },
+            "topics": [
+                "strategy_pattern",
+                "scheduling_algorithms",
+                "state_management"
+            ],
+            "week": 4
+        },
+        {
+            "id": 8,
+            "title": "Traffic Signal System",
+            "difficulty": "Medium",
+            "estimatedTime": "3-4 hours",
+            "requirements": [
+                "4-way intersection with traffic signals",
+                "Each signal cycles through: Green -> Yellow -> Red",
+                "Coordinated timing between signals",
+                "Pedestrian crossing signals",
+                "Emergency vehicle override (all red, one green)",
+                "Different timing for peak/off-peak hours",
+                "Sensor-based adaptive timing (optional)"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "TrafficSignal",
+                    "Intersection",
+                    "Road",
+                    "SignalController",
+                    "Timer"
+                ],
+                "relationships": "State pattern for signal states, Observer pattern for coordination",
+                "designPatterns": [
+                    "State pattern",
+                    "Observer pattern",
+                    "Strategy for timing"
+                ],
+                "keyMethods": [
+                    "changeSignal(TrafficSignal signal, SignalState state): void",
+                    "handleEmergency(Road road): void",
+                    "adjustTiming(TimingStrategy strategy): void",
+                    "coordinateSignals(): void"
+                ],
+                "edgeCases": [
+                    "Emergency override handling",
+                    "Transition from peak to off-peak",
+                    "Signal malfunction fallback (blinking yellow)",
+                    "Pedestrian button press during red"
+                ],
+                "evaluation": [
+                    "State machine correctness",
+                    "Observer pattern implementation",
+                    "Timing coordination logic",
+                    "Thread-safety considerations"
+                ]
+            },
+            "topics": [
+                "observer_pattern",
+                "state_pattern",
+                "timing_coordination"
+            ],
+            "week": 4
+        },
+        {
+            "id": 9,
+            "title": "Hotel Management System",
+            "difficulty": "Medium",
+            "estimatedTime": "4-5 hours",
+            "requirements": [
+                "Multiple room types: Single, Double, Suite",
+                "Room amenities and pricing",
+                "Guest registration and check-in/check-out",
+                "Reservation system with date ranges",
+                "Handle booking conflicts",
+                "Room service orders",
+                "Housekeeping status tracking",
+                "Invoice generation with itemized charges"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Hotel",
+                    "Room",
+                    "Guest",
+                    "Reservation",
+                    "Invoice",
+                    "RoomService"
+                ],
+                "relationships": "Composition and complex date-based associations",
+                "designPatterns": [
+                    "Factory for room creation",
+                    "Observer for housekeeping updates"
+                ],
+                "keyMethods": [
+                    "searchAvailableRooms(Date checkIn, Date checkOut, RoomType type): List<Room>",
+                    "createReservation(Guest guest, Room room, Date checkIn, Date checkOut): Reservation",
+                    "checkIn(Reservation reservation): void",
+                    "checkOut(Reservation reservation): Invoice"
+                ],
+                "edgeCases": [
+                    "Overlapping reservations",
+                    "Early checkout refund calculation",
+                    "Late checkout charges",
+                    "Room upgrade scenarios"
+                ],
+                "evaluation": [
+                    "Date range overlap detection",
+                    "Pricing calculation logic",
+                    "Invoice generation accuracy",
+                    "Availability search optimization"
+                ]
+            },
+            "topics": [
+                "composition",
+                "date_handling",
+                "business_logic"
+            ],
+            "week": 5
+        },
+        {
+            "id": 10,
+            "title": "Stack Overflow (Q&A Platform)",
+            "difficulty": "Medium",
+            "estimatedTime": "4-5 hours",
+            "requirements": [
+                "Users can post questions with title, body, and tags",
+                "Users can answer questions",
+                "Comments on questions and answers",
+                "Upvote/downvote questions and answers",
+                "Accept answer functionality (only question author)",
+                "Reputation system based on votes",
+                "Tag-based search and filtering",
+                "Sort answers by votes or date"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "User",
+                    "Question",
+                    "Answer",
+                    "Comment",
+                    "Tag",
+                    "Vote"
+                ],
+                "relationships": "Complex many-to-many relationships, composition for content hierarchy",
+                "designPatterns": [
+                    "Observer for notifications",
+                    "Strategy for sorting"
+                ],
+                "keyMethods": [
+                    "postQuestion(User user, String title, String body, List<Tag> tags): Question",
+                    "postAnswer(User user, Question question, String body): Answer",
+                    "vote(User user, Votable item, VoteType type): void",
+                    "searchQuestions(String query, List<Tag> tags): List<Question>"
+                ],
+                "edgeCases": [
+                    "Voting on own content",
+                    "Changing vote from up to down",
+                    "Accepting answer on question with no answers",
+                    "Reputation calculation edge cases"
+                ],
+                "evaluation": [
+                    "Content hierarchy design",
+                    "Voting mechanism implementation",
+                    "Reputation algorithm",
+                    "Search and filter logic"
+                ]
+            },
+            "topics": [
+                "relationships",
+                "crud_operations",
+                "ranking_systems"
+            ],
+            "week": 5
+        },
+        {
+            "id": 11,
+            "title": "Snake and Ladder Game",
+            "difficulty": "Medium",
+            "estimatedTime": "3-4 hours",
+            "requirements": [
+                "Board with 100 cells (10x10 grid)",
+                "Multiple players (2-4)",
+                "Snakes and ladders at fixed positions",
+                "Dice roll (1-6)",
+                "Exact roll needed to win (land on 100)",
+                "Turn-based gameplay",
+                "Display board state and player positions",
+                "Win detection"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Game",
+                    "Board",
+                    "Player",
+                    "Dice",
+                    "Snake",
+                    "Ladder"
+                ],
+                "relationships": "Composition of board elements, game loop management",
+                "designPatterns": [
+                    "Command pattern for moves",
+                    "Strategy for dice"
+                ],
+                "keyMethods": [
+                    "rollDice(): int",
+                    "movePlayer(Player player, int steps): void",
+                    "checkWinner(): Player",
+                    "displayBoard(): void"
+                ],
+                "edgeCases": [
+                    "Landing exactly on snake head",
+                    "Landing exactly on ladder bottom",
+                    "Multiple snakes/ladders in path",
+                    "Rolling more than needed to reach 100"
+                ],
+                "evaluation": [
+                    "Game loop implementation",
+                    "Board state management",
+                    "Turn management",
+                    "Clean separation of game logic"
+                ]
+            },
+            "topics": [
+                "game_loop",
+                "turn_management",
+                "command_pattern"
+            ],
+            "week": 6
+        },
+        {
+            "id": 12,
+            "title": "Chess Game",
+            "difficulty": "Hard",
+            "estimatedTime": "6-8 hours",
+            "requirements": [
+                "8x8 board with all chess pieces",
+                "Each piece with correct movement rules",
+                "Turn-based: White moves first",
+                "Check and checkmate detection",
+                "Castling, en passant, pawn promotion",
+                "Move validation (can't move into check)",
+                "Stalemate and draw conditions",
+                "Move history tracking"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Game",
+                    "Board",
+                    "Piece (abstract)",
+                    "Player",
+                    "Move",
+                    "Position"
+                ],
+                "relationships": "Complex polymorphism for pieces, command pattern for moves",
+                "designPatterns": [
+                    "Command pattern",
+                    "Strategy for piece movements",
+                    "Factory for pieces"
+                ],
+                "keyMethods": [
+                    "isValidMove(Piece piece, Position from, Position to): boolean",
+                    "makeMove(Move move): void",
+                    "isCheck(Player player): boolean",
+                    "isCheckmate(Player player): boolean"
+                ],
+                "edgeCases": [
+                    "Castling conditions (king/rook not moved, no check)",
+                    "En passant timing",
+                    "Pawn promotion choice",
+                    "Stalemate vs checkmate"
+                ],
+                "evaluation": [
+                    "Complex polymorphism for piece types",
+                    "Movement validation correctness",
+                    "Check/checkmate algorithm",
+                    "Special moves implementation"
+                ]
+            },
+            "topics": [
+                "complex_polymorphism",
+                "command_pattern",
+                "game_validation"
+            ],
+            "week": 6
+        },
+        {
+            "id": 13,
+            "title": "Ride-Sharing Service (Uber/Ola)",
+            "difficulty": "Hard",
+            "estimatedTime": "5-6 hours",
+            "requirements": [
+                "Riders can request rides with pickup and drop locations",
+                "Drivers can accept/reject ride requests",
+                "Match riders with nearby available drivers",
+                "Multiple ride types: Economy, Premium, Shared",
+                "Dynamic pricing based on distance and surge",
+                "Track ride status: Requested, Accepted, Started, Completed",
+                "Rating system for drivers and riders",
+                "Payment processing"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Rider",
+                    "Driver",
+                    "Ride",
+                    "Location",
+                    "PricingStrategy",
+                    "RideMatchingService"
+                ],
+                "relationships": "Strategy pattern for pricing and matching, Observer for real-time updates",
+                "designPatterns": [
+                    "Strategy pattern",
+                    "Observer pattern",
+                    "State pattern",
+                    "Factory"
+                ],
+                "keyMethods": [
+                    "requestRide(Rider rider, Location pickup, Location drop, RideType type): Ride",
+                    "matchDriver(Ride ride): Driver",
+                    "calculateFare(Ride ride): double",
+                    "completeRide(Ride ride, Rating rating): void"
+                ],
+                "edgeCases": [
+                    "No drivers available",
+                    "Driver cancellation after acceptance",
+                    "Surge pricing calculation",
+                    "Concurrent ride requests in same area"
+                ],
+                "evaluation": [
+                    "Matching algorithm design",
+                    "Strategy pattern for multiple pricing models",
+                    "State management for ride lifecycle",
+                    "Real-time updates mechanism"
+                ]
+            },
+            "topics": [
+                "strategy_pattern",
+                "observer_pattern",
+                "matching_algorithms"
+            ],
+            "week": 7
+        },
+        {
+            "id": 14,
+            "title": "Food Delivery System (Swiggy/Zomato)",
+            "difficulty": "Hard",
+            "estimatedTime": "5-6 hours",
+            "requirements": [
+                "Restaurants with menus and items",
+                "Users can browse, search, and order food",
+                "Cart management with quantity updates",
+                "Order placement with multiple items",
+                "Delivery partner assignment",
+                "Order tracking: Placed, Confirmed, Preparing, Picked, Delivered",
+                "Multiple payment methods",
+                "Restaurant ratings and reviews"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "User",
+                    "Restaurant",
+                    "MenuItem",
+                    "Order",
+                    "Cart",
+                    "DeliveryPartner",
+                    "OrderTracker"
+                ],
+                "relationships": "Complex workflow management, state machine for order states",
+                "designPatterns": [
+                    "State pattern",
+                    "Observer pattern",
+                    "Builder for order creation"
+                ],
+                "keyMethods": [
+                    "addToCart(User user, MenuItem item, int quantity): void",
+                    "placeOrder(User user, Cart cart, Address address): Order",
+                    "assignDeliveryPartner(Order order): DeliveryPartner",
+                    "updateOrderStatus(Order order, OrderStatus status): void"
+                ],
+                "edgeCases": [
+                    "Restaurant closed after order placed",
+                    "Item out of stock during checkout",
+                    "Delivery partner reassignment",
+                    "Order cancellation at different stages"
+                ],
+                "evaluation": [
+                    "State machine for order lifecycle",
+                    "Cart management logic",
+                    "Assignment algorithm for delivery partners",
+                    "Multi-actor workflow coordination"
+                ]
+            },
+            "topics": [
+                "state_machine",
+                "workflow_management",
+                "builder_pattern"
+            ],
+            "week": 7
+        },
+        {
+            "id": 15,
+            "title": "Splitwise/Expense Sharing App",
+            "difficulty": "Hard",
+            "estimatedTime": "6-7 hours",
+            "requirements": [
+                "Users can create groups",
+                "Add expenses with multiple participants",
+                "Split types: Equal, Exact, Percentage",
+                "Track who owes whom",
+                "Simplify debts (minimize transactions)",
+                "Settle up functionality",
+                "Expense history and filtering",
+                "Show net balance for each user in group"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "User",
+                    "Group",
+                    "Expense",
+                    "Split",
+                    "Balance",
+                    "Settlement"
+                ],
+                "relationships": "Complex graph-based relationships for debt calculations",
+                "designPatterns": [
+                    "Strategy for split types",
+                    "Observer for balance updates"
+                ],
+                "keyMethods": [
+                    "addExpense(Group group, User paidBy, double amount, List<Split> splits): Expense",
+                    "getBalance(User user, Group group): Map<User, Double>",
+                    "simplifyDebts(Group group): List<Transaction>",
+                    "settleUp(User from, User to, double amount): void"
+                ],
+                "edgeCases": [
+                    "Circular debts (A owes B, B owes C, C owes A)",
+                    "Partial settlements",
+                    "Percentage splits not adding to 100%",
+                    "Floating point precision in money calculations"
+                ],
+                "evaluation": [
+                    "Debt simplification algorithm (graph-based)",
+                    "Strategy pattern for different split types",
+                    "Balance calculation accuracy",
+                    "Transaction minimization logic"
+                ]
+            },
+            "topics": [
+                "graph_algorithms",
+                "strategy_pattern",
+                "debt_simplification"
+            ],
+            "week": 8
+        },
+        {
+            "id": 16,
+            "title": "Car Rental System",
+            "difficulty": "Medium",
+            "estimatedTime": "4-5 hours",
+            "requirements": [
+                "Multiple vehicle types: Sedan, SUV, Luxury",
+                "Reservation system with date ranges",
+                "Pricing: Hourly, Daily, Weekly rates",
+                "Additional charges: Insurance, GPS, Child seat",
+                "Vehicle availability check",
+                "Pickup and drop-off at different locations",
+                "Damage reporting and charges",
+                "Late return penalties"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Vehicle",
+                    "Reservation",
+                    "Customer",
+                    "Location",
+                    "PricingCalculator",
+                    "Insurance"
+                ],
+                "relationships": "Template method for pricing, decorator for add-ons",
+                "designPatterns": [
+                    "Template Method",
+                    "Decorator pattern",
+                    "Strategy for pricing"
+                ],
+                "keyMethods": [
+                    "searchVehicles(Date from, Date to, VehicleType type, Location location): List<Vehicle>",
+                    "createReservation(Customer customer, Vehicle vehicle, Date from, Date to): Reservation",
+                    "calculateTotalCost(Reservation reservation): double",
+                    "returnVehicle(Reservation reservation, int mileage, List<Damage> damages): Invoice"
+                ],
+                "edgeCases": [
+                    "Different pickup/drop locations surcharge",
+                    "Mileage limit exceeded",
+                    "Damage assessment and charging",
+                    "Early return refund calculation"
+                ],
+                "evaluation": [
+                    "Template method for pricing calculation",
+                    "Decorator pattern for add-ons",
+                    "Date-based availability logic",
+                    "Complex pricing rules implementation"
+                ]
+            },
+            "topics": [
+                "template_method",
+                "decorator_pattern",
+                "pricing_strategies"
+            ],
+            "week": 8
+        },
+        {
+            "id": 17,
+            "title": "Online Shopping System (Amazon)",
+            "difficulty": "Hard",
+            "estimatedTime": "6-7 hours",
+            "requirements": [
+                "Product catalog with categories",
+                "Search and filter products",
+                "Shopping cart with multiple items",
+                "Wishlist functionality",
+                "Order placement with multiple items",
+                "Inventory management (reduce on order)",
+                "Multiple payment methods",
+                "Order tracking and shipping",
+                "Product reviews and ratings",
+                "Return and refund processing"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Product",
+                    "Category",
+                    "ShoppingCart",
+                    "Order",
+                    "Payment",
+                    "Inventory",
+                    "Review",
+                    "User"
+                ],
+                "relationships": "Complex e-commerce workflow with multiple subsystems",
+                "designPatterns": [
+                    "Factory for payments",
+                    "Observer for inventory",
+                    "Decorator for discounts"
+                ],
+                "keyMethods": [
+                    "searchProducts(String query, List<Filter> filters): List<Product>",
+                    "addToCart(User user, Product product, int quantity): void",
+                    "checkout(User user, ShippingAddress address, PaymentMethod payment): Order",
+                    "updateInventory(Product product, int quantity): void"
+                ],
+                "edgeCases": [
+                    "Product out of stock during checkout",
+                    "Concurrent orders for limited inventory",
+                    "Payment failure handling",
+                    "Partial order fulfillment"
+                ],
+                "evaluation": [
+                    "Transaction management approach",
+                    "Inventory concurrency handling",
+                    "Factory pattern for payment methods",
+                    "Complex discount and pricing logic"
+                ]
+            },
+            "topics": [
+                "factory_pattern",
+                "transaction_management",
+                "inventory_concurrency"
+            ],
+            "week": 9
+        },
+        {
+            "id": 18,
+            "title": "Social Media Platform (Twitter/Facebook)",
+            "difficulty": "Hard",
+            "estimatedTime": "6-7 hours",
+            "requirements": [
+                "Users can create posts with text, images, videos",
+                "Follow/unfollow other users",
+                "News feed showing posts from followed users",
+                "Like, comment, and share posts",
+                "Hashtags and mentions",
+                "Notifications for likes, comments, follows",
+                "Privacy settings (Public, Friends, Private)",
+                "Trending topics based on hashtags"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "User",
+                    "Post",
+                    "Comment",
+                    "Like",
+                    "Follow",
+                    "NewsFeed",
+                    "Notification"
+                ],
+                "relationships": "Observer pattern for feed updates, graph structure for follows",
+                "designPatterns": [
+                    "Observer pattern",
+                    "Composite for posts/comments",
+                    "Strategy for feed generation"
+                ],
+                "keyMethods": [
+                    "createPost(User user, String content, List<Media> media): Post",
+                    "follow(User follower, User followee): void",
+                    "generateFeed(User user): List<Post>",
+                    "notify(User user, Notification notification): void"
+                ],
+                "edgeCases": [
+                    "Circular follows (mutual following)",
+                    "Feed generation for users following thousands",
+                    "Privacy checks on post visibility",
+                    "Notification spam prevention"
+                ],
+                "evaluation": [
+                    "Observer pattern for real-time updates",
+                    "Feed generation algorithm (chronological vs ranked)",
+                    "Graph traversal for followers",
+                    "Privacy layer implementation"
+                ]
+            },
+            "topics": [
+                "observer_pattern",
+                "graph_relationships",
+                "feed_generation"
+            ],
+            "week": 9
+        },
+        {
+            "id": 19,
+            "title": "Meeting Scheduler (Calendar System)",
+            "difficulty": "Hard",
+            "estimatedTime": "5-6 hours",
+            "requirements": [
+                "Users can create meetings with time slots",
+                "Invite multiple participants",
+                "Check availability of all participants",
+                "Detect and prevent scheduling conflicts",
+                "Recurring meetings (daily, weekly, monthly)",
+                "Send notifications to participants",
+                "Meeting room booking (with capacity)",
+                "Handle different timezones"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "User",
+                    "Meeting",
+                    "Calendar",
+                    "TimeSlot",
+                    "MeetingRoom",
+                    "Notification"
+                ],
+                "relationships": "Observer for notifications, interval-based conflict detection",
+                "designPatterns": [
+                    "Observer pattern",
+                    "Strategy for recurrence rules"
+                ],
+                "keyMethods": [
+                    "scheduleMeeting(Meeting meeting, List<User> participants): boolean",
+                    "checkAvailability(User user, TimeSlot slot): boolean",
+                    "findCommonSlots(List<User> users, Duration duration): List<TimeSlot>",
+                    "cancelMeeting(Meeting meeting): void"
+                ],
+                "edgeCases": [
+                    "Overlapping meeting detection",
+                    "Recurring meeting cancellation (single vs all)",
+                    "Timezone conversion for global participants",
+                    "Meeting room capacity overflow"
+                ],
+                "evaluation": [
+                    "Interval scheduling algorithm",
+                    "Conflict detection logic",
+                    "Recurrence rule implementation",
+                    "Timezone handling approach"
+                ]
+            },
+            "topics": [
+                "interval_scheduling",
+                "conflict_detection",
+                "timezone_handling"
+            ],
+            "week": 10
+        },
+        {
+            "id": 20,
+            "title": "Notification Service",
+            "difficulty": "Hard",
+            "estimatedTime": "5-6 hours",
+            "requirements": [
+                "Multiple channels: Email, SMS, Push notifications",
+                "Template-based messages with variables",
+                "Priority levels: Low, Medium, High, Critical",
+                "Retry logic for failed notifications",
+                "Rate limiting per user (no spam)",
+                "Delivery status tracking",
+                "User preferences for notification types",
+                "Bulk notification sending"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Notification",
+                    "NotificationChannel",
+                    "Template",
+                    "User",
+                    "NotificationService",
+                    "RetryManager"
+                ],
+                "relationships": "Strategy for channels, decorator for retry logic, observer for status updates",
+                "designPatterns": [
+                    "Strategy pattern",
+                    "Decorator pattern",
+                    "Template Method",
+                    "Observer"
+                ],
+                "keyMethods": [
+                    "send(Notification notification, User user): void",
+                    "sendBulk(Notification notification, List<User> users): void",
+                    "retry(Notification notification): void",
+                    "trackStatus(String notificationId): DeliveryStatus"
+                ],
+                "edgeCases": [
+                    "All channels failing",
+                    "User opted out of notification type",
+                    "Rate limit exceeded",
+                    "Template variable missing"
+                ],
+                "evaluation": [
+                    "Strategy pattern for multiple channels",
+                    "Retry mechanism with exponential backoff",
+                    "Template parsing and variable substitution",
+                    "Rate limiting algorithm"
+                ]
+            },
+            "topics": [
+                "strategy_pattern",
+                "decorator_pattern",
+                "retry_mechanisms"
+            ],
+            "week": 10
+        },
+        {
+            "id": 21,
+            "title": "Logging Framework",
+            "difficulty": "Hard",
+            "estimatedTime": "5-6 hours",
+            "requirements": [
+                "Multiple log levels: DEBUG, INFO, WARN, ERROR",
+                "Multiple outputs: Console, File, Database",
+                "Log formatting with timestamp, level, message",
+                "Asynchronous logging (non-blocking)",
+                "Log rotation (size-based or time-based)",
+                "Filtering logs by level",
+                "Thread-safe implementation",
+                "Configurable via config file"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Logger",
+                    "LogLevel",
+                    "LogAppender",
+                    "LogFormatter",
+                    "LogConfig"
+                ],
+                "relationships": "Singleton for logger instance, chain of responsibility for filtering, observer for appenders",
+                "designPatterns": [
+                    "Singleton",
+                    "Chain of Responsibility",
+                    "Observer pattern",
+                    "Strategy"
+                ],
+                "keyMethods": [
+                    "log(LogLevel level, String message): void",
+                    "addAppender(LogAppender appender): void",
+                    "setLevel(LogLevel level): void",
+                    "flush(): void"
+                ],
+                "edgeCases": [
+                    "Concurrent logging from multiple threads",
+                    "Disk full during file logging",
+                    "Circular dependencies in logging",
+                    "Log file rotation during write"
+                ],
+                "evaluation": [
+                    "Thread-safety implementation",
+                    "Singleton pattern correctness",
+                    "Chain of responsibility for log filtering",
+                    "Asynchronous logging mechanism"
+                ]
+            },
+            "topics": [
+                "singleton_pattern",
+                "chain_of_responsibility",
+                "thread_safety"
+            ],
+            "week": 11
+        },
+        {
+            "id": 22,
+            "title": "Rate Limiter",
+            "difficulty": "Hard",
+            "estimatedTime": "4-5 hours",
+            "requirements": [
+                "Multiple algorithms: Token Bucket, Sliding Window, Fixed Window",
+                "Per-user rate limiting",
+                "Configurable limits (requests per second/minute/hour)",
+                "Thread-safe for concurrent requests",
+                "Return appropriate error when limit exceeded",
+                "Support for burst traffic (token bucket)",
+                "Distributed rate limiting (optional)",
+                "Analytics for rate limit hits"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "RateLimiter",
+                    "TokenBucket",
+                    "SlidingWindow",
+                    "User",
+                    "RateLimitConfig"
+                ],
+                "relationships": "Strategy pattern for different algorithms, factory for limiter creation",
+                "designPatterns": [
+                    "Strategy pattern",
+                    "Factory pattern",
+                    "Singleton for distributed"
+                ],
+                "keyMethods": [
+                    "allowRequest(User user): boolean",
+                    "getRemainingQuota(User user): int",
+                    "reset(User user): void",
+                    "configure(RateLimitConfig config): void"
+                ],
+                "edgeCases": [
+                    "Concurrent requests from same user",
+                    "Clock skew in distributed systems",
+                    "Token bucket refill rate calculation",
+                    "Window boundary edge cases"
+                ],
+                "evaluation": [
+                    "Algorithm correctness (token bucket vs sliding window)",
+                    "Thread-safety using locks or atomic operations",
+                    "Time-based calculations accuracy",
+                    "Memory efficiency for large user bases"
+                ]
+            },
+            "topics": [
+                "strategy_pattern",
+                "concurrency",
+                "rate_limiting_algorithms"
+            ],
+            "week": 11
+        },
+        {
+            "id": 23,
+            "title": "URL Shortener (bit.ly)",
+            "difficulty": "Medium",
+            "estimatedTime": "4-5 hours",
+            "requirements": [
+                "Shorten long URLs to unique short codes",
+                "Redirect short URLs to original URLs",
+                "Custom aliases for URLs (if available)",
+                "Expiration time for URLs",
+                "Analytics: Click count, geographic location, referrer",
+                "Collision handling for short codes",
+                "QR code generation for short URLs",
+                "User accounts to manage their URLs"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "URL",
+                    "ShortCode",
+                    "Analytics",
+                    "User",
+                    "URLShortenerService"
+                ],
+                "relationships": "Hash-based short code generation, caching for performance",
+                "designPatterns": [
+                    "Factory for short code generation",
+                    "Strategy for encoding algorithms"
+                ],
+                "keyMethods": [
+                    "shortenURL(String longURL, String customAlias): String",
+                    "expandURL(String shortCode): String",
+                    "getAnalytics(String shortCode): Analytics",
+                    "deleteURL(String shortCode): void"
+                ],
+                "edgeCases": [
+                    "Hash collision for short codes",
+                    "Custom alias already taken",
+                    "Expired URL access",
+                    "Same long URL shortened multiple times"
+                ],
+                "evaluation": [
+                    "Base62 encoding for short codes",
+                    "Collision detection and resolution",
+                    "Analytics tracking mechanism",
+                    "Caching strategy discussion"
+                ]
+            },
+            "topics": [
+                "hashing",
+                "base_conversion",
+                "caching_basics"
+            ],
+            "week": 12
+        },
+        {
+            "id": 24,
+            "title": "Tic-Tac-Toe Game",
+            "difficulty": "Medium",
+            "estimatedTime": "3-4 hours",
+            "requirements": [
+                "3x3 board for two players",
+                "Players alternate turns (X and O)",
+                "Win detection (3 in a row: horizontal, vertical, diagonal)",
+                "Draw detection (board full, no winner)",
+                "Invalid move handling (cell already occupied)",
+                "AI opponent using minimax algorithm (optional)",
+                "Game reset functionality",
+                "Display board state after each move"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Game",
+                    "Board",
+                    "Player",
+                    "Move",
+                    "AIPlayer (optional)"
+                ],
+                "relationships": "Strategy pattern for player types (human vs AI)",
+                "designPatterns": [
+                    "Strategy pattern",
+                    "Template Method for game flow"
+                ],
+                "keyMethods": [
+                    "makeMove(Player player, int row, int col): boolean",
+                    "checkWinner(): Player",
+                    "isDraw(): boolean",
+                    "reset(): void"
+                ],
+                "edgeCases": [
+                    "Move on already occupied cell",
+                    "Move out of board bounds",
+                    "Game continues after win",
+                    "AI minimax depth optimization"
+                ],
+                "evaluation": [
+                    "Win detection algorithm efficiency",
+                    "Clean game state management",
+                    "Minimax implementation (if AI included)",
+                    "Input validation"
+                ]
+            },
+            "topics": [
+                "game_state",
+                "minimax_algorithm",
+                "strategy_pattern"
+            ],
+            "week": 12
+        },
+        {
+            "id": 25,
+            "title": "File System",
+            "difficulty": "Hard",
+            "estimatedTime": "5-6 hours",
+            "requirements": [
+                "Hierarchical structure: Files and Directories",
+                "Operations: Create, Delete, Move, Copy, Rename",
+                "Path navigation (absolute and relative)",
+                "File permissions: Read, Write, Execute",
+                "Search files by name or extension",
+                "Calculate directory size recursively",
+                "Support for symbolic links (optional)",
+                "Concurrent access handling"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "FileSystem",
+                    "File",
+                    "Directory",
+                    "Path",
+                    "Permission"
+                ],
+                "relationships": "Composite pattern for file/directory hierarchy",
+                "designPatterns": [
+                    "Composite pattern",
+                    "Visitor for operations",
+                    "Iterator for traversal"
+                ],
+                "keyMethods": [
+                    "createFile(Path path, String name): File",
+                    "createDirectory(Path path, String name): Directory",
+                    "delete(Path path): boolean",
+                    "move(Path from, Path to): boolean",
+                    "search(String name): List<File>"
+                ],
+                "edgeCases": [
+                    "Delete non-empty directory",
+                    "Move directory into its own subdirectory",
+                    "Permission denied scenarios",
+                    "Path resolution with .. and ."
+                ],
+                "evaluation": [
+                    "Composite pattern implementation",
+                    "Recursive operations (size, search)",
+                    "Path parsing and resolution",
+                    "Permission checking mechanism"
+                ]
+            },
+            "topics": [
+                "composite_pattern",
+                "tree_structure",
+                "recursion"
+            ],
+            "week": 13
+        },
+        {
+            "id": 26,
+            "title": "Cache System (LRU/LFU)",
+            "difficulty": "Hard",
+            "estimatedTime": "5-6 hours",
+            "requirements": [
+                "Support multiple eviction policies: LRU, LFU, FIFO",
+                "Get and Put operations in O(1) time",
+                "Fixed capacity with eviction on overflow",
+                "Thread-safe implementation",
+                "TTL (Time To Live) for cache entries",
+                "Cache statistics: Hit rate, miss rate",
+                "Support for cache invalidation",
+                "Write-through vs Write-back policies"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Cache",
+                    "CacheEntry",
+                    "EvictionPolicy",
+                    "LRUEviction",
+                    "LFUEviction"
+                ],
+                "relationships": "Strategy pattern for eviction policies, decorator for TTL",
+                "designPatterns": [
+                    "Strategy pattern",
+                    "Decorator pattern",
+                    "Singleton for global cache"
+                ],
+                "keyMethods": [
+                    "get(String key): Object",
+                    "put(String key, Object value): void",
+                    "evict(): void",
+                    "invalidate(String key): void"
+                ],
+                "edgeCases": [
+                    "Concurrent get/put operations",
+                    "TTL expiry during get",
+                    "Eviction when cache is not full",
+                    "LFU frequency tie-breaking"
+                ],
+                "evaluation": [
+                    "LRU: Doubly linked list + HashMap implementation",
+                    "LFU: Min-heap or HashMap + frequency list",
+                    "Thread-safety using synchronized or locks",
+                    "O(1) time complexity maintenance"
+                ]
+            },
+            "topics": [
+                "data_structures",
+                "concurrency",
+                "strategy_pattern"
+            ],
+            "week": 13
+        },
+        {
+            "id": 27,
+            "title": "Task Scheduler",
+            "difficulty": "Hard",
+            "estimatedTime": "5-6 hours",
+            "requirements": [
+                "Schedule tasks to run at specific times",
+                "Support delayed tasks (run after X seconds)",
+                "Recurring tasks (cron-like expressions)",
+                "Priority-based execution",
+                "Task dependencies (task B after task A)",
+                "Cancel scheduled tasks",
+                "Thread pool for concurrent task execution",
+                "Handle task failures and retries"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Scheduler",
+                    "Task",
+                    "TaskQueue",
+                    "ThreadPool",
+                    "CronExpression"
+                ],
+                "relationships": "Priority queue for task ordering, observer for task completion",
+                "designPatterns": [
+                    "Observer pattern",
+                    "Command pattern",
+                    "Strategy for scheduling algorithms"
+                ],
+                "keyMethods": [
+                    "schedule(Task task, long delay): String",
+                    "scheduleRecurring(Task task, CronExpression cron): String",
+                    "cancel(String taskId): boolean",
+                    "executeNow(Task task): void"
+                ],
+                "edgeCases": [
+                    "Task execution time exceeds interval for recurring tasks",
+                    "Circular dependencies between tasks",
+                    "Scheduler shutdown with pending tasks",
+                    "Task failure and retry exhaustion"
+                ],
+                "evaluation": [
+                    "Priority queue or min-heap usage",
+                    "Thread pool management",
+                    "Dependency graph for task ordering",
+                    "Cron expression parsing"
+                ]
+            },
+            "topics": [
+                "priority_queue",
+                "thread_pools",
+                "dependency_graphs"
+            ],
+            "week": 14
+        },
+        {
+            "id": 28,
+            "title": "Distributed Message Queue (Kafka-like)",
+            "difficulty": "Expert",
+            "estimatedTime": "7-8 hours",
+            "requirements": [
+                "Topics with multiple partitions",
+                "Producers publish messages to topics",
+                "Consumers subscribe to topics",
+                "Consumer groups for parallel consumption",
+                "Message ordering within partitions",
+                "At-least-once delivery guarantee",
+                "Offset management for consumers",
+                "Message retention policies"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Broker",
+                    "Topic",
+                    "Partition",
+                    "Producer",
+                    "Consumer",
+                    "ConsumerGroup",
+                    "Message"
+                ],
+                "relationships": "Publisher-subscriber pattern, partitioning strategy",
+                "designPatterns": [
+                    "Publisher-Subscriber",
+                    "Strategy for partitioning",
+                    "Observer"
+                ],
+                "keyMethods": [
+                    "publish(Topic topic, Message message): void",
+                    "subscribe(Consumer consumer, Topic topic): void",
+                    "poll(Consumer consumer): List<Message>",
+                    "commit(Consumer consumer, Offset offset): void"
+                ],
+                "edgeCases": [
+                    "Consumer lag (slow consumer)",
+                    "Rebalancing when consumer joins/leaves group",
+                    "Message ordering across partitions",
+                    "Broker failure and partition reassignment"
+                ],
+                "evaluation": [
+                    "Partitioning strategy (round-robin, hash-based)",
+                    "Offset tracking mechanism",
+                    "Consumer group coordination",
+                    "Queue vs topic model understanding"
+                ]
+            },
+            "topics": [
+                "pub_sub_pattern",
+                "partitioning",
+                "queue_management"
+            ],
+            "week": 14
+        },
+        {
+            "id": 29,
+            "title": "Stock Exchange System",
+            "difficulty": "Expert",
+            "estimatedTime": "7-8 hours",
+            "requirements": [
+                "Order types: Market, Limit, Stop-Loss",
+                "Order book with bid and ask sides",
+                "Order matching engine (price-time priority)",
+                "Real-time price updates",
+                "Trade execution and confirmation",
+                "User portfolio management",
+                "Circuit breakers for volatility",
+                "Order cancellation and modification"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Order",
+                    "OrderBook",
+                    "MatchingEngine",
+                    "Trade",
+                    "Stock",
+                    "Portfolio"
+                ],
+                "relationships": "Priority queues for order books, observer for price updates",
+                "designPatterns": [
+                    "Observer pattern",
+                    "Command pattern",
+                    "Strategy for order types"
+                ],
+                "keyMethods": [
+                    "placeOrder(Order order): void",
+                    "cancelOrder(String orderId): boolean",
+                    "matchOrders(OrderBook book): List<Trade>",
+                    "updatePrice(Stock stock, double price): void"
+                ],
+                "edgeCases": [
+                    "Partial order fills",
+                    "Market order with no liquidity",
+                    "Stop-loss trigger cascades",
+                    "Concurrent order placement for same stock"
+                ],
+                "evaluation": [
+                    "Matching algorithm correctness (FIFO at same price)",
+                    "Priority queue for bid/ask maintenance",
+                    "Thread-safety for concurrent orders",
+                    "Real-time price calculation"
+                ]
+            },
+            "topics": [
+                "priority_queues",
+                "matching_algorithms",
+                "concurrent_data_structures"
+            ],
+            "week": 15
+        },
+        {
+            "id": 30,
+            "title": "BookMyShow (Movie Booking Platform)",
+            "difficulty": "Expert",
+            "estimatedTime": "6-7 hours",
+            "requirements": [
+                "Multiple cities, theaters, screens",
+                "Shows with seat layout and pricing",
+                "Seat booking with temporary hold (10 mins)",
+                "Prevent double booking (concurrency)",
+                "Payment integration with timeout",
+                "Booking confirmation and ticket generation",
+                "Cancellation with refund rules",
+                "Search shows by movie, city, theater, date"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Movie",
+                    "Theater",
+                    "Screen",
+                    "Show",
+                    "Seat",
+                    "Booking",
+                    "Payment",
+                    "City"
+                ],
+                "relationships": "Pessimistic locking for seats, state machine for booking flow",
+                "designPatterns": [
+                    "State pattern",
+                    "Observer pattern",
+                    "Pessimistic locking"
+                ],
+                "keyMethods": [
+                    "searchShows(Movie movie, City city, Date date): List<Show>",
+                    "blockSeats(Show show, List<Seat> seats, User user): String",
+                    "confirmBooking(String blockId, Payment payment): Booking",
+                    "releaseBlockedSeats(String blockId): void"
+                ],
+                "edgeCases": [
+                    "Concurrent booking of same seats",
+                    "Booking timeout before payment",
+                    "Payment failure after seat block",
+                    "Show cancellation with active bookings"
+                ],
+                "evaluation": [
+                    "Pessimistic locking or optimistic locking approach",
+                    "Timeout mechanism for seat holds",
+                    "State machine for booking lifecycle",
+                    "Concurrency control correctness"
+                ]
+            },
+            "topics": [
+                "locking_mechanisms",
+                "state_machine",
+                "concurrency_control"
+            ],
+            "week": 15
+        },
+        {
+            "id": 31,
+            "title": "Multiplayer Game Server",
+            "difficulty": "Expert",
+            "estimatedTime": "6-7 hours",
+            "requirements": [
+                "Multiple game rooms with capacity limits",
+                "Real-time state synchronization across players",
+                "Player actions (move, attack, chat)",
+                "Matchmaking based on skill level",
+                "Handle player disconnections",
+                "Anti-cheat validation",
+                "Replay functionality",
+                "Lobby and ready-up system"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "GameServer",
+                    "Room",
+                    "Player",
+                    "GameState",
+                    "Action",
+                    "Matchmaker"
+                ],
+                "relationships": "Observer for state sync, command pattern for actions",
+                "designPatterns": [
+                    "Observer pattern",
+                    "Command pattern",
+                    "State pattern",
+                    "Memento for replay"
+                ],
+                "keyMethods": [
+                    "createRoom(GameConfig config): Room",
+                    "joinRoom(Player player, String roomId): boolean",
+                    "broadcastAction(Room room, Action action): void",
+                    "syncState(Room room): void"
+                ],
+                "edgeCases": [
+                    "Player disconnects mid-game",
+                    "Network lag and action ordering",
+                    "Room full during join attempt",
+                    "Conflicting actions from multiple players"
+                ],
+                "evaluation": [
+                    "State synchronization strategy",
+                    "Observer pattern for broadcasting",
+                    "Command validation and anti-cheat",
+                    "Matchmaking algorithm design"
+                ]
+            },
+            "topics": [
+                "real_time_sync",
+                "observer_pattern",
+                "game_state_management"
+            ],
+            "week": 16
+        },
+        {
+            "id": 32,
+            "title": "Cricket/Football Score Tracker",
+            "difficulty": "Hard",
+            "estimatedTime": "5-6 hours",
+            "requirements": [
+                "Live score updates for ongoing matches",
+                "Support multiple formats (T20, ODI, Test for cricket)",
+                "Ball-by-ball commentary",
+                "Player statistics (runs, wickets, strike rate)",
+                "Team scores and run rates",
+                "Notify subscribers on score updates",
+                "Historical match data",
+                "Leaderboards and rankings"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Match",
+                    "Team",
+                    "Player",
+                    "Scoreboard",
+                    "Commentary",
+                    "Statistics"
+                ],
+                "relationships": "Observer pattern for live updates, state pattern for match phases",
+                "designPatterns": [
+                    "Observer pattern",
+                    "State pattern",
+                    "Strategy for scoring rules"
+                ],
+                "keyMethods": [
+                    "updateScore(Match match, Event event): void",
+                    "getScoreboard(Match match): Scoreboard",
+                    "addCommentary(Match match, String text): void",
+                    "notifySubscribers(Match match): void"
+                ],
+                "edgeCases": [
+                    "Concurrent score updates",
+                    "Match interruptions (rain, bad light)",
+                    "Different scoring rules per format",
+                    "Player substitutions mid-match"
+                ],
+                "evaluation": [
+                    "Observer pattern for real-time notifications",
+                    "Event sourcing for commentary",
+                    "Statistics calculation accuracy",
+                    "State management for match flow"
+                ]
+            },
+            "topics": [
+                "observer_pattern",
+                "event_sourcing",
+                "statistics_calculation"
+            ],
+            "week": 16
+        },
+        {
+            "id": 33,
+            "title": "In-Memory Database",
+            "difficulty": "Expert",
+            "estimatedTime": "7-8 hours",
+            "requirements": [
+                "CRUD operations: Create, Read, Update, Delete",
+                "Support for multiple data types",
+                "Indexing for fast lookups",
+                "Transactions with ACID properties",
+                "Simple query language (SELECT, WHERE, ORDER BY)",
+                "Rollback on transaction failure",
+                "Concurrent access with isolation levels",
+                "Persistence to disk (optional)"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Database",
+                    "Table",
+                    "Row",
+                    "Index",
+                    "Transaction",
+                    "Query",
+                    "Lock"
+                ],
+                "relationships": "B-tree or hash-based indexing, MVCC for concurrency",
+                "designPatterns": [
+                    "Command pattern for queries",
+                    "Memento for rollback",
+                    "Strategy for indexes"
+                ],
+                "keyMethods": [
+                    "executeQuery(Query query): ResultSet",
+                    "beginTransaction(): Transaction",
+                    "commit(Transaction tx): void",
+                    "rollback(Transaction tx): void"
+                ],
+                "edgeCases": [
+                    "Concurrent transactions on same row",
+                    "Deadlock detection and resolution",
+                    "Index maintenance on updates/deletes",
+                    "Transaction timeout"
+                ],
+                "evaluation": [
+                    "Indexing data structure choice (B-tree, hash)",
+                    "ACID implementation approach",
+                    "Lock-based or MVCC concurrency control",
+                    "Query parsing and execution"
+                ]
+            },
+            "topics": [
+                "indexing",
+                "acid_properties",
+                "concurrency_control"
+            ],
+            "week": 17
+        },
+        {
+            "id": 34,
+            "title": "Collaborative Document Editor (Google Docs)",
+            "difficulty": "Expert",
+            "estimatedTime": "7-8 hours",
+            "requirements": [
+                "Real-time collaborative editing",
+                "Conflict resolution for simultaneous edits",
+                "Version history and rollback",
+                "Cursor position tracking for all users",
+                "Comments and suggestions",
+                "User permissions (view, comment, edit)",
+                "Auto-save functionality",
+                "Offline editing with sync on reconnect"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Document",
+                    "User",
+                    "Operation",
+                    "Version",
+                    "Cursor",
+                    "Comment"
+                ],
+                "relationships": "Operational transformation or CRDT for conflict resolution",
+                "designPatterns": [
+                    "Observer pattern",
+                    "Command pattern",
+                    "Memento for versions"
+                ],
+                "keyMethods": [
+                    "applyOperation(Operation op): void",
+                    "transformOperation(Operation local, Operation remote): Operation",
+                    "saveVersion(Document doc): Version",
+                    "broadcastChanges(Operation op): void"
+                ],
+                "edgeCases": [
+                    "Simultaneous edits at same position",
+                    "Network partition and reconnect",
+                    "Large document performance",
+                    "Cursor position after remote edits"
+                ],
+                "evaluation": [
+                    "Operational transformation or CRDT implementation",
+                    "Version control mechanism",
+                    "Real-time synchronization strategy",
+                    "Conflict resolution correctness"
+                ]
+            },
+            "topics": [
+                "operational_transformation",
+                "crdt",
+                "real_time_collaboration"
+            ],
+            "week": 17
+        },
+        {
+            "id": 35,
+            "title": "Search Autocomplete System",
+            "difficulty": "Hard",
+            "estimatedTime": "5-6 hours",
+            "requirements": [
+                "Prefix-based search suggestions",
+                "Rank suggestions by popularity/relevance",
+                "Update suggestions based on user searches",
+                "Personalized suggestions based on history",
+                "Support for typos and fuzzy matching",
+                "Cache frequently searched queries",
+                "Real-time performance (<100ms)",
+                "Handle millions of queries"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Trie",
+                    "TrieNode",
+                    "Suggestion",
+                    "Cache",
+                    "RankingStrategy"
+                ],
+                "relationships": "Trie for prefix matching, cache for performance",
+                "designPatterns": [
+                    "Strategy for ranking",
+                    "Decorator for personalization"
+                ],
+                "keyMethods": [
+                    "getSuggestions(String prefix): List<String>",
+                    "updateFrequency(String query): void",
+                    "addQuery(String query): void",
+                    "clearCache(): void"
+                ],
+                "edgeCases": [
+                    "Prefix with no matches",
+                    "Very long prefix strings",
+                    "Tie-breaking for same frequency",
+                    "Cache invalidation timing"
+                ],
+                "evaluation": [
+                    "Trie implementation correctness",
+                    "Ranking algorithm (frequency, recency, personalization)",
+                    "Caching strategy for performance",
+                    "Memory optimization for large datasets"
+                ]
+            },
+            "topics": [
+                "trie_data_structure",
+                "caching",
+                "ranking_algorithms"
+            ],
+            "week": 18
+        },
+        {
+            "id": 36,
+            "title": "Distributed Lock Manager",
+            "difficulty": "Expert",
+            "estimatedTime": "6-7 hours",
+            "requirements": [
+                "Acquire and release distributed locks",
+                "Lock timeout to prevent deadlocks",
+                "Re-entrant locks (same process can acquire multiple times)",
+                "Fairness in lock acquisition (FIFO)",
+                "Handle node failures gracefully",
+                "Deadlock detection and prevention",
+                "Try-lock with timeout",
+                "Support for read-write locks"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "LockManager",
+                    "Lock",
+                    "LockRequest",
+                    "LockRegistry"
+                ],
+                "relationships": "Distributed consensus algorithm (Paxos/Raft concepts)",
+                "designPatterns": [
+                    "Singleton for lock manager",
+                    "Observer for notifications"
+                ],
+                "keyMethods": [
+                    "acquireLock(String resourceId, String processId): boolean",
+                    "releaseLock(String resourceId, String processId): void",
+                    "tryLock(String resourceId, String processId, long timeout): boolean",
+                    "detectDeadlock(): List<String>"
+                ],
+                "edgeCases": [
+                    "Process crashes while holding lock",
+                    "Lock timeout during long operation",
+                    "Circular wait deadlock",
+                    "Network partition scenarios"
+                ],
+                "evaluation": [
+                    "Timeout mechanism implementation",
+                    "Deadlock detection algorithm (wait-for graph)",
+                    "Re-entrance tracking",
+                    "Distributed coordination approach"
+                ]
+            },
+            "topics": [
+                "distributed_systems",
+                "deadlock_detection",
+                "timeout_mechanisms"
+            ],
+            "week": 18
+        },
+        {
+            "id": 37,
+            "title": "LinkedIn Connection System",
+            "difficulty": "Hard",
+            "estimatedTime": "5-6 hours",
+            "requirements": [
+                "Send and accept connection requests",
+                "1st, 2nd, 3rd degree connections",
+                "Connection suggestions based on mutual connections",
+                "Privacy settings (who can see connections)",
+                "Block and unblock users",
+                "Connection count limits",
+                "Endorsements and recommendations",
+                "Find shortest path between two users"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "User",
+                    "Connection",
+                    "ConnectionRequest",
+                    "PrivacySettings",
+                    "Graph"
+                ],
+                "relationships": "Graph structure for connections, BFS for degree calculation",
+                "designPatterns": [
+                    "Observer for notifications",
+                    "Strategy for suggestions"
+                ],
+                "keyMethods": [
+                    "sendConnectionRequest(User from, User to): void",
+                    "acceptConnection(ConnectionRequest request): void",
+                    "getConnectionDegree(User user1, User user2): int",
+                    "getSuggestions(User user): List<User>"
+                ],
+                "edgeCases": [
+                    "Circular connection paths",
+                    "User with thousands of connections (performance)",
+                    "Privacy blocking connection visibility",
+                    "Duplicate connection requests"
+                ],
+                "evaluation": [
+                    "Graph representation (adjacency list)",
+                    "BFS for connection degree calculation",
+                    "Privacy layer implementation",
+                    "Suggestion algorithm (mutual connections)"
+                ]
+            },
+            "topics": [
+                "graph_algorithms",
+                "bfs",
+                "privacy_layers"
+            ],
+            "week": 19
+        },
+        {
+            "id": 38,
+            "title": "Plagiarism Checker",
+            "difficulty": "Hard",
+            "estimatedTime": "5-6 hours",
+            "requirements": [
+                "Compare two documents for similarity",
+                "Detect exact matches and paraphrased content",
+                "Calculate similarity percentage",
+                "Highlight plagiarized sections",
+                "Check against database of documents",
+                "Source attribution for matches",
+                "Support multiple file formats (txt, pdf, docx)",
+                "Generate plagiarism report"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Document",
+                    "Checker",
+                    "SimilarityScore",
+                    "Match",
+                    "Report"
+                ],
+                "relationships": "String matching algorithms, hashing for performance",
+                "designPatterns": [
+                    "Strategy for matching algorithms",
+                    "Template Method for reporting"
+                ],
+                "keyMethods": [
+                    "compareDocuments(Document doc1, Document doc2): SimilarityScore",
+                    "findMatches(Document doc, List<Document> sources): List<Match>",
+                    "generateReport(Document doc): Report",
+                    "calculateSimilarity(String text1, String text2): double"
+                ],
+                "edgeCases": [
+                    "Very large documents (performance)",
+                    "Whitespace and punctuation differences",
+                    "Paraphrasing detection accuracy",
+                    "Multiple sources for same content"
+                ],
+                "evaluation": [
+                    "Algorithm choice (n-gram, Jaccard, cosine similarity)",
+                    "Hashing for efficient comparison (Rabin-Karp)",
+                    "Threshold tuning for plagiarism detection",
+                    "Report generation clarity"
+                ]
+            },
+            "topics": [
+                "string_matching_algorithms",
+                "hashing",
+                "similarity_metrics"
+            ],
+            "week": 19
+        },
+        {
+            "id": 39,
+            "title": "Instagram",
+            "difficulty": "Expert",
+            "estimatedTime": "7-8 hours",
+            "requirements": [
+                "User profiles with posts, followers, following",
+                "Photo/video upload and storage",
+                "Feed generation (chronological and algorithmic)",
+                "Like, comment, share functionality",
+                "Stories with 24-hour expiration",
+                "Direct messaging (text, media)",
+                "Hashtags and explore page",
+                "Notifications for interactions"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "User",
+                    "Post",
+                    "Story",
+                    "Feed",
+                    "Comment",
+                    "Message",
+                    "Notification"
+                ],
+                "relationships": "Fan-out on write vs read for feed, blob storage abstraction",
+                "designPatterns": [
+                    "Observer pattern",
+                    "Strategy for feed generation",
+                    "Factory for content types"
+                ],
+                "keyMethods": [
+                    "uploadPost(User user, Media media, String caption): Post",
+                    "generateFeed(User user): List<Post>",
+                    "follow(User follower, User followee): void",
+                    "sendMessage(User from, User to, Message message): void"
+                ],
+                "edgeCases": [
+                    "Feed for user following thousands (performance)",
+                    "Story expiration cleanup",
+                    "Notification spam prevention",
+                    "Handling viral posts (millions of likes)"
+                ],
+                "evaluation": [
+                    "Feed generation strategy (push vs pull)",
+                    "Blob storage abstraction for media",
+                    "Caching strategy for feeds",
+                    "Observer pattern for notifications"
+                ]
+            },
+            "topics": [
+                "feed_generation",
+                "blob_storage",
+                "caching_strategies"
+            ],
+            "week": 20
+        },
+        {
+            "id": 40,
+            "title": "Pub-Sub System",
+            "difficulty": "Expert",
+            "estimatedTime": "6-7 hours",
+            "requirements": [
+                "Topics with multiple publishers and subscribers",
+                "Message delivery to all subscribers",
+                "Message filtering based on criteria",
+                "Delivery guarantees: At-most-once, at-least-once, exactly-once",
+                "Subscriber groups for load balancing",
+                "Message ordering within topics",
+                "Retry logic for failed deliveries",
+                "Dead letter queue for permanent failures"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Topic",
+                    "Publisher",
+                    "Subscriber",
+                    "Message",
+                    "Broker",
+                    "SubscriberGroup"
+                ],
+                "relationships": "Observer pattern at scale, message queue for buffering",
+                "designPatterns": [
+                    "Observer pattern",
+                    "Strategy for delivery guarantees"
+                ],
+                "keyMethods": [
+                    "publish(Topic topic, Message message): void",
+                    "subscribe(Subscriber subscriber, Topic topic, Filter filter): void",
+                    "deliver(Message message, Subscriber subscriber): void",
+                    "acknowledge(Message message, Subscriber subscriber): void"
+                ],
+                "edgeCases": [
+                    "Slow subscriber causing backlog",
+                    "Subscriber disconnects before ack",
+                    "Message expiration in queue",
+                    "Duplicate message delivery"
+                ],
+                "evaluation": [
+                    "Observer pattern for pub-sub",
+                    "Message buffering and queue management",
+                    "Delivery guarantee implementation",
+                    "Filter matching efficiency"
+                ]
+            },
+            "topics": [
+                "pub_sub_pattern",
+                "message_queues",
+                "delivery_guarantees"
+            ],
+            "week": 20
+        },
+        {
+            "id": 41,
+            "title": "Distributed Caching System (Redis-like)",
+            "difficulty": "Expert",
+            "estimatedTime": "8-9 hours",
+            "requirements": [
+                "Key-value store with TTL",
+                "Data sharding across multiple nodes",
+                "Replication for high availability",
+                "Consistency models: Strong, eventual",
+                "Eviction policies: LRU, LFU, TTL-based",
+                "Pub-sub for cache invalidation",
+                "Persistence options (snapshot, AOF)",
+                "Client-side hashing for sharding"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "CacheNode",
+                    "Shard",
+                    "Replica",
+                    "ConsistentHash",
+                    "EvictionPolicy",
+                    "Client"
+                ],
+                "relationships": "Consistent hashing for sharding, replication for fault tolerance",
+                "designPatterns": [
+                    "Strategy for eviction",
+                    "Observer for replication"
+                ],
+                "keyMethods": [
+                    "get(String key): Object",
+                    "put(String key, Object value, long ttl): void",
+                    "delete(String key): void",
+                    "getShard(String key): CacheNode"
+                ],
+                "edgeCases": [
+                    "Node failure and replica promotion",
+                    "Shard rebalancing on node addition",
+                    "Split-brain scenarios",
+                    "Clock skew affecting TTL"
+                ],
+                "evaluation": [
+                    "Consistent hashing implementation",
+                    "Replication strategy (sync vs async)",
+                    "CAP theorem trade-offs discussion",
+                    "Eviction policy efficiency"
+                ]
+            },
+            "topics": [
+                "consistent_hashing",
+                "replication",
+                "cap_theorem"
+            ],
+            "week": 21
+        },
+        {
+            "id": 42,
+            "title": "Netflix/YouTube Video Streaming",
+            "difficulty": "Expert",
+            "estimatedTime": "7-8 hours",
+            "requirements": [
+                "Video upload and encoding to multiple resolutions",
+                "Adaptive bitrate streaming",
+                "CDN abstraction for content delivery",
+                "User subscriptions and watch history",
+                "Recommendations based on viewing history",
+                "Search and browse by genre, actors",
+                "Resume watching from last position",
+                "Concurrent streaming limits per account"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Video",
+                    "User",
+                    "Subscription",
+                    "CDN",
+                    "Encoder",
+                    "RecommendationEngine"
+                ],
+                "relationships": "Strategy for bitrate selection, caching for popular content",
+                "designPatterns": [
+                    "Strategy pattern",
+                    "Decorator for DRM",
+                    "Observer for watch progress"
+                ],
+                "keyMethods": [
+                    "uploadVideo(Video video): void",
+                    "streamVideo(User user, Video video, int bitrate): Stream",
+                    "getRecommendations(User user): List<Video>",
+                    "updateWatchProgress(User user, Video video, int timestamp): void"
+                ],
+                "edgeCases": [
+                    "Network bandwidth change during streaming",
+                    "Concurrent streams exceeding limit",
+                    "Video availability in different regions",
+                    "Encoding failure handling"
+                ],
+                "evaluation": [
+                    "Adaptive bitrate algorithm",
+                    "CDN abstraction design",
+                    "Recommendation algorithm approach",
+                    "Content delivery optimization"
+                ]
+            },
+            "topics": [
+                "adaptive_streaming",
+                "cdn_abstraction",
+                "recommendation_systems"
+            ],
+            "week": 21
+        },
+        {
+            "id": 43,
+            "title": "Airbnb",
+            "difficulty": "Expert",
+            "estimatedTime": "7-8 hours",
+            "requirements": [
+                "Listings with photos, pricing, availability",
+                "Search with filters (location, price, dates, amenities)",
+                "Booking with date range",
+                "Payment processing and refunds",
+                "Reviews and ratings (both ways: host and guest)",
+                "Prevent double booking",
+                "Cancellation policies",
+                "Host calendar management"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Listing",
+                    "User",
+                    "Booking",
+                    "Review",
+                    "Search",
+                    "Payment",
+                    "Calendar"
+                ],
+                "relationships": "Complex search with spatial and temporal constraints",
+                "designPatterns": [
+                    "Strategy for pricing",
+                    "Observer for availability updates"
+                ],
+                "keyMethods": [
+                    "searchListings(SearchCriteria criteria): List<Listing>",
+                    "createBooking(User user, Listing listing, DateRange dates): Booking",
+                    "processPayment(Booking booking, PaymentMethod method): void",
+                    "leaveReview(Booking booking, Review review): void"
+                ],
+                "edgeCases": [
+                    "Overlapping booking attempts",
+                    "Host blocks dates after booking request",
+                    "Cancellation refund calculation",
+                    "Search with no results (expand criteria)"
+                ],
+                "evaluation": [
+                    "Geo-spatial search optimization",
+                    "Availability calendar implementation",
+                    "Double-booking prevention (locking)",
+                    "Pricing strategy flexibility"
+                ]
+            },
+            "topics": [
+                "geo_spatial_search",
+                "calendar_management",
+                "booking_systems"
+            ],
+            "week": 22
+        },
+        {
+            "id": 44,
+            "title": "WhatsApp/Messenger",
+            "difficulty": "Expert",
+            "estimatedTime": "7-8 hours",
+            "requirements": [
+                "One-to-one and group messaging",
+                "Message delivery and read receipts",
+                "Online/offline status",
+                "Media sharing (images, videos, documents)",
+                "End-to-end encryption abstraction",
+                "Message sync across devices",
+                "Typing indicators",
+                "Message search within chats"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "User",
+                    "Chat",
+                    "Message",
+                    "Group",
+                    "Device",
+                    "MessageQueue"
+                ],
+                "relationships": "WebSocket abstraction for real-time, message queue for reliability",
+                "designPatterns": [
+                    "Observer for delivery status",
+                    "Strategy for message routing"
+                ],
+                "keyMethods": [
+                    "sendMessage(User from, Chat chat, String content): Message",
+                    "deliverMessage(Message message, User to): void",
+                    "markAsRead(Message message, User user): void",
+                    "syncMessages(User user, Device device): List<Message>"
+                ],
+                "edgeCases": [
+                    "Offline message delivery on reconnect",
+                    "Group message delivery to 256 participants",
+                    "Device sync conflicts",
+                    "Message deletion for everyone"
+                ],
+                "evaluation": [
+                    "Message queue for offline delivery",
+                    "WebSocket abstraction for real-time",
+                    "Multi-device sync strategy",
+                    "Read receipt consistency"
+                ]
+            },
+            "topics": [
+                "websockets",
+                "message_queues",
+                "multi_device_sync"
+            ],
+            "week": 22
+        },
+        {
+            "id": 45,
+            "title": "Dropbox/Google Drive",
+            "difficulty": "Expert",
+            "estimatedTime": "8-9 hours",
+            "requirements": [
+                "File upload and download",
+                "Folder hierarchy and navigation",
+                "File sharing with permissions (view, edit)",
+                "Version history and rollback",
+                "Sync across multiple devices",
+                "Conflict resolution for simultaneous edits",
+                "Delta sync for large files",
+                "Search files by name and content"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "File",
+                    "Folder",
+                    "User",
+                    "Version",
+                    "SyncManager",
+                    "ConflictResolver"
+                ],
+                "relationships": "Chunking for large files, diff algorithms for delta sync",
+                "designPatterns": [
+                    "Observer for sync",
+                    "Memento for versions",
+                    "Strategy for conflict resolution"
+                ],
+                "keyMethods": [
+                    "uploadFile(User user, File file, Folder folder): void",
+                    "downloadFile(File file): byte[]",
+                    "shareFile(File file, User user, Permission permission): void",
+                    "resolveConflict(File file1, File file2): File"
+                ],
+                "edgeCases": [
+                    "Simultaneous edits from multiple devices",
+                    "Large file chunking and resume",
+                    "Offline edits and merge on reconnect",
+                    "Storage quota exceeded"
+                ],
+                "evaluation": [
+                    "Chunking algorithm for files",
+                    "Delta sync implementation (diff)",
+                    "Conflict resolution strategy",
+                    "Version control mechanism"
+                ]
+            },
+            "topics": [
+                "chunking",
+                "delta_sync",
+                "conflict_resolution"
+            ],
+            "week": 23
+        },
+        {
+            "id": 46,
+            "title": "Recommendation System",
+            "difficulty": "Expert",
+            "estimatedTime": "6-7 hours",
+            "requirements": [
+                "Collaborative filtering (user-based and item-based)",
+                "Content-based filtering",
+                "Hybrid approach combining multiple algorithms",
+                "Handle cold start problem (new users/items)",
+                "Real-time recommendations",
+                "A/B testing for recommendation strategies",
+                "Diversity in recommendations",
+                "Feedback loop for improving recommendations"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "User",
+                    "Item",
+                    "Rating",
+                    "RecommendationEngine",
+                    "Algorithm",
+                    "FeedbackCollector"
+                ],
+                "relationships": "Strategy pattern for algorithms, matrix for collaborative filtering",
+                "designPatterns": [
+                    "Strategy pattern",
+                    "Observer for feedback",
+                    "Template Method"
+                ],
+                "keyMethods": [
+                    "getRecommendations(User user, int count): List<Item>",
+                    "updateUserPreferences(User user, Item item, Rating rating): void",
+                    "calculateSimilarity(User user1, User user2): double",
+                    "handleColdStart(User user): List<Item>"
+                ],
+                "edgeCases": [
+                    "User with no rating history",
+                    "Item with no ratings",
+                    "Popularity bias in recommendations",
+                    "Recommendation staleness"
+                ],
+                "evaluation": [
+                    "Algorithm selection (collaborative vs content-based)",
+                    "Similarity metric (cosine, Pearson)",
+                    "Cold start strategy",
+                    "Diversity vs relevance trade-off"
+                ]
+            },
+            "topics": [
+                "collaborative_filtering",
+                "content_based_filtering",
+                "cold_start_problem"
+            ],
+            "week": 23
+        },
+        {
+            "id": 47,
+            "title": "TikTok/Instagram Reels",
+            "difficulty": "Expert",
+            "estimatedTime": "7-8 hours",
+            "requirements": [
+                "Short video upload with effects and filters",
+                "Personalized feed generation (For You page)",
+                "Engagement tracking (views, likes, shares, watch time)",
+                "Trending content identification",
+                "User following and interactions",
+                "Comment and duet functionality",
+                "Sound library and music integration",
+                "Content moderation abstraction"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Video",
+                    "User",
+                    "Feed",
+                    "Engagement",
+                    "TrendingAlgorithm",
+                    "Sound"
+                ],
+                "relationships": "Complex ranking algorithm for feed, engagement signals for virality",
+                "designPatterns": [
+                    "Strategy for feed ranking",
+                    "Observer for engagement tracking"
+                ],
+                "keyMethods": [
+                    "uploadVideo(User user, Video video): void",
+                    "generateFeed(User user): List<Video>",
+                    "trackEngagement(User user, Video video, EngagementType type): void",
+                    "getTrending(): List<Video>"
+                ],
+                "edgeCases": [
+                    "Viral video scalability (millions of views)",
+                    "Feed diversity vs personalization",
+                    "Bot detection for fake engagement",
+                    "Content moderation at scale"
+                ],
+                "evaluation": [
+                    "Feed ranking algorithm (engagement signals)",
+                    "Trending detection algorithm",
+                    "Engagement tracking mechanism",
+                    "Scalability considerations"
+                ]
+            },
+            "topics": [
+                "feed_ranking",
+                "engagement_tracking",
+                "virality_algorithms"
+            ],
+            "week": 24
+        },
+        {
+            "id": 48,
+            "title": "Payment Gateway",
+            "difficulty": "Expert",
+            "estimatedTime": "7-8 hours",
+            "requirements": [
+                "Multiple payment methods (card, UPI, wallet, net banking)",
+                "Transaction processing with external payment providers",
+                "Idempotency for duplicate requests",
+                "Refund and chargeback handling",
+                "Transaction status tracking",
+                "Audit trail for all transactions",
+                "Fraud detection abstraction",
+                "Retry logic for failed transactions"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Transaction",
+                    "PaymentMethod",
+                    "PaymentProvider",
+                    "Refund",
+                    "AuditLog"
+                ],
+                "relationships": "Strategy for payment methods, state machine for transaction states",
+                "designPatterns": [
+                    "Strategy pattern",
+                    "State pattern",
+                    "Adapter for providers"
+                ],
+                "keyMethods": [
+                    "initiatePayment(Transaction transaction): String",
+                    "processPayment(String transactionId, PaymentDetails details): TransactionStatus",
+                    "refund(String transactionId, double amount): Refund",
+                    "getTransactionStatus(String transactionId): TransactionStatus"
+                ],
+                "edgeCases": [
+                    "Duplicate payment request (idempotency)",
+                    "Payment provider timeout",
+                    "Partial refunds",
+                    "Transaction reconciliation"
+                ],
+                "evaluation": [
+                    "Idempotency key implementation",
+                    "State machine for transaction lifecycle",
+                    "Audit logging mechanism",
+                    "Strategy pattern for payment methods"
+                ]
+            },
+            "topics": [
+                "idempotency",
+                "state_machine",
+                "audit_trails"
+            ],
+            "week": 24
+        },
+        {
+            "id": 49,
+            "title": "Google Maps/Navigation System",
+            "difficulty": "Expert",
+            "estimatedTime": "8-9 hours",
+            "requirements": [
+                "Shortest path calculation between two points",
+                "Real-time traffic integration",
+                "ETA calculation based on current traffic",
+                "Alternative route suggestions",
+                "Turn-by-turn navigation",
+                "Points of interest (POI) search",
+                "Route optimization for multiple stops",
+                "Offline map support abstraction"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Location",
+                    "Route",
+                    "Graph",
+                    "Navigator",
+                    "TrafficService",
+                    "POI"
+                ],
+                "relationships": "Graph for road network, A* or Dijkstra for routing",
+                "designPatterns": [
+                    "Strategy for routing algorithms",
+                    "Observer for traffic updates"
+                ],
+                "keyMethods": [
+                    "findRoute(Location from, Location to): Route",
+                    "calculateETA(Route route): int",
+                    "getAlternativeRoutes(Location from, Location to): List<Route>",
+                    "optimizeRoute(List<Location> stops): Route"
+                ],
+                "edgeCases": [
+                    "Road closures or construction",
+                    "Real-time rerouting due to traffic",
+                    "Multiple equivalent shortest paths",
+                    "GPS signal loss"
+                ],
+                "evaluation": [
+                    "Graph representation of road network",
+                    "A* or Dijkstra implementation",
+                    "Heuristic for A* (haversine distance)",
+                    "Real-time traffic integration approach"
+                ]
+            },
+            "topics": [
+                "graph_algorithms",
+                "dijkstra",
+                "astar",
+                "heuristics"
+            ],
+            "week": 25
+        },
+        {
+            "id": 50,
+            "title": "Metrics/Monitoring System",
+            "difficulty": "Expert",
+            "estimatedTime": "7-8 hours",
+            "requirements": [
+                "Collect metrics from multiple sources",
+                "Time-series data storage and aggregation",
+                "Query metrics with time ranges and filters",
+                "Alerting rules based on thresholds",
+                "Dashboard visualization abstraction",
+                "Support for different metric types (counter, gauge, histogram)",
+                "Data retention and downsampling",
+                "High write throughput handling"
+            ],
+            "expectations": {
+                "coreClasses": [
+                    "Metric",
+                    "TimeSeries",
+                    "Aggregator",
+                    "Alert",
+                    "Rule",
+                    "Dashboard"
+                ],
+                "relationships": "Time-series optimization, aggregation strategies",
+                "designPatterns": [
+                    "Observer for alerts",
+                    "Strategy for aggregation"
+                ],
+                "keyMethods": [
+                    "recordMetric(Metric metric): void",
+                    "query(String metricName, TimeRange range, List<Filter> filters): TimeSeries",
+                    "createAlert(Rule rule): Alert",
+                    "aggregate(TimeSeries data, AggregationType type): double"
+                ],
+                "edgeCases": [
+                    "High cardinality metrics (performance)",
+                    "Late arriving data points",
+                    "Alert storm prevention",
+                    "Data retention and cleanup"
+                ],
+                "evaluation": [
+                    "Time-series data structure choice",
+                    "Aggregation algorithms (sum, avg, percentile)",
+                    "Alerting rule evaluation efficiency",
+                    "Write throughput optimization"
+                ]
+            },
+            "topics": [
+                "time_series",
+                "aggregation",
+                "alerting_systems"
+            ],
+            "week": 25
+        }
+    ],
+    "learningMap": {
+        "weeks": [
+            {
+                "week": 1,
+                "concepts": [
+                    {
+                        "topic": "oop_basics",
+                        "name": "Object-Oriented Programming Basics",
+                        "subtopics": [
+                            "Classes and Objects",
+                            "Constructors and Methods",
+                            "Access Modifiers (public, private, protected)",
+                            "this keyword"
+                        ],
+                        "resources": [
+                            "Understand the four pillars: Encapsulation, Abstraction, Inheritance, Polymorphism",
+                            "Practice creating simple classes with properties and methods"
+                        ]
+                    },
+                    {
+                        "topic": "encapsulation",
+                        "name": "Encapsulation",
+                        "subtopics": [
+                            "Data hiding using private fields",
+                            "Getters and Setters",
+                            "Benefits of encapsulation",
+                            "Information hiding principle"
+                        ],
+                        "resources": [
+                            "Implement classes with proper encapsulation",
+                            "Understand when to use getters/setters vs direct access"
+                        ]
+                    }
+                ],
+                "questions": [
+                    1,
+                    2
+                ],
+                "focus": "Build strong OOP foundation with basic class design and encapsulation"
+            },
+            {
+                "week": 2,
+                "concepts": [
+                    {
+                        "topic": "inheritance",
+                        "name": "Inheritance",
+                        "subtopics": [
+                            "IS-A relationship",
+                            "extends keyword",
+                            "super keyword",
+                            "Method overriding",
+                            "Constructor chaining"
+                        ],
+                        "resources": [
+                            "Create class hierarchies",
+                            "Understand when to use inheritance vs composition"
+                        ]
+                    },
+                    {
+                        "topic": "polymorphism",
+                        "name": "Polymorphism",
+                        "subtopics": [
+                            "Compile-time polymorphism (Method Overloading)",
+                            "Runtime polymorphism (Method Overriding)",
+                            "Dynamic dispatch",
+                            "Upcasting and downcasting"
+                        ],
+                        "resources": [
+                            "Implement polymorphic behavior in class hierarchies",
+                            "Use interfaces and abstract classes for polymorphism"
+                        ]
+                    }
+                ],
+                "questions": [
+                    3,
+                    4
+                ],
+                "focus": "Master inheritance hierarchies and polymorphic behavior"
+            },
+            {
+                "week": 3,
+                "concepts": [
+                    {
+                        "topic": "abstraction",
+                        "name": "Abstraction",
+                        "subtopics": [
+                            "Abstract classes",
+                            "Interfaces",
+                            "When to use abstract class vs interface",
+                            "Multiple inheritance with interfaces"
+                        ],
+                        "resources": [
+                            "Design with interfaces and abstract classes",
+                            "Understand abstraction levels in system design"
+                        ]
+                    },
+                    {
+                        "topic": "composition",
+                        "name": "Composition and Aggregation",
+                        "subtopics": [
+                            "HAS-A relationship",
+                            "Composition vs Aggregation",
+                            "Favor composition over inheritance",
+                            "Dependency injection basics"
+                        ],
+                        "resources": [
+                            "Implement composition in real-world scenarios",
+                            "Understand when composition is better than inheritance"
+                        ]
+                    }
+                ],
+                "questions": [
+                    5,
+                    6
+                ],
+                "focus": "Learn to use abstraction and composition effectively in design"
+            },
+            {
+                "week": 4,
+                "concepts": [
+                    {
+                        "topic": "solid_principles",
+                        "name": "SOLID Principles",
+                        "subtopics": [
+                            "Single Responsibility Principle (SRP)",
+                            "Open/Closed Principle (OCP)",
+                            "Liskov Substitution Principle (LSP)",
+                            "Interface Segregation Principle (ISP)",
+                            "Dependency Inversion Principle (DIP)"
+                        ],
+                        "resources": [
+                            "Study each principle with examples",
+                            "Refactor existing code to follow SOLID"
+                        ]
+                    },
+                    {
+                        "topic": "design_patterns_intro",
+                        "name": "Introduction to Design Patterns",
+                        "subtopics": [
+                            "What are design patterns?",
+                            "Categories: Creational, Structural, Behavioral",
+                            "When to use design patterns",
+                            "Anti-patterns to avoid"
+                        ],
+                        "resources": [
+                            "Read 'Gang of Four' design patterns overview",
+                            "Understand the motivation behind patterns"
+                        ]
+                    }
+                ],
+                "questions": [
+                    7,
+                    8
+                ],
+                "focus": "Internalize SOLID principles and introduction to design patterns"
+            },
+            {
+                "week": 5,
+                "concepts": [
+                    {
+                        "topic": "factory_pattern",
+                        "name": "Factory Pattern",
+                        "subtopics": [
+                            "Simple Factory",
+                            "Factory Method",
+                            "Abstract Factory",
+                            "When to use Factory pattern"
+                        ],
+                        "resources": [
+                            "Implement Factory pattern in object creation",
+                            "Understand loose coupling through factories"
+                        ]
+                    },
+                    {
+                        "topic": "singleton_pattern",
+                        "name": "Singleton Pattern",
+                        "subtopics": [
+                            "Eager vs Lazy initialization",
+                            "Thread-safe Singleton",
+                            "Double-checked locking",
+                            "Singleton anti-patterns"
+                        ],
+                        "resources": [
+                            "Implement thread-safe Singleton",
+                            "Understand when Singleton is appropriate"
+                        ]
+                    }
+                ],
+                "questions": [
+                    9,
+                    10
+                ],
+                "focus": "Master creational patterns: Factory and Singleton"
+            },
+            {
+                "week": 6,
+                "concepts": [
+                    {
+                        "topic": "builder_pattern",
+                        "name": "Builder Pattern",
+                        "subtopics": [
+                            "Telescoping constructor problem",
+                            "Fluent interface",
+                            "Step builder pattern",
+                            "Immutability with Builder"
+                        ],
+                        "resources": [
+                            "Implement Builder for complex object creation",
+                            "Use Builder to create immutable objects"
+                        ]
+                    },
+                    {
+                        "topic": "prototype_pattern",
+                        "name": "Prototype Pattern",
+                        "subtopics": [
+                            "Cloning objects",
+                            "Shallow copy vs Deep copy",
+                            "Clone() method",
+                            "When to use Prototype"
+                        ],
+                        "resources": [
+                            "Implement Prototype for object cloning",
+                            "Understand deep copy challenges"
+                        ]
+                    }
+                ],
+                "questions": [
+                    11,
+                    12
+                ],
+                "focus": "Learn Builder and Prototype patterns for object creation"
+            },
+            {
+                "week": 7,
+                "concepts": [
+                    {
+                        "topic": "strategy_pattern",
+                        "name": "Strategy Pattern",
+                        "subtopics": [
+                            "Encapsulating algorithms",
+                            "Runtime algorithm selection",
+                            "Strategy vs State pattern",
+                            "Dependency injection with Strategy"
+                        ],
+                        "resources": [
+                            "Implement Strategy for interchangeable algorithms",
+                            "Use Strategy for pricing, routing, sorting logic"
+                        ]
+                    },
+                    {
+                        "topic": "observer_pattern",
+                        "name": "Observer Pattern",
+                        "subtopics": [
+                            "Subject-Observer relationship",
+                            "Push vs Pull models",
+                            "Event-driven architecture",
+                            "Observer in GUI and notifications"
+                        ],
+                        "resources": [
+                            "Implement Observer for event handling",
+                            "Understand pub-sub systems"
+                        ]
+                    }
+                ],
+                "questions": [
+                    13,
+                    14
+                ],
+                "focus": "Master behavioral patterns: Strategy and Observer"
+            },
+            {
+                "week": 8,
+                "concepts": [
+                    {
+                        "topic": "state_pattern",
+                        "name": "State Pattern",
+                        "subtopics": [
+                            "State machines",
+                            "Context and State classes",
+                            "State transitions",
+                            "State vs Strategy pattern"
+                        ],
+                        "resources": [
+                            "Implement State for workflow management",
+                            "Design state machines for order, booking systems"
+                        ]
+                    },
+                    {
+                        "topic": "command_pattern",
+                        "name": "Command Pattern",
+                        "subtopics": [
+                            "Encapsulating requests",
+                            "Command queue and history",
+                            "Undo/Redo functionality",
+                            "Macro commands"
+                        ],
+                        "resources": [
+                            "Implement Command for action encapsulation",
+                            "Build undo/redo functionality"
+                        ]
+                    }
+                ],
+                "questions": [
+                    15,
+                    16
+                ],
+                "focus": "Learn State and Command patterns for behavior management"
+            },
+            {
+                "week": 9,
+                "concepts": [
+                    {
+                        "topic": "decorator_pattern",
+                        "name": "Decorator Pattern",
+                        "subtopics": [
+                            "Adding behavior dynamically",
+                            "Wrapper classes",
+                            "Decorator vs Inheritance",
+                            "Stacking decorators"
+                        ],
+                        "resources": [
+                            "Implement Decorator for feature enhancement",
+                            "Use Decorator for pricing add-ons, notifications"
+                        ]
+                    },
+                    {
+                        "topic": "adapter_pattern",
+                        "name": "Adapter Pattern",
+                        "subtopics": [
+                            "Class adapter vs Object adapter",
+                            "Adapting incompatible interfaces",
+                            "Wrapper pattern",
+                            "Real-world adapter examples"
+                        ],
+                        "resources": [
+                            "Implement Adapter to integrate third-party libraries",
+                            "Use Adapter for legacy system integration"
+                        ]
+                    }
+                ],
+                "questions": [
+                    17,
+                    18
+                ],
+                "focus": "Understand structural patterns: Decorator and Adapter"
+            },
+            {
+                "week": 10,
+                "concepts": [
+                    {
+                        "topic": "facade_pattern",
+                        "name": "Facade Pattern",
+                        "subtopics": [
+                            "Simplifying complex subsystems",
+                            "Unified interface",
+                            "Facade vs Adapter",
+                            "Layered architecture"
+                        ],
+                        "resources": [
+                            "Implement Facade to hide complexity",
+                            "Use Facade for subsystem integration"
+                        ]
+                    },
+                    {
+                        "topic": "proxy_pattern",
+                        "name": "Proxy Pattern",
+                        "subtopics": [
+                            "Virtual Proxy",
+                            "Protection Proxy",
+                            "Remote Proxy",
+                            "Lazy initialization with Proxy"
+                        ],
+                        "resources": [
+                            "Implement Proxy for access control",
+                            "Use Proxy for lazy loading, caching"
+                        ]
+                    }
+                ],
+                "questions": [
+                    19,
+                    20
+                ],
+                "focus": "Learn Facade and Proxy for structural organization"
+            },
+            {
+                "week": 11,
+                "concepts": [
+                    {
+                        "topic": "composite_pattern",
+                        "name": "Composite Pattern",
+                        "subtopics": [
+                            "Tree structures",
+                            "Component-Composite hierarchy",
+                            "Uniform treatment of objects",
+                            "Recursive composition"
+                        ],
+                        "resources": [
+                            "Implement Composite for hierarchical structures",
+                            "Use Composite for file systems, UI components"
+                        ]
+                    },
+                    {
+                        "topic": "chain_of_responsibility",
+                        "name": "Chain of Responsibility Pattern",
+                        "subtopics": [
+                            "Request handling chain",
+                            "Handler interface",
+                            "Passing requests along chain",
+                            "Use cases: Logging, validation"
+                        ],
+                        "resources": [
+                            "Implement Chain of Responsibility for request processing",
+                            "Use for authentication, authorization flows"
+                        ]
+                    }
+                ],
+                "questions": [
+                    21,
+                    22
+                ],
+                "focus": "Master Composite and Chain of Responsibility patterns"
+            },
+            {
+                "week": 12,
+                "concepts": [
+                    {
+                        "topic": "template_method",
+                        "name": "Template Method Pattern",
+                        "subtopics": [
+                            "Algorithm skeleton",
+                            "Hook methods",
+                            "Invariant steps vs variant steps",
+                            "Hollywood Principle"
+                        ],
+                        "resources": [
+                            "Implement Template Method for algorithm structure",
+                            "Use for game loops, report generation"
+                        ]
+                    },
+                    {
+                        "topic": "iterator_pattern",
+                        "name": "Iterator Pattern",
+                        "subtopics": [
+                            "Internal vs External iterators",
+                            "Iterable interface",
+                            "Custom collection traversal",
+                            "Lazy iteration"
+                        ],
+                        "resources": [
+                            "Implement custom iterators for collections",
+                            "Understand Java/Python iterator protocols"
+                        ]
+                    }
+                ],
+                "questions": [
+                    23,
+                    24
+                ],
+                "focus": "Learn Template Method and Iterator patterns"
+            },
+            {
+                "week": 13,
+                "concepts": [
+                    {
+                        "topic": "mediator_pattern",
+                        "name": "Mediator Pattern",
+                        "subtopics": [
+                            "Decoupling components",
+                            "Centralized communication",
+                            "Mediator vs Observer",
+                            "Chat room example"
+                        ],
+                        "resources": [
+                            "Implement Mediator for component coordination",
+                            "Use for UI component communication"
+                        ]
+                    },
+                    {
+                        "topic": "memento_pattern",
+                        "name": "Memento Pattern",
+                        "subtopics": [
+                            "State snapshots",
+                            "Undo functionality",
+                            "Caretaker and Originator",
+                            "Serialization approach"
+                        ],
+                        "resources": [
+                            "Implement Memento for undo/redo",
+                            "Use for version history, checkpoints"
+                        ]
+                    }
+                ],
+                "questions": [
+                    25,
+                    26
+                ],
+                "focus": "Master Mediator and Memento patterns"
+            },
+            {
+                "week": 14,
+                "concepts": [
+                    {
+                        "topic": "flyweight_pattern",
+                        "name": "Flyweight Pattern",
+                        "subtopics": [
+                            "Sharing intrinsic state",
+                            "Extrinsic state separation",
+                            "Memory optimization",
+                            "Object pooling"
+                        ],
+                        "resources": [
+                            "Implement Flyweight for memory optimization",
+                            "Use for text editors, game objects"
+                        ]
+                    },
+                    {
+                        "topic": "visitor_pattern",
+                        "name": "Visitor Pattern",
+                        "subtopics": [
+                            "Double dispatch",
+                            "Adding operations without modifying classes",
+                            "Element and Visitor hierarchy",
+                            "When to use Visitor"
+                        ],
+                        "resources": [
+                            "Implement Visitor for operations on object structures",
+                            "Use for AST traversal, report generation"
+                        ]
+                    }
+                ],
+                "questions": [
+                    27,
+                    28
+                ],
+                "focus": "Understand Flyweight and Visitor patterns"
+            },
+            {
+                "week": 15,
+                "concepts": [
+                    {
+                        "topic": "concurrency_basics",
+                        "name": "Concurrency Fundamentals",
+                        "subtopics": [
+                            "Threads and Processes",
+                            "Race conditions",
+                            "Critical sections",
+                            "Mutex and Semaphores"
+                        ],
+                        "resources": [
+                            "Understand threading models",
+                            "Identify and prevent race conditions"
+                        ]
+                    },
+                    {
+                        "topic": "thread_safety",
+                        "name": "Thread Safety",
+                        "subtopics": [
+                            "Synchronized blocks",
+                            "Locks and ReentrantLock",
+                            "Atomic operations",
+                            "Volatile keyword"
+                        ],
+                        "resources": [
+                            "Implement thread-safe classes",
+                            "Use synchronization primitives correctly"
+                        ]
+                    }
+                ],
+                "questions": [
+                    29,
+                    30
+                ],
+                "focus": "Build foundation in concurrency and thread safety"
+            },
+            {
+                "week": 16,
+                "concepts": [
+                    {
+                        "topic": "producer_consumer",
+                        "name": "Producer-Consumer Pattern",
+                        "subtopics": [
+                            "Blocking queues",
+                            "Wait and Notify",
+                            "Bounded buffers",
+                            "Thread coordination"
+                        ],
+                        "resources": [
+                            "Implement producer-consumer with blocking queue",
+                            "Handle multiple producers and consumers"
+                        ]
+                    },
+                    {
+                        "topic": "reader_writer",
+                        "name": "Reader-Writer Problem",
+                        "subtopics": [
+                            "ReadWriteLock",
+                            "Reader preference vs Writer preference",
+                            "Starvation prevention",
+                            "Concurrent reads"
+                        ],
+                        "resources": [
+                            "Implement reader-writer lock",
+                            "Optimize for read-heavy workloads"
+                        ]
+                    }
+                ],
+                "questions": [
+                    31,
+                    32
+                ],
+                "focus": "Master classic concurrency patterns"
+            },
+            {
+                "week": 17,
+                "concepts": [
+                    {
+                        "topic": "deadlock_prevention",
+                        "name": "Deadlock Prevention and Detection",
+                        "subtopics": [
+                            "Deadlock conditions",
+                            "Prevention strategies",
+                            "Detection algorithms",
+                            "Lock ordering"
+                        ],
+                        "resources": [
+                            "Implement deadlock detection",
+                            "Design lock-free data structures"
+                        ]
+                    },
+                    {
+                        "topic": "thread_pools",
+                        "name": "Thread Pools and Executors",
+                        "subtopics": [
+                            "ThreadPoolExecutor",
+                            "Fixed, Cached, Scheduled pools",
+                            "Task submission and futures",
+                            "Graceful shutdown"
+                        ],
+                        "resources": [
+                            "Configure thread pools for different workloads",
+                            "Handle task rejection policies"
+                        ]
+                    }
+                ],
+                "questions": [
+                    33,
+                    34
+                ],
+                "focus": "Learn deadlock handling and thread pool management"
+            },
+            {
+                "week": 18,
+                "concepts": [
+                    {
+                        "topic": "data_structures_review",
+                        "name": "Advanced Data Structures",
+                        "subtopics": [
+                            "Hash tables and collision handling",
+                            "Trees: BST, AVL, Red-Black",
+                            "Heaps and Priority Queues",
+                            "Graphs: Adjacency list vs matrix"
+                        ],
+                        "resources": [
+                            "Implement efficient data structures",
+                            "Choose right structures for problems"
+                        ]
+                    },
+                    {
+                        "topic": "trie_structures",
+                        "name": "Trie and Specialized Structures",
+                        "subtopics": [
+                            "Trie for prefix matching",
+                            "Suffix trees",
+                            "Skip lists",
+                            "Bloom filters"
+                        ],
+                        "resources": [
+                            "Implement Trie for autocomplete",
+                            "Understand probabilistic data structures"
+                        ]
+                    }
+                ],
+                "questions": [
+                    35,
+                    36
+                ],
+                "focus": "Review advanced data structures for system design"
+            },
+            {
+                "week": 19,
+                "concepts": [
+                    {
+                        "topic": "graph_algorithms",
+                        "name": "Graph Algorithms in Design",
+                        "subtopics": [
+                            "BFS and DFS applications",
+                            "Shortest path: Dijkstra, A*",
+                            "Topological sort",
+                            "Connected components"
+                        ],
+                        "resources": [
+                            "Apply graph algorithms to real problems",
+                            "Design social network connections"
+                        ]
+                    },
+                    {
+                        "topic": "caching_strategies",
+                        "name": "Caching Strategies",
+                        "subtopics": [
+                            "Cache eviction policies",
+                            "LRU, LFU implementations",
+                            "Write-through vs Write-back",
+                            "Cache invalidation"
+                        ],
+                        "resources": [
+                            "Implement LRU cache from scratch",
+                            "Design caching layers"
+                        ]
+                    }
+                ],
+                "questions": [
+                    37,
+                    38
+                ],
+                "focus": "Apply graph algorithms and caching to system design"
+            },
+            {
+                "week": 20,
+                "concepts": [
+                    {
+                        "topic": "rate_limiting",
+                        "name": "Rate Limiting Algorithms",
+                        "subtopics": [
+                            "Token bucket algorithm",
+                            "Sliding window counter",
+                            "Fixed window counter",
+                            "Leaky bucket"
+                        ],
+                        "resources": [
+                            "Implement multiple rate limiting algorithms",
+                            "Compare trade-offs"
+                        ]
+                    },
+                    {
+                        "topic": "message_queues",
+                        "name": "Message Queues and Pub-Sub",
+                        "subtopics": [
+                            "Queue vs Topic semantics",
+                            "At-least-once delivery",
+                            "Message ordering",
+                            "Dead letter queues"
+                        ],
+                        "resources": [
+                            "Design message queue system",
+                            "Implement pub-sub pattern"
+                        ]
+                    }
+                ],
+                "questions": [
+                    39,
+                    40
+                ],
+                "focus": "Master rate limiting and messaging patterns"
+            },
+            {
+                "week": 21,
+                "concepts": [
+                    {
+                        "topic": "distributed_basics",
+                        "name": "Distributed Systems Basics",
+                        "subtopics": [
+                            "CAP theorem",
+                            "Consistency models",
+                            "Network partitions",
+                            "Fallacies of distributed computing"
+                        ],
+                        "resources": [
+                            "Understand CAP trade-offs",
+                            "Design for partition tolerance"
+                        ]
+                    },
+                    {
+                        "topic": "consistent_hashing",
+                        "name": "Consistent Hashing",
+                        "subtopics": [
+                            "Hash ring concept",
+                            "Virtual nodes",
+                            "Load balancing",
+                            "Rebalancing on node changes"
+                        ],
+                        "resources": [
+                            "Implement consistent hashing",
+                            "Use for distributed caching"
+                        ]
+                    }
+                ],
+                "questions": [
+                    41,
+                    42
+                ],
+                "focus": "Introduction to distributed systems concepts"
+            },
+            {
+                "week": 22,
+                "concepts": [
+                    {
+                        "topic": "replication",
+                        "name": "Data Replication",
+                        "subtopics": [
+                            "Leader-follower replication",
+                            "Multi-leader replication",
+                            "Leaderless replication",
+                            "Conflict resolution"
+                        ],
+                        "resources": [
+                            "Design replication strategies",
+                            "Handle conflict resolution"
+                        ]
+                    },
+                    {
+                        "topic": "sharding",
+                        "name": "Data Sharding/Partitioning",
+                        "subtopics": [
+                            "Horizontal vs Vertical partitioning",
+                            "Partition strategies: Hash, Range, Directory",
+                            "Cross-shard queries",
+                            "Rebalancing partitions"
+                        ],
+                        "resources": [
+                            "Design sharding strategies",
+                            "Handle hot spots"
+                        ]
+                    }
+                ],
+                "questions": [
+                    43,
+                    44
+                ],
+                "focus": "Learn replication and sharding for scalability"
+            },
+            {
+                "week": 23,
+                "concepts": [
+                    {
+                        "topic": "consensus_algorithms",
+                        "name": "Consensus Algorithms",
+                        "subtopics": [
+                            "Paxos basics",
+                            "Raft algorithm",
+                            "Leader election",
+                            "Log replication"
+                        ],
+                        "resources": [
+                            "Understand Raft algorithm",
+                            "Apply to distributed coordination"
+                        ]
+                    },
+                    {
+                        "topic": "transactions",
+                        "name": "Distributed Transactions",
+                        "subtopics": [
+                            "Two-phase commit (2PC)",
+                            "Three-phase commit (3PC)",
+                            "Saga pattern",
+                            "Eventual consistency"
+                        ],
+                        "resources": [
+                            "Implement saga pattern",
+                            "Design for eventual consistency"
+                        ]
+                    }
+                ],
+                "questions": [
+                    45,
+                    46
+                ],
+                "focus": "Master consensus and distributed transactions"
+            },
+            {
+                "week": 24,
+                "concepts": [
+                    {
+                        "topic": "microservices",
+                        "name": "Microservices Patterns",
+                        "subtopics": [
+                            "Service decomposition",
+                            "API Gateway pattern",
+                            "Service discovery",
+                            "Circuit breaker pattern"
+                        ],
+                        "resources": [
+                            "Design microservices architecture",
+                            "Implement circuit breaker"
+                        ]
+                    },
+                    {
+                        "topic": "event_sourcing",
+                        "name": "Event Sourcing and CQRS",
+                        "subtopics": [
+                            "Event log as source of truth",
+                            "Command Query Responsibility Segregation",
+                            "Event replay",
+                            "Projections"
+                        ],
+                        "resources": [
+                            "Implement event sourcing",
+                            "Design CQRS systems"
+                        ]
+                    }
+                ],
+                "questions": [
+                    47,
+                    48
+                ],
+                "focus": "Learn microservices and event-driven architecture"
+            },
+            {
+                "week": 25,
+                "concepts": [
+                    {
+                        "topic": "system_design_approach",
+                        "name": "System Design Interview Approach",
+                        "subtopics": [
+                            "Requirements gathering",
+                            "Capacity estimation",
+                            "High-level design",
+                            "Deep dive and trade-offs"
+                        ],
+                        "resources": [
+                            "Practice structured approach",
+                            "Master back-of-envelope calculations"
+                        ]
+                    },
+                    {
+                        "topic": "scalability_patterns",
+                        "name": "Scalability Patterns",
+                        "subtopics": [
+                            "Horizontal vs Vertical scaling",
+                            "Load balancing strategies",
+                            "Database scaling patterns",
+                            "CDN and edge caching"
+                        ],
+                        "resources": [
+                            "Design for millions of users",
+                            "Apply scaling patterns to real systems"
+                        ]
+                    }
+                ],
+                "questions": [
+                    49,
+                    50
+                ],
+                "focus": "Capstone: Full system design interview preparation"
+            }
+        ]
+    },
+    "topicCategories": {
+        "oop_fundamentals": {
+            "name": "OOP Fundamentals",
+            "topics": [
+                "oop_basics",
+                "encapsulation",
+                "inheritance",
+                "polymorphism",
+                "abstraction",
+                "composition"
+            ]
+        },
+        "design_patterns": {
+            "name": "Design Patterns",
+            "topics": [
+                "factory_pattern",
+                "singleton_pattern",
+                "builder_pattern",
+                "strategy_pattern",
+                "observer_pattern",
+                "state_pattern",
+                "command_pattern",
+                "decorator_pattern",
+                "adapter_pattern",
+                "facade_pattern",
+                "proxy_pattern",
+                "composite_pattern",
+                "chain_of_responsibility",
+                "template_method",
+                "iterator_pattern",
+                "mediator_pattern",
+                "memento_pattern",
+                "flyweight_pattern",
+                "visitor_pattern"
+            ]
+        },
+        "concurrency": {
+            "name": "Concurrency & Threading",
+            "topics": [
+                "concurrency_basics",
+                "thread_safety",
+                "producer_consumer",
+                "reader_writer",
+                "deadlock_prevention",
+                "thread_pools"
+            ]
+        },
+        "data_structures": {
+            "name": "Data Structures & Algorithms",
+            "topics": [
+                "data_structures_review",
+                "trie_structures",
+                "graph_algorithms",
+                "caching_strategies"
+            ]
+        },
+        "distributed_systems": {
+            "name": "Distributed Systems",
+            "topics": [
+                "distributed_basics",
+                "consistent_hashing",
+                "replication",
+                "sharding",
+                "consensus_algorithms",
+                "transactions"
+            ]
+        },
+        "architecture": {
+            "name": "Architecture Patterns",
+            "topics": [
+                "microservices",
+                "event_sourcing",
+                "rate_limiting",
+                "message_queues",
+                "system_design_approach",
+                "scalability_patterns"
+            ]
+        }
+    },
+    "difficultyProgression": {
+        "Easy": {
+            "weeks": [
+                1,
+                2
+            ],
+            "questionIds": [
+                1,
+                2,
+                3,
+                4
+            ],
+            "focus": "Basic OOP, simple classes, inheritance"
+        },
+        "Medium": {
+            "weeks": [
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12
+            ],
+            "questionIds": [
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                16,
+                23,
+                24
+            ],
+            "focus": "Design patterns, moderate complexity"
+        },
+        "Hard": {
+            "weeks": [
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19
+            ],
+            "questionIds": [
+                12,
+                13,
+                14,
+                15,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                25,
+                26,
+                27,
+                32,
+                35,
+                37,
+                38
+            ],
+            "focus": "Complex patterns, concurrency, algorithms"
+        },
+        "Expert": {
+            "weeks": [
+                20,
+                21,
+                22,
+                23,
+                24,
+                25
+            ],
+            "questionIds": [
+                28,
+                29,
+                30,
+                31,
+                33,
+                34,
+                36,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50
+            ],
+            "focus": "Distributed systems, full system design"
+        }
+    }
+}

@@ -664,6 +664,12 @@ function handleTabSwitch(tab) {
     document.getElementById('report-section').classList.toggle('active', tab === 'report');
     document.getElementById('interview-section').classList.toggle('active', tab === 'interview');
 
+    // Add LLD section support
+    const lldSection = document.getElementById('lld-section');
+    if (lldSection) {
+        lldSection.classList.toggle('active', tab === 'lld');
+    }
+
     if (tab === 'report') {
         updateReportSection();
     }
@@ -745,17 +751,19 @@ function loadWeekPatterns() {
 
     const weekSolves = completed.filter(p => new Date(p.solvedAt) >= weekAgo);
     const patternsSet = new Set(weekSolves.map(p => p.pattern));
-    const patterns = Array.from(patternsSet);
+    let patterns = Array.from(patternsSet);
 
     const container = document.getElementById('patterns-list');
 
+    // TEMPORARY: Use fallback patterns for testing if none found
     if (patterns.length === 0) {
-        container.innerHTML = '<span style="color: var(--text-light);">No patterns practiced this week yet. Start practicing!</span>';
-        document.getElementById('start-interview-btn').disabled = true;
-        return;
+        patterns = ['Two Pointers', 'Sliding Window', 'Binary Search', 'Dynamic Programming'];
+        container.innerHTML = patterns.map(p => `<span class="pattern-tag">${p}</span>`).join('') +
+            '<br><small style="color: var(--text-light); margin-top: 8px; display: block;">(Using test patterns)</small>';
+    } else {
+        container.innerHTML = patterns.map(p => `<span class="pattern-tag">${p}</span>`).join('');
     }
 
-    container.innerHTML = patterns.map(p => `<span class="pattern-tag">${p}</span>`).join('');
     document.getElementById('start-interview-btn').disabled = false;
 }
 
@@ -768,11 +776,12 @@ function getWeekPatterns() {
 }
 
 async function startInterview() {
-    const patterns = getWeekPatterns();
+    let patterns = getWeekPatterns();
 
+    // TEMPORARY: Use fallback patterns for testing if none found
     if (patterns.length === 0) {
-        alert('Please practice some problems during the week first!');
-        return;
+        console.log('No week patterns found, using fallback patterns for testing');
+        patterns = ['Two Pointers', 'Sliding Window', 'Binary Search', 'Dynamic Programming'];
     }
 
     // Initialize interview state
@@ -795,19 +804,65 @@ async function startInterview() {
     saveToStorage(INTERVIEW_STORAGE.STATE, interviewState);
     saveToStorage(INTERVIEW_STORAGE.CURRENT, currentInterview);
 
-    // Show active interview UI
+    // Show loading screen (not active interview yet)
     document.getElementById('interview-start').style.display = 'none';
-    document.getElementById('interview-active').style.display = 'flex';
+    document.getElementById('interview-loading').style.display = 'flex';
+    document.getElementById('interview-active').style.display = 'none';
 
-    // Start timer
-    startInterviewTimer();
+    // Reset loading screen content
+    document.getElementById('interview-loading').innerHTML = `
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h2 class="loading-title">Generating Your Interview...</h2>
+            <p class="loading-desc">Our AI is creating 4 custom problems based on your practice patterns.</p>
+            <p class="loading-countdown">This may take up to <span id="loading-countdown">60</span> seconds.</p>
+            <div class="loading-tip">💡 Tip: Get your favorite IDE ready!</div>
+        </div>
+    `;
 
-    // Generate first problem
-    await generateProblem(1);
+    // Start countdown timer
+    let countdown = 60;
+    const loadingInterval = setInterval(() => {
+        countdown--;
+        const countdownEl = document.getElementById('loading-countdown');
+        if (countdownEl) countdownEl.textContent = countdown;
+        if (countdown <= 0) clearInterval(loadingInterval);
+    }, 1000);
+
+    try {
+        // Generate all interview problems
+        await generateInterviewSet();
+
+        // Generation succeeded - clear countdown and show interview
+        clearInterval(loadingInterval);
+        document.getElementById('interview-loading').style.display = 'none';
+        document.getElementById('interview-active').style.display = 'flex';
+
+        // NOW start the interview timer (after content is ready)
+        startInterviewTimer();
+
+    } catch (error) {
+        // Generation failed - show error with retry
+        clearInterval(loadingInterval);
+        console.error('Interview generation failed:', error);
+
+        document.getElementById('interview-loading').innerHTML = `
+            <div class="error-content">
+                <h2 class="error-title">Failed to Generate Interview</h2>
+                <p class="error-message">${error.message || 'An error occurred while generating your interview problems.'}</p>
+                <button class="retry-btn" onclick="startInterview()">TRY AGAIN</button>
+            </div>
+        `;
+
+        // Clear interview state on failure
+        interviewState.active = false;
+        saveToStorage(INTERVIEW_STORAGE.STATE, interviewState);
+    }
 }
 
 function resumeInterview() {
     document.getElementById('interview-start').style.display = 'none';
+    document.getElementById('interview-loading').style.display = 'none';
     document.getElementById('interview-active').style.display = 'flex';
 
     // Resume timer
@@ -818,8 +873,25 @@ function resumeInterview() {
 
     // Generate/Load problems
     if (currentInterview.problems.length > 0 && currentInterview.problems[0]) {
-        // Problems already loaded
+        // Problems already loaded - display current problem
         displayProblem(currentInterview.problems[interviewState.currentQuestion - 1]);
+
+        // Restore editor content and language (Issue #1 fix)
+        const qIndex = interviewState.currentQuestion - 1;
+        if (monacoEditor && currentInterview.codes[qIndex]) {
+            monacoEditor.setValue(currentInterview.codes[qIndex]);
+        }
+
+        // Restore language selection
+        const savedLanguage = loadFromStorage('dpp_interviewLanguage') || 'cpp';
+        const langSelect = document.getElementById('language-select');
+        if (langSelect) {
+            langSelect.value = savedLanguage;
+            if (monacoEditor) {
+                const langMap = { python: 'python', javascript: 'javascript', java: 'java', cpp: 'cpp' };
+                monaco.editor.setModelLanguage(monacoEditor.getModel(), langMap[savedLanguage] || 'cpp');
+            }
+        }
     } else {
         // First time load - generate all
         generateInterviewSet();
@@ -827,56 +899,57 @@ function resumeInterview() {
 }
 
 async function generateInterviewSet() {
-    // Show loading
-    document.getElementById('problem-loading').style.display = 'flex';
-    document.getElementById('interview-problem-content').style.display = 'none';
+    // Show loading in problem area (only if interview-active is visible)
+    const problemLoading = document.getElementById('problem-loading');
+    const problemContent = document.getElementById('interview-problem-content');
 
-    // Update loading text
-    document.querySelector('#problem-loading span').textContent = 'AI is generating your full interview set (4 problems)...';
-
-    try {
-        const response = await fetch('/api/gemini', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                action: 'generate_interview',
-                data: {
-                    patterns: currentInterview.patterns
-                }
-            })
-        });
-
-        if (!response.ok) {
-            throw new Error('API request failed');
-        }
-
-        const problems = await response.json();
-
-        if (!Array.isArray(problems) || problems.length < 4) {
-            throw new Error('Invalid interview generation response');
-        }
-
-        // Store all problems
-        currentInterview.problems = problems;
-
-        // Initialize empty state for each
-        problems.forEach((_, index) => {
-            if (!currentInterview.conversations[index]) currentInterview.conversations[index] = [];
-            if (!currentInterview.codes[index]) currentInterview.codes[index] = '';
-        });
-
-        saveToStorage(INTERVIEW_STORAGE.CURRENT, currentInterview);
-
-        // Display current problem
-        displayProblem(currentInterview.problems[interviewState.currentQuestion - 1]);
-
-    } catch (error) {
-        console.error('Error generating interview:', error);
-        document.getElementById('problem-loading').innerHTML = `
-            <span>Error generating interview. Please try again.</span>
-            <button onclick="generateInterviewSet()" style="margin-top: 12px; padding: 8px 16px; cursor: pointer;">Retry</button>
-        `;
+    if (problemLoading && document.getElementById('interview-active').style.display !== 'none') {
+        problemLoading.style.display = 'flex';
+        const loadingSpan = document.querySelector('#problem-loading span');
+        if (loadingSpan) loadingSpan.textContent = 'AI is generating your full interview set (4 problems)...';
     }
+    if (problemContent) problemContent.style.display = 'none';
+
+    const response = await fetch('/api/gemini', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            action: 'generate_interview',
+            data: {
+                patterns: currentInterview.patterns
+            }
+        })
+    });
+
+    if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || errorData.error || 'API request failed');
+    }
+
+    const problems = await response.json();
+
+    // Validate response is an array with 4 problems
+    if (!Array.isArray(problems)) {
+        throw new Error('AI returned invalid response format - expected array of problems');
+    }
+
+    if (problems.length < 4) {
+        throw new Error(`AI only generated ${problems.length} problems, expected 4`);
+    }
+
+    // Store all problems
+    currentInterview.problems = problems;
+
+    // Initialize empty state for each
+    problems.forEach((_, index) => {
+        if (!currentInterview.conversations[index]) currentInterview.conversations[index] = [];
+        if (!currentInterview.codes[index]) currentInterview.codes[index] = '';
+    });
+
+    saveToStorage(INTERVIEW_STORAGE.CURRENT, currentInterview);
+
+    // Display current problem
+    displayProblem(currentInterview.problems[interviewState.currentQuestion - 1]);
 }
 
 function startInterviewTimer() {
@@ -992,8 +1065,12 @@ function displayProblem(problem) {
     const constraintsHtml = `<ul>${(problem.constraints || []).map(c => `<li>${c}</li>`).join('')}</ul>`;
     document.getElementById('ip-constraints').innerHTML = constraintsHtml;
 
-    // Clear code editor
-    document.getElementById('code-editor').value = currentInterview.codes[interviewState.currentQuestion - 1] || '';
+    // Restore saved code to Monaco editor (Issue #1 fix)
+    const qIndex = interviewState.currentQuestion - 1;
+    const savedCode = currentInterview.codes[qIndex] || '';
+    if (monacoEditor) {
+        monacoEditor.setValue(savedCode);
+    }
 
     // Hide AI panel
     document.getElementById('ai-panel').style.display = 'none';
@@ -1096,18 +1173,47 @@ function updateChatDisplay() {
     const conversation = currentInterview.conversations[interviewState.currentQuestion - 1];
 
     chat.innerHTML = conversation.map(msg => {
-        // Format content with basic markdown support
         let content = msg.content;
 
-        // Handle code blocks
-        content = content.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+        // IMPROVED MARKDOWN HANDLING (Issue #3 fix)
 
-        // Handle bold
-        content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        // 1. Escape HTML first to prevent XSS
+        content = content.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-        // Convert newlines to breaks only if not in pre/code
-        // But for chat, we'll use CSS white-space: pre-wrap, so we don't need manual br replacements
-        // except for maybe ensuring multiple line breaks are respected
+        // 2. Handle code blocks with language (```lang\ncode```)
+        content = content.replace(/```(\w*)\n?([\s\S]*?)```/g, (match, lang, code) => {
+            // Un-escape code blocks for proper display
+            code = code.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+            return `<pre><code class="language-${lang || 'text'}">${code.trim()}</code></pre>`;
+        });
+
+        // 3. Handle inline code with single backticks
+        content = content.replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>');
+
+        // 4. Handle bold text
+        content = content.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+
+        // 5. Handle italic text
+        content = content.replace(/\*(.+?)\*/g, '<em>$1</em>');
+
+        // 6. Handle numbered lists (lines starting with number followed by period)
+        content = content.replace(/^(\d+)\.\s+(.+)$/gm, '<li class="numbered">$2</li>');
+
+        // 7. Handle bulleted lists (lines starting with - or *)
+        content = content.replace(/^[-•]\s+(.+)$/gm, '<li class="bulleted">$1</li>');
+
+        // 8. Wrap consecutive list items
+        content = content.replace(/(<li class="numbered">.*?<\/li>\n?)+/gs, '<ol>$&</ol>');
+        content = content.replace(/(<li class="bulleted">.*?<\/li>\n?)+/gs, '<ul>$&</ul>');
+
+        // 9. Handle paragraph breaks (double newlines)
+        content = content.replace(/\n\n+/g, '</p><p>');
+        content = '<p>' + content + '</p>';
+
+        // 10. Clean up empty paragraphs and fix list nesting
+        content = content.replace(/<p>\s*<\/p>/g, '');
+        content = content.replace(/<p>\s*(<[ou]l>)/g, '$1');
+        content = content.replace(/(<\/[ou]l>)\s*<\/p>/g, '$1');
 
         return `
             <div class="chat-message ${msg.role.toLowerCase()}">
@@ -1374,6 +1480,9 @@ public:
             };
             const lang = e.target.value;
             monaco.editor.setModelLanguage(monacoEditor.getModel(), langMap[lang] || 'python');
+
+            // Persist language selection (Issue #1 fix)
+            saveToStorage('dpp_interviewLanguage', lang);
 
             // If editor has default template or is empty, update to new language template
             const currentCode = monacoEditor.getValue().trim();

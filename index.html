@@ -29,6 +29,7 @@
                 <button class="nav-tab active" data-tab="practice">PRACTICE</button>
                 <button class="nav-tab" data-tab="report">REPORT</button>
                 <button class="nav-tab interview-tab" data-tab="interview" id="interview-tab">INTERVIEW</button>
+                <button class="nav-tab lld-tab" data-tab="lld" id="lld-tab">LLD</button>
             </nav>
         </header>
 
@@ -177,6 +178,17 @@
                 </div>
             </div>
 
+            <!-- Interview Loading State -->
+            <div class="interview-loading" id="interview-loading" style="display: none;">
+                <div class="loading-content">
+                    <div class="spinner"></div>
+                    <h2 class="loading-title">Generating Your Interview...</h2>
+                    <p class="loading-desc">Our AI is creating 4 custom problems based on your practice patterns.</p>
+                    <p class="loading-countdown">This may take up to <span id="loading-countdown">60</span> seconds.</p>
+                    <div class="loading-tip">💡 Tip: Get your favorite IDE ready!</div>
+                </div>
+            </div>
+
             <!-- Active Interview State -->
             <div class="interview-active" id="interview-active" style="display: none;">
                 <div class="interview-header">
@@ -277,9 +289,142 @@
                     TESTING</button>
             </div>
         </section>
+
+        <!-- LLD Section -->
+        <section id="lld-section" class="section">
+            <div class="lld-container">
+                <!-- LLD Header -->
+                <div class="lld-header">
+                    <div class="lld-header-left">
+                        <h2 class="lld-title">LOW-LEVEL DESIGN</h2>
+                        <p class="lld-subtitle">Master Object-Oriented Design & System Design</p>
+                    </div>
+                    <div class="lld-stats">
+                        <div class="lld-stat">
+                            <span class="lld-stat-value" id="lld-topics-completed">0</span>
+                            <span class="lld-stat-label">TOPICS</span>
+                        </div>
+                        <div class="lld-stat">
+                            <span class="lld-stat-value" id="lld-questions-unlocked">0</span>
+                            <span class="lld-stat-label">UNLOCKED</span>
+                        </div>
+                        <div class="lld-stat">
+                            <span class="lld-stat-value" id="lld-current-week">1</span>
+                            <span class="lld-stat-label">WEEK</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View Toggle -->
+                <div class="lld-view-toggle">
+                    <button class="view-btn active" data-view="roadmap">📚 LEARNING PATH</button>
+                    <button class="view-btn" data-view="questions">🎯 QUESTIONS</button>
+                    <button class="view-btn" data-view="practice">💻 PRACTICE</button>
+                </div>
+
+                <!-- Roadmap View -->
+                <div class="lld-view active" id="lld-roadmap-view">
+                    <div class="roadmap-container">
+                        <div class="roadmap-progress">
+                            <div class="roadmap-progress-fill" id="roadmap-progress-fill"></div>
+                        </div>
+                        <div class="weeks-grid" id="weeks-grid">
+                            <!-- Weeks will be populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Questions View -->
+                <div class="lld-view" id="lld-questions-view">
+                    <div class="questions-filters">
+                        <select class="filter-select" id="difficulty-filter">
+                            <option value="all">All Difficulties</option>
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                            <option value="Expert">Expert</option>
+                        </select>
+                        <select class="filter-select" id="status-filter">
+                            <option value="all">All Status</option>
+                            <option value="unlocked">Unlocked</option>
+                            <option value="locked">Locked</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="questions-grid" id="questions-grid">
+                        <!-- Questions will be populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Practice View -->
+                <div class="lld-view" id="lld-practice-view">
+                    <div class="practice-container">
+                        <div class="practice-sidebar">
+                            <h3 class="sidebar-title">SELECT QUESTION</h3>
+                            <div class="practice-question-list" id="practice-question-list">
+                                <!-- Unlocked questions list -->
+                            </div>
+                        </div>
+                        <div class="practice-main">
+                            <div class="practice-welcome" id="practice-welcome">
+                                <div class="welcome-icon">🎨</div>
+                                <h3>Ready to Design?</h3>
+                                <p>Select an unlocked question from the sidebar to start practicing!</p>
+                            </div>
+                            <div class="practice-content" id="practice-content" style="display: none;">
+                                <div class="practice-question-header">
+                                    <span class="practice-difficulty" id="practice-difficulty">Medium</span>
+                                    <h3 class="practice-question-title" id="practice-question-title">Question Title</h3>
+                                    <span class="practice-time" id="practice-time">⏱️ 4-5 hours</span>
+                                </div>
+                                <div class="practice-requirements">
+                                    <h4>📋 Requirements</h4>
+                                    <ul id="practice-requirements-list"></ul>
+                                </div>
+                                <div class="practice-expectations">
+                                    <h4>🎯 What's Expected</h4>
+                                    <div class="expectations-grid" id="practice-expectations"></div>
+                                </div>
+                                <div class="practice-actions">
+                                    <button class="start-practice-btn" id="start-practice-btn">🚀 START AI
+                                        INTERVIEW</button>
+                                    <button class="mark-complete-btn" id="mark-lld-complete-btn">✓ MARK
+                                        COMPLETE</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week Detail Modal -->
+                <div class="week-modal" id="week-modal">
+                    <div class="week-modal-content">
+                        <button class="week-modal-close" id="week-modal-close">✕</button>
+                        <div class="week-modal-header">
+                            <h3 class="week-modal-title" id="week-modal-title">Week 1</h3>
+                            <p class="week-modal-focus" id="week-modal-focus">Focus area description</p>
+                        </div>
+                        <div class="week-modal-body">
+                            <div class="concepts-section">
+                                <h4>📚 Concepts to Learn</h4>
+                                <div class="concepts-list" id="week-concepts-list"></div>
+                            </div>
+                            <div class="questions-section">
+                                <h4>🎯 Practice Questions</h4>
+                                <div class="week-questions-list" id="week-questions-list"></div>
+                            </div>
+                        </div>
+                        <div class="week-modal-footer">
+                            <button class="complete-week-btn" id="complete-week-btn">✓ COMPLETE THIS WEEK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <script src="app.js"></script>
+    <script src="lld.js"></script>
 </body>
 
 </html>

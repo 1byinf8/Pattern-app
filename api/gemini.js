@@ -263,9 +263,20 @@ If they're struggling, guide them.`;
 
             cleanedText = cleanedText.trim();
 
-            // Find JSON object boundaries
-            const jsonMatch = cleanedText.match(/\{[\s\S]*\}/);
-            if (!jsonMatch) {
+            // Try to find JSON - could be object {...} or array [...]
+            let jsonStr = null;
+
+            // Check if it starts with [ for array (generate_interview returns array)
+            const arrayMatch = cleanedText.match(/\[[\s\S]*\]/);
+            const objectMatch = cleanedText.match(/\{[\s\S]*\}/);
+
+            if (arrayMatch && (!objectMatch || arrayMatch.index <= objectMatch.index)) {
+                jsonStr = arrayMatch[0];
+            } else if (objectMatch) {
+                jsonStr = objectMatch[0];
+            }
+
+            if (!jsonStr) {
                 console.error('Could not parse JSON from:', text);
                 return res.status(500).json({
                     error: 'Invalid AI response format',
@@ -274,11 +285,20 @@ If they're struggling, guide them.`;
                 });
             }
 
-            // Fix common JSON errors
-            let jsonStr = jsonMatch[0];
+            // Fix common JSON errors (trailing commas)
             jsonStr = jsonStr.replace(/,\s*}/g, '}').replace(/,\s*]/g, ']');
 
-            parsed = JSON.parse(jsonStr);
+            try {
+                parsed = JSON.parse(jsonStr);
+            } catch (parseError) {
+                console.error('JSON parse error after cleanup:', parseError.message);
+                console.error('Attempted to parse:', jsonStr.substring(0, 500));
+                return res.status(500).json({
+                    error: 'Failed to parse AI response',
+                    message: parseError.message,
+                    hint: 'The AI returned malformed JSON'
+                });
+            }
         }
 
         console.log('Successfully parsed AI response');
